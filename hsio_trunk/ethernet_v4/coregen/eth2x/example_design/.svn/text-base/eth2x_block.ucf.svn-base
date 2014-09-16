@@ -1,0 +1,61 @@
+CONFIG PART = 4vfx60ff672-10;
+
+CONFIG STEPPING = "SCD1";
+
+NET "*txoutclk1"                   TNM_NET = "clk_pcs_clk1";
+TIMESPEC "TS_pcs_clk1"                  = PERIOD "clk_pcs_clk1" 7200 ps HIGH 50 %;
+
+NET "*dclk_bufg"                    TNM_NET = "clk_dclk_bufg";
+TIMESPEC "TS_gt11_dclk_bufg"            = PERIOD "clk_dclk_bufg" 20000 ps HIGH 50 %;
+
+NET "*host_clk_i"                TNM_NET = "host_clock";
+TIMEGRP "clk_host"                      = "host_clock";
+TIMESPEC "TS_clk_host"                  = PERIOD "clk_host" 10000 ps HIGH 50 %;
+
+INST "*GT11_1000X_A" LOC = "GT11_X0Y3";
+
+INST "*GT11_1000X_B" LOC = "GT11_X0Y2";
+
+NET "EMAC?CLIENTSYNCACQSTATUS"   TIG; 
+
+# Give the host bus a 10ns setup, 10ns hold window to lower skew.  Recommended only.
+INST "HOSTADDR<?>" TNM = "host_in_addr";
+INST "HOSTWRDATA<?>" TNM = "host_in_wrdata";
+INST "HOSTRDDATA<?>" TNM = "host_out";
+TIMEGRP "host_in_addr" OFFSET = IN 10 ns VALID 20 ns BEFORE "HOSTCLK";
+TIMEGRP "host_in_wrdata" OFFSET = IN 10 ns VALID 20 ns BEFORE "HOSTCLK";
+
+# Remove the following constraints if example design FIFOs are not used
+# These constraints cover any clock domain crossing for metastability.
+# Tx client FIFO:
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_0" TNM = "tx_metastable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_tog"  TNM = "tx_metastable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_1" TNM = "tx_stable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_sync" TNM = "tx_stable";
+
+INST "*client_side_FIFO_emac1?tx_fifo_i?wr_col_window_pipe_0" TNM = "tx_metastable";
+INST "*client_side_FIFO_emac1?tx_fifo_i?wr_retran_frame_tog"  TNM = "tx_metastable";
+INST "*client_side_FIFO_emac1?tx_fifo_i?wr_col_window_pipe_1" TNM = "tx_stable";
+INST "*client_side_FIFO_emac1?tx_fifo_i?wr_retran_frame_sync" TNM = "tx_stable";
+
+INST "*tx_fifo_i?wr_tran_frame_tog" TNM = "tx_metastable";
+INST "*tx_fifo_i?frame_in_fifo_sync"  TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_txfer_tog"        TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_rd_addr*"         TNM = "tx_metastable";
+
+INST "*tx_fifo_i?wr_tran_frame_sync"  TNM = "tx_stable";
+INST "*tx_fifo_i?frame_in_fifo"       TNM = "tx_stable";
+INST "*tx_fifo_i?wr_txfer_tog_sync"   TNM = "tx_stable";
+INST "*tx_fifo_i?wr_addr_diff*"        TNM = "tx_stable";
+
+TIMESPEC "TS_tx_meta_protect" = FROM "tx_metastable" TO "tx_stable" 5 ns;
+
+# Rx client FIFO:
+
+INST "*rx_fifo_i?rd_store_frame_tog"     TNM = "rx_metastable";
+INST "*rx_fifo_i?wr_rd_addr_gray_sync*"  TNM = "rx_metastable";
+
+INST "*rx_fifo_i?rd_store_frame_sync"    TNM = "rx_stable";
+INST "*rx_fifo_i?wr_rd_addr_gray*"       TNM = "rx_stable";
+
+TIMESPEC "TS_rx_meta_protect" = FROM "rx_metastable" TO "rx_stable" 5 ns;

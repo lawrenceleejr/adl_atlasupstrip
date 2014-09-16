@@ -1,0 +1,14 @@
+#####################################################
+####    H S I O    C O 2    F X 6 0   . u c f    ####
+#####################################################
+
+CONFIG PART = 4vfx60ff1152-11;
+CONFIG STEPPING = "0"; # According to datasheet (ds302) version 2 = stepping 0
+
+# for network i/fs and ibpp and some idob
+INST "*dlyctrl_0"        LOC = "IDELAYCTRL_X0Y7";
+INST "*dlyctrl_clk_0"    LOC = "IDELAYCTRL_X0Y6";
+
+# for idob
+INST "*Uidob_idelayctrl0"        LOC = "IDELAYCTRL_X0Y4";
+INST "*Uidob_idelayctrl1"        LOC = "IDELAYCTRL_X0Y5";

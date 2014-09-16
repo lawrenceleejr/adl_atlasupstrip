@@ -1,0 +1,219 @@
+############################################################
+############       H S I O    C 0 1 / 2        #############
+########     ucf with hsio c01/2  uncommon stuff    #########
+############################################################
+
+
+# ----------------------------------------------------------------------------------
+# Ethernet constraints - for fibre i/f (mostly?)
+# additional generic constraints in ethernet_v4/src/*.ucf
+# -----------------------------------------------------------------------------------
+# *** start Erdem 
+INST *tx_client_dcm         LOC = DCM_ADV_X0Y0;
+INST "*GT11_1000X_A" LOC = "GT11_X1Y3";
+INST "*GT11_1000X_B" LOC = "GT11_X1Y2";
+
+#INST "*Ueth2x_locallink/v4_emac_block/v4_emac_top/v4_emac"  LOC = "EMAC_X0Y0";
+# *** end Erdem 
+# -----------------------------------------------------------------------------------
+
+
+NET "led_status_o" LOC = "AJ20" ;   #      FPGA_STATUS  
+
+NET "idc_p2_io(6)" LOC = "F4" ;   # Pin 7 
+NET "idc_p2_io(7)" LOC = "F3" ;   # Pin 8 
+NET "idc_p2_io(22)" LOC = "F5" ;   # Pin 27
+NET "idc_p2_io(23)" LOC = "G5" ;   # Pin 28
+NET "idc_p2_io(28)" LOC = "T6" ;   # Pin 35
+NET "idc_p2_io(29)" LOC = "R6" ;   # Pin 36
+NET "idc_p2_io(30)" LOC = "J5" ;   # Pin 37
+NET "idc_p2_io(31)" LOC = "J4" ;   # Pin 38
+
+NET "idc_p3_io(4)" LOC = "U8" ;   # Pin 5  
+NET "idc_p3_io(5)" LOC = "T8" ;   # Pin 6  
+NET "idc_p3_io(30)" LOC = "J6" ;   # Pin 37
+NET "idc_p3_io(31)" LOC = "K6" ;   # Pin 38
+
+NET "idc_p4_io(0)" LOC = "AD32" ;   # Pin 1
+NET "idc_p4_io(1)" LOC = "AD31" ;   # Pin 2
+NET "idc_p4_io(8)" LOC = "AD30" ;   # Pin 11 
+NET "idc_p4_io(9)" LOC = "AD29" ;   # Pin 12
+NET "idc_p4_io(28)" LOC = "AG32" ;   # Pin 35 
+NET "idc_p4_io(29)" LOC = "AH32" ;   # Pin 36
+NET "idc_p4_io(30)" LOC = "W27" ;   # Pin 37   
+NET "idc_p4_io(31)" LOC = "V27" ;   # Pin 38 
+
+NET "idc_p5_io(8)" LOC = "AH30" ;   # Pin 11   
+NET "idc_p5_io(9)" LOC = "AJ30" ;   # Pin 12 
+NET "idc_p5_io(22)" LOC = "AJ32" ;   # Pin 27  
+NET "idc_p5_io(23)" LOC = "AJ31" ;   # Pin 28
+NET "idc_p5_io(28)" LOC = "W31" ;   # Pin 35   
+NET "idc_p5_io(29)" LOC = "W30" ;   # Pin 36 
+NET "idc_p5_io(30)" LOC = "AE32" ;   # Pin 37  
+NET "idc_p5_io(31)" LOC = "AE31" ;   # Pin 38
+
+NET "eth_gtxclk_txc_o" LOC = "D26" | IOSTANDARD = LVCMOS25;   # This may be same as the MAC clock input     ETH_GTX_CLK
+NET "eth_int_ni" LOC = "F20" | IOSTANDARD = LVCMOS25;   # Marvell infosheet: from Management I/f (MD) active low     ~ETH_INT
+NET "eth_rx_clk_rxc_i" LOC = "AD19" | IOSTANDARD = LVCMOS25;   #      ETH_RX_CLK
+NET "eth_tx_clk_i" LOC = "AF18" | IOSTANDARD = LVCMOS25;   #      ETH_TX_CLK
+NET "eth_tx_en_ctl_o" LOC = "F25" | IOSTANDARD = LVCMOS25;   #      ETH_TX_EN
+NET "eth_txd_o(0)" LOC = "D22" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_0
+NET "eth_txd_o(1)" LOC = "E22" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_1
+NET "eth_txd_o(2)" LOC = "D25" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_2
+NET "eth_txd_o(3)" LOC = "C25" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_3
+NET "eth_txd_o(4)" LOC = "J22" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_4
+NET "eth_txd_o(5)" LOC = "K22" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_5
+NET "eth_txd_o(6)" LOC = "G26" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_6
+NET "eth_txd_o(7)" LOC = "F26" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_7
+
+
+
+# USB2.0
+# CONNECTIONS FROM FPGA BANK 7 3V3 TO FTDI FT2232H CHIP
+#NET "usb2_reset"	LOC = "AK24" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_pwren"	LOC = "AK27" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_suspend"	LOC = "AK26" | IOSTANDARD = LVCMOS33 ;#
+
+#NET "usb2_a_rxf_i"	LOC = "AG25" | IOSTANDARD = LVCMOS33 | PULLUP;#
+#NET "usb2_a_txe_i"	LOC = "AH25" | IOSTANDARD = LVCMOS33 | PULLDOWN;#
+#NET "usb2_a_rdn_o"	LOC = "AL26" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_wr_o"	LOC = "AM26" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_siwu"	LOC = "AF25" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_clkout"	LOC = "AG18" | IOSTANDARD = LVCMOS33 ;# NOTE: CLKIN ON BANK 4 (3V3)
+#NET "usb2_a_OE"	LOC = "AF24" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(0)"	LOC = "AH27" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(1)"	LOC = "AJ27" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(2)"	LOC = "AL25" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(3)"	LOC = "AM25" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(4)"	LOC = "AF26" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(5)"	LOC = "AG26" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(6)"	LOC = "AD24" | IOSTANDARD = LVCMOS33 ;#
+#NET "usb2_a_d_io(7)"	LOC = "AE24" | IOSTANDARD = LVCMOS33 ;#
+
+# NET "usb2_b_rxf_i"	LOC = "AF23" | IOSTANDARD = LVCMOS33 | PULLUP;#
+# NET "usb2_b_txe_i"	LOC = "AE23" | IOSTANDARD = LVCMOS33 | PULLDOWN;#
+# NET "usb2_b_rdn_o"	LOC = "AE27" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_wr_o"	LOC = "AE26" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_siwu"	LOC = "AL24" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(0)"	LOC = "AJ26" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(1)"	LOC = "AJ25" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(2)"	LOC = "AG28" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(3)"	LOC = "AG27" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(4)"	LOC = "AH23" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(5)"	LOC = "AG23" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(6)"	LOC = "AE28" | IOSTANDARD = LVCMOS33 ;#
+# NET "usb2_b_d_io(7)"	LOC = "AF28" | IOSTANDARD = LVCMOS33 ;#
+
+
+#SMA connectors (actually LEMO, but unterminated)
+NET "sma_io(1)" LOC = "J14" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J1 IO_L6P_GC_LC_3
+NET "sma_io(2)" LOC = "H19" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J2 IO_L7P_GC_LC_3
+NET "sma_io(3)" LOC = "L15" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J3 IO_L8P_GC_LC_3
+NET "sma_io(4)" LOC = "L14" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J4 IO_L8N_GC_LC_3
+NET "sma_io(5)" LOC = "G15" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J5 IO_L4P_GC_LC_3
+NET "sma_io(6)" LOC = "E18" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J6 IO_L5P_GC_LC_3
+NET "sma_io(7)" LOC = "F15" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J7 IO_L6P_GC_LC_3
+NET "sma_io(8)" LOC = "E16" | IOSTANDARD = LVCMOS25 | DRIVE = 24 | SLEW = FAST; # J8 IO_L7P_GC_LC_3
+
+# front-panel fiber optic transceivers
+
+# SFP+ XCEIVER U15
+# NET "FO_0_tx_rate_sel"  LOC = "AB7" | IOSTANDARD = LVCMOS25;# IO_L9P_CC_LC_12 NET "FO_0_tx_rate_sel"
+# NET "FO_0_rx_los" 	  LOC = "AA3" | IOSTANDARD = LVCMOS25;# IO_L8N_CC_LC_12  NET "FO_0_rx_los"
+# NET "FO_0_rx_rate_sel"  LOC = "AB3" | IOSTANDARD = LVCMOS25;# IO_L8P_CC_LC_12  NET "FO_0_rx_rate_sel"
+# NET "FO_0_mod_abs" 	  LOC = "AB5" | IOSTANDARD = LVCMOS25;# IO_L7N_12 NET "FO_0_mod_abs"
+# NET "FO_0_scl" 	  LOC = "AC5" | IOSTANDARD = LVCMOS25;# IO_L7P_12  NET "FO_0_scl"
+# NET "FO_0_sda"    	  LOC = "Y3"  | IOSTANDARD = LVCMOS25;# IO_L6N_12 # NET "FO_0_sda"
+# NET "FO_0_tx_dis" 	  LOC = "Y4"  | IOSTANDARD = LVCMOS25;# IO_L6P_12# NET "FO_0_tx_dis"
+# NET "FO_0_tx_fault" 	  LOC = "Y7"  | IOSTANDARD = LVCMOS25;# IO_L5N_12# NET "FO_0_tx_fault"
+# NET "FO_0_rd_p" 	  LOC = "AC1" | IOSTANDARD = LVDS_25;# BANK110A_RX_P# NET "FO_0_rd_p"
+# NET "FO_0_rd_m" 	  LOC = "AD1" | IOSTANDARD = LVDS_25;# BANK110A_RX_M# NET "FO_0_rd_m"
+# NET "FO_0_td_p" 	  LOC = "AF1" | IOSTANDARD = LVDS_25;# BANK110A_TX_P# NET "FO_0_td_p"
+# NET "FO_0_td_m" 	  LOC = "AG1" | IOSTANDARD = LVDS_25;# BANK110A_TX_M# NET "FO_0_td_m"
+ 
+# SFP+ XCEIVER U16
+# NET "FO_1_tx_rate_sel" 	  LOC = "Y8" | IOSTANDARD = LVCMOS25;# IO_L5P_12# NET "FO_1_tx_rate_sel"
+# NET "FO_1_rx_los" 	  LOC = "W6" | IOSTANDARD = LVCMOS25;# IO_L4N_12# NET "FO_1_rx_los"
+# NET "FO_1_rx_rate_sel" 	  LOC = "W7" | IOSTANDARD = LVCMOS25;# IO_L4P_12# NET "FO_1_rx_rate_sel" 
+# NET "FO_1_mod_abs" 	  LOC = "AA4" | IOSTANDARD = LVCMOS25;# IO_L3N_12# NET "FO_1_mod_abs"
+# NET "FO_1_scl" 		  LOC = "AA5" | IOSTANDARD = LVCMOS25;# IO_L3P_12# NET "FO_1_scl
+# NET "FO_1_sda" 		  LOC = "V7" | IOSTANDARD = LVCMOS25;# IO_L2N_12# NET "FO_1_sda"
+# NET "FO_1_tx_dis" 	  LOC = "V8" | IOSTANDARD = LVCMOS25;# IO_L2P_12# NET "FO_1_tx_dis"
+# NET "FO_1_tx_fault" 	  LOC = "W4" | IOSTANDARD = LVCMOS25;# IO_L1N_12# NET "FO_1_tx_fault"
+# NET "FO_1_rd_p" 	  LOC = "AL1" | IOSTANDARD = LVDS_25;# BANK110B_RX_P# NET "FO_1_rd_p"
+# NET "FO_1_rd_m" 	  LOC = "AM1" | IOSTANDARD = LVDS_25;# BANK110B_RX_M# NET "FO_1_rd_m"
+# NET "FO_1_td_p" 	  LOC = "AH1" | IOSTANDARD = LVDS_25;# BANK110B_TX_P# NET "FO_1_td_p" 
+# NET "FO_1_td_m" 	  LOC = "AJ1" | IOSTANDARD = LVDS_25;# BANK110B_TX_M# NET "FO_1_td_m" 	 
+
+#***eos NET "ibfi_tx_dis_o(0)" 		  LOC = "AF3" ;   # J25.E4     GPIO_12  IB09 Net: CE1_FO_TX_DIS0 (TX_DISABLE)
+#***eos NET "ibfi_moddef1_o(0)" 	  LOC = "AA8" ;   # J25.A5     GPIO_16  IB09 Net: CD_FO_SCLK0 (SCL)
+#***eos NET "ibfi_moddef2_io(0)" 	  LOC = "AC4" ;   # J25.B5     GPIO_17  IB09 Net: CD_FO_SDAT0 (SDA)
+#***eos NET "ibfi_tx_dis_o(1)" 		  LOC = "W9" ;   # J25.F4     GPIO_13  IB09 Net: CE1_FO_TX_DIS1 (TX_DISABLE)
+#***eos NET "ibfi_moddef1_o(1)" 	  LOC = "AC3" ;   # J25.C5     GPIO_18  IB09 Net: CD_FO_SCLK1 (SCL)
+#***eos NET "ibfi_moddef2_io(1)" 	  LOC = "AF6" ;   # J25.D5     GPIO_19  IB09 Net: CD_FO_SDAT1 (SDA)
+
+# Needed? Lock down the MGT (below are still for the IBFI)
+#INST "*Ueth_sf_2x/*/GT11_1000X_A" LOC = "GT11_X0Y1";
+#INST "*Ueth_sf_2x/*/GT11_1000X_B" LOC = "GT11_X0Y0";
+
+
+# front-panel fiber optic transceivers
+# HSIO: looking from front
+#   SFF       SFP+
+#  3    2    0    1
+# U19  U18  U15  U16
+
+# SFP+ XCEIVER U15 (SF 0  --*-)
+NET "sf_tx_ratesel_o(0)"  LOC = "AB7" | IOSTANDARD = LVCMOS25;# IO_L9P_CC_LC_12 NET "FO_0_tx_rate_sel"
+#NET "sf_rx_los_i(0)" 	  LOC = "AA3" | IOSTANDARD = LVCMOS25;# IO_L8N_CC_LC_12  NET "FO_0_rx_los"
+NET "sf_rx_ratesel_o(0)"  LOC = "AB3" | IOSTANDARD = LVCMOS25;# IO_L8P_CC_LC_12  NET "FO_0_rx_rate_sel"
+#NET "sf_mod_abs(0)" 	  LOC = "AB5" | IOSTANDARD = LVCMOS25;# IO_L7N_12 NET "FO_0_mod_abs"
+NET "sf_scl_o(0)" 	  LOC = "AC5" | IOSTANDARD = LVCMOS25;# IO_L7P_12  NET "FO_0_scl"
+NET "sf_sda_io(0)"    	  LOC = "Y3"  | IOSTANDARD = LVCMOS25;# IO_L6N_12 # NET "FO_0_sda"
+NET "sf_tx_dis_o(0)" 	  LOC = "Y4"  | IOSTANDARD = LVCMOS25;# IO_L6P_12# NET "FO_0_tx_dis"
+NET "sf_tx_fault_i(0)" 	  LOC = "Y7"  | IOSTANDARD = LVCMOS25;# IO_L5N_12# NET "FO_0_tx_fault"
+NET "sf_rxp(0)" 	  LOC = "AC1" | IOSTANDARD = LVDS_25;# BANK110A_RX_P# NET "FO_0_rd_p"
+NET "sf_rxm(0)" 	  LOC = "AD1" | IOSTANDARD = LVDS_25;# BANK110A_RX_M# NET "FO_0_rd_m"
+NET "sf_txp(0)" 	  LOC = "AF1" | IOSTANDARD = LVDS_25;# BANK110A_TX_P# NET "FO_0_td_p"
+NET "sf_txm(0)" 	  LOC = "AG1" | IOSTANDARD = LVDS_25;# BANK110A_TX_M# NET "FO_0_td_m"
+
+
+# SFP+ XCEIVER U16 (SF 1 ---*)
+NET "sf_tx_ratesel_o(1)" 	  LOC = "Y8" | IOSTANDARD = LVCMOS25;# IO_L5P_12# NET "FO_1_tx_rate_sel"
+#NET "sf_rx_los_i(1)" 	  LOC = "W6" | IOSTANDARD = LVCMOS25;# IO_L4N_12# NET "FO_1_rx_los"
+NET "sf_rx_ratesel_o(1)" 	  LOC = "W7" | IOSTANDARD = LVCMOS25;# IO_L4P_12# NET "FO_1_rx_rate_sel" 
+#NET "sf_mod_abs(1)" 	  LOC = "AA4" | IOSTANDARD = LVCMOS25;# IO_L3N_12# NET "FO_1_mod_abs"
+NET "sf_scl_o(1)" 		  LOC = "AA5" | IOSTANDARD = LVCMOS25;# IO_L3P_12# NET "FO_1_scl
+NET "sf_sda_io(1)" 		  LOC = "V7" | IOSTANDARD = LVCMOS25;# IO_L2N_12# NET "FO_1_sda"
+NET "sf_tx_dis_o(1)" 	  LOC = "V8" | IOSTANDARD = LVCMOS25;# IO_L2P_12# NET "FO_1_tx_dis"
+NET "sf_tx_fault_i(1)" 	  LOC = "W4" | IOSTANDARD = LVCMOS25;# IO_L1N_12# NET "FO_1_tx_fault"
+NET "sf_rxp(1)" 	  LOC = "AL1" | IOSTANDARD = LVDS_25;# BANK110B_RX_P# NET "FO_1_rd_p"
+NET "sf_rxm(1)" 	  LOC = "AM1" | IOSTANDARD = LVDS_25;# BANK110B_RX_M# NET "FO_1_rd_m"
+NET "sf_txp(1)" 	  LOC = "AH1" | IOSTANDARD = LVDS_25;# BANK110B_TX_P# NET "FO_1_td_p" 
+NET "sf_txm(1)" 	  LOC = "AJ1" | IOSTANDARD = LVDS_25;# BANK110B_TX_M# NET "FO_1_td_m"
+
+
+
+
+# SFP XCEIVER U18 (SF 3)
+#NET "sf_scl_o(3)"    LOC = "AF4" | IOSTANDARD = LVCMOS25;# IO_L22N_12# NET "FO_3_scl" 
+#NET "sf_sda_io(3)"   LOC = "AF5" | IOSTANDARD = LVCMOS25;# IO_L22P_12# NET "FO_3_sda"
+#NET "sf_tx_dis_o(3)" LOC = "AK4" | IOSTANDARD = LVCMOS25;# IO_L21N_1# NET "FO_3_tx_dis"          
+#NET "sf_rxp(3)"      LOC = "Y1";# BANK112B_RX_P# NET "FO_3_rd_p" 
+#NET "sf_rxm(3)"           LOC = "AA1";# BANK112B_RX_M# NET "FO_3_rd_m"  
+#NET "sf_txp(3)"           LOC = "U1";# BANK112B_TX_P# NET "FO_3_td_p"
+#NET "sf_txm(3)"           LOC = "V1";# BANK112B_TX_M# NET "FO_3_td_m"  
+
+
+# SFP XCEIVER U19 (SF 2)
+#NET "sf_scl_o(2)"               LOC = "W5" | IOSTANDARD = LVCMOS25;# IO_L1P_12# NET "FO_2_scl" 
+#NET "sf_sda_io(2)"      LOC = "AH3" | IOSTANDARD = LVCMOS25;# IO_L24N_CC_LC_12# NET "FO_2_sda" 
+#NET "sf_tx_dis_o(2)"    LOC = "AH4" | IOSTANDARD = LVCMOS25;# IO_L24P_CC_LC_12# NET "FO_2_tx_dis" 
+#NET "sf_rxp(2)"           LOC = "M1";# BANK112A_RX_P# NET "FO_2_rd_p"
+#NET "sf_rxm(2)"           LOC = "N1";# BANK112A_RX_M# NET "FO_2_rd_m" 
+#NET "sf_txp(2)"           LOC = "R1";# BANK112A_TX_P# NET "FO_2_td_p" 
+#NET "sf_txm(2)"           LOC = "T1";# BANK112A_TX_M# NET "FO_2_td_m" 
+
+
+
+#NET "sma_io*" TIG;

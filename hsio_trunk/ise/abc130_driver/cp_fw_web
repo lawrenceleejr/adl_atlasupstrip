@@ -1,0 +1,25 @@
+#!/bin/bash
+
+FNAME=abc130_driver_pcb_top
+ISEDIR=.
+WEBDIR=plus1:public_html/upgrade/firmware
+
+
+echo
+echo Doing:
+
+ORIGFN=$FNAME.$2
+DESTFN=${FNAME}_$1.$2
+
+echo scp -p $ORIGFN $DESTFN
+     scp -p $ORIGFN $DESTFN
+
+echo scp -p $DESTFN $WEBDIR
+     scp -p $DESTFN $WEBDIR
+
+echo scp -p $ORIGFN $WEBDIR
+     scp -p $ORIGFN $WEBDIR
+
+echo scp -p ../../abc130_driver/src/CHANGELOG.TXT $WEBDIR/DRV_CHANGELOG.TXT
+     scp -p ../../abc130_driver/src/CHANGELOG.TXT $WEBDIR/DRV_CHANGELOG.TXT
+

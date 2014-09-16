@@ -1,0 +1,72 @@
+#!/bin/bash
+
+DESIGN_NAME=hsio_top_fx100
+TEMPBUILDDIR=/tmp/warren/ise/`basename $PWD`
+
+XST_FILE=$DESIGN_NAME.xst
+PRJ_FILE=$DESIGN_NAME.prj
+
+# Move and mod files required to build in a temp location
+
+# Working Original and 
+TWD=$TEMPBUILDDIR/  # Temp working directory
+OWD=$PWD/           # Original working directory
+mkdir -p $TWD
+
+# check that updated file don't already exist in tmp dir
+echo cp -up $TWD/$DESIGN_NAME.xst $OWD/.
+     cp -up $TWD/$DESIGN_NAME.xst $OWD/.
+echo cp -up $TWD/$DESIGN_NAME.prj $OWD/.
+     cp -up $TWD/$DESIGN_NAME.prj $OWD/.
+
+# And vice versa
+echo cp -up $OWD/$DESIGN_NAME.xst $TWD/.
+     cp -up $OWD/$DESIGN_NAME.xst $TWD/.
+echo cp -up $OWD/$DESIGN_NAME.prj $TWD/.
+     cp -up $OWD/$DESIGN_NAME.prj $TWD/.
+
+
+cp -p hsio_top.ut hsio_top.lso Makefile $TWD
+
+# hacking away to fix mess
+sed -e "sX\.\./\.\./\.\./\.\./homeX/homeX" $XST_FILE > /tmp/$XST_FILE
+sed -e "sX\.\./\.\./\.\./\.\./homeX/homeX" $PRJ_FILE > /tmp/$PRJ_FILE
+sed -e "sX\.\./\.\./\.\./\.\./homeX/homeX" Makefile > /tmp/Makefile
+
+sed -e "sX\.\./\.\.X$OWD../..X" /tmp/$XST_FILE > $TWD/$XST_FILE
+sed -e "sX\.\./\.\.X$OWD../..X" /tmp/$PRJ_FILE > $TWD/$PRJ_FILE
+sed -e "sX\.\./\.\.X$OWD../..X" /tmp/Makefile > $TWD/Makefile
+
+#sed -e "sX\.\./\.\.X$OWD../..X" $XST_FILE > $TWD/$XST_FILE
+#sed -e "sX\.\./\.\.X$OWD../..X" $PRJ_FILE > $TWD/$PRJ_FILE
+#sed -e "sX\.\./\.\.X$OWD../..X" Makefile > $TWD/Makefile
+
+
+touch -r $OWD/$XST_FILE $TWD/$XST_FILE
+touch -r $OWD/$PRJ_FILE $TWD/$PRJ_FILE
+touch -r $OWD/Makefile Makefile
+
+mkdir -p $TWD/../timestamp
+sed -e "sX\.\./\.\.X$OWD../..X" ../timestamp/timestamp.xst > $TWD/../timestamp/timestamp.xst
+sed -e "sX\.\./\.\.X$OWD../..X" ../timestamp/timestamp.prj > $TWD/../timestamp/timestamp.prj
+
+cd $TWD
+
+make $1 | tee make.log
+
+echo cp -up --backup=t $OWD/$DESIGN_NAME.bit ./.$DESIGN_NAME.bit.bak
+     cp -up --backup=t $OWD/$DESIGN_NAME.bit ./.$DESIGN_NAME.bit.bak
+
+echo cp -up $DESIGN_NAME.bit $OWD/.
+     cp -up $DESIGN_NAME.bit $OWD/.
+echo cp -up $DESIGN_NAME.mcs $OWD/.
+     cp -up $DESIGN_NAME.mcs $OWD/.
+echo cp -up $DESIGN_NAME.xst $OWD/.
+     cp -up $DESIGN_NAME.xst $OWD/.
+echo cp -up $DESIGN_NAME.prj $OWD/.
+     cp -up $DESIGN_NAME.prj $OWD/.
+
+
+cd $OWD
+grep -i constraints $TWD/*.par | grep -i met
+

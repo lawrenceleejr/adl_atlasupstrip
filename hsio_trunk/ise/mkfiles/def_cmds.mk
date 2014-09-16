@@ -1,0 +1,45 @@
+#-----------------------------------------------------------------
+# File:    Makefile
+# Author:  David Burnette
+# Date:    April 7, 2008
+#
+# Description:
+#  This makefile fragment defines common commands used by the
+#  the makefiles. Vendor-specific tools should be defined in
+#  the vendor-specific makefiles.
+#
+# Usage:
+#  This make file fragment should be included by the 
+#  makefiles in the 'rtl' and 'src/...' directories. 
+#
+# Dependencies:
+#  None
+#
+# Revision History:
+#   dgb 2008-04-07   Original version
+#
+#-----------------------------------------------------------------
+
+#===================================================================
+
+# Unix-ish tools
+CD       := cd
+CP       := cp
+CAT      := cat
+ECHO     := echo
+AWK      := awk
+SED      := sed
+GREP     := grep
+#RM       := erase /s /q
+RM       := rm -f
+#RMDIR    := rmdir /s /q
+RMDIR    := rm -rf
+MKDIR    := mkdir
+
+# Define default application extension
+MY_OS := $(shell uname -s)
+ifeq "$(findstring CYGWIN_NT,$(MY_OS))" "CYGWIN_NT"
+EXE_EXT := .exe
+else
+EXE_EXT :=
+endif

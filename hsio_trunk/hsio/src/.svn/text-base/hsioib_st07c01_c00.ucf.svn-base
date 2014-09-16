@@ -1,0 +1,28 @@
+####################################################################
+###########  S t a v e 0 7   C 0 1    I  B    S t u f f  ###########
+##############                                      ################
+###############     F O R    H S I O     C 0 0     #################
+####################################################################
+
+
+# J26.F3     J26_LVDS_10_M  LONEB (J32.10/J33.6) LONE_INB (J26.F3)
+NET "ibpp_lone_mo" SLEW = FAST;
+NET "ibpp_lone_mo" LOC = AK11;
+# J26.E3     J26_LVDS_10_P  LONE (J32.9/J33.5) LONE_IN (J26.E3)
+NET "ibpp_lone_po" SLEW = FAST;
+NET "ibpp_lone_po" LOC = AJ11;
+
+# J25.E4     GPIO_12  IB09 Net: CE1_FO_TX_DIS0 (TX_DISABLE)
+NET "ibfi_tx_dis_o[0]" LOC = AE27;
+# J25.A5     GPIO_16  IB09 Net: CD_FO_SCLK0 (SCL)
+NET "ibfi_moddef1_o[0]" LOC = AK26;
+# J25.B5     GPIO_17  IB09 Net: CD_FO_SDAT0 (SDA)
+NET "ibfi_moddef2_io[0]" LOC = AL25;
+# J25.F4     GPIO_13  IB09 Net: CE1_FO_TX_DIS1 (TX_DISABLE)
+NET "ibfi_tx_dis_o[1]" LOC = AE23;
+# J25.C5     GPIO_18  IB09 Net: CD_FO_SCLK1 (SCL)
+NET "ibfi_moddef1_o[1]" LOC = AK24;
+# J25.D5     GPIO_19  IB09 Net: CD_FO_SDAT1 (SDA)
+NET "ibfi_moddef2_io[1]" LOC = AK23;
+
+

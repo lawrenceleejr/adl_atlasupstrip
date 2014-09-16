@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="8">
+	<Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc4vfx60ff1152-11" LaunchPart="xc4vfx60ff1152-11" ConstrsSet="constrs_1" State="current" Dir="$PRUNDIR/synth_1" LaunchTime="1326810801">
+		<File Type="RUN-SRCS" Name="$PDATADIR/runs/synth_1/sources.xml"/>
+		<File Type="XST-NGC" Name="hsio_top.ngc"/>
+		<File Type="RUN-CONSTRS" Name="$PDATADIR/runs/synth_1/constrs_in.xml"/>
+		<File Type="XST-SRP" Name="hsio_top.srp"/>
+		<File Type="RUN-STRAT" Name="$PDATADIR/runs/synth_1/synth_1.psg"/>
+		<File Type="PA-XST" Name="hsio_top.xst"/>
+		<File Type="PA-XSTPRJ" Name="hsio_top.prj"/>
+	</Run>
+	<Run Id="impl_1" Type="Ft2:EntireDesign" SynthRun="synth_1" Part="xc4vfx60ff1152-11" ConstrsSet="constrs_1" State="current"/>
+</Runs>
+

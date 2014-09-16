@@ -1,0 +1,55 @@
+add_file -vhdl  ../example_design/client/fifo/tx_client_fifo_8.vhd
+add_file -vhdl  ../example_design/client/fifo/rx_client_fifo_8.vhd
+add_file -vhdl  ../example_design/client/fifo/eth_fifo_8.vhd
+add_file -vhdl  ../example_design/client/address_swap_module_8.vhd
+add_file -vhdl  ../example_design/client/client_loopback_8.vhd
+add_file -vhdl  ../example_design/physical/cal_block_v1_4_1.vhd
+add_file -vhdl  ../example_design/physical/gt11_to_gt_rxclkcorcnt_shim.vhd
+add_file -vhdl  ../example_design/physical/gt11_dual_1000X.vhd
+add_file -vhdl  ../example_design/physical/gt11_init_tx.vhd
+add_file -vhdl  ../example_design/physical/gt11_init_rx.vhd
+add_file -vhdl  ../example_design/eth2x.vhd
+add_file -vhdl  ../example_design/eth2x_block.vhd
+add_file -vhdl  ../example_design/eth2x_locallink.vhd
+add_file -vhdl  ../example_design/eth2x_example_design.vhd
+
+impl -add synplify
+
+#device options
+
+set_option -technology VIRTEX4
+set_option -part XC4VFX60
+set_option -package FF672
+set_option -speed_grade -10
+
+#compilation/mapping options
+
+set_option -vlog_std v2001
+set_option -default_enum_encoding default
+set_option -symbolic_fsm_compiler 0
+set_option -resource_sharing 1
+set_option -top_module "eth2x_example_design"
+
+#map options
+
+set_option -frequency             250.000
+set_option -fanout_limit          100
+set_option -disable_io_insertion  1
+set_option -pipe                  0
+set_option -modular               0
+set_option -retiming              0
+
+#simulation options
+
+set_option -write_verilog         1
+set_option -write_vhdl            0
+
+#automatic place and route (vendor) options
+
+set_option -write_apr_constraint  0
+
+#set result format/file last
+
+project -result_file "eth2x_example_design.edf"
+
+impl -active "synplify"

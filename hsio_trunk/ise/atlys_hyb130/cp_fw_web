@@ -1,0 +1,25 @@
+#!/bin/bash
+
+FNAME=atlys_top
+ISEDIR=.
+WEBDIR=~/public_html/upgrade/firmware
+
+
+echo
+echo Doing:
+
+ORIGFN=$FNAME.$2
+DESTFN=${FNAME}_$1.$2
+
+echo cp -p $ORIGFN $DESTFN
+     cp -p $ORIGFN $DESTFN
+
+echo cp -p $DESTFN $WEBDIR
+     cp -p $DESTFN $WEBDIR
+
+echo cp -p $ORIGFN $WEBDIR
+     cp -p $ORIGFN $WEBDIR
+
+#echo cp -p ../../hsio/src/CHANGELOG.TXT $WEBDIR
+#     cp -p ../../hsio/src/CHANGELOG.TXT $WEBDIR
+

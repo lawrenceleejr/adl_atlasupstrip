@@ -1,0 +1,35 @@
+ABC130 Driver Changelog
+23/03/2014 (vd033) - Fixed SCMODE=SHUNTCTL and mode c,d swapped bugs
+21/03/2014 (vd031) - Reworked completely for FIB hybrid readout. must use HSIO fw >v4030
+24/02/2014 (vd02c) - Swapped BCO and R3 lines - must use HSIO fw >0x432e
+06/01/2014 (vd02b) - Changed chip address to be 0-3
+06/01/2014 (vd02a) - Added high-z all ABC facing buffers option. DRV_CONF reg, bit 6
+13/12/2013 (vd029) - possible fix to possible tmu lockup
+13/12/2013 (vd027) - Added TMU  ABCID=30, HCCID=1, returns on HSIO strm 40
+10/12/2013 (vd026) - Reworked a few things, added loopback mode, see DRV_CONF decription
+
+ 6/12/2013 (vd025) - 40Mb toggle on scan inputs!
+ 6/12/2013 (vd024) - not(respective clock) on scan_bus inputs 
+ 6/12/2013 (vd023) - xoff set bit reg 18.6
+ 6/12/2013 (vd022) - ~4ns phase shift between BCO and DRC
+ 5/12/2013 (vd021) - added DRC mode for all clocks, moved some bits (see 7,8,14)!
+ 5/12/2013 (vd020) - clk40/80 option on drc
+ 
+ 4/12/2013 (vd01f) - HI-Z on all xoff and dat outs
+ 4/12/2013 (vd01e) - clk/2, clk/3 on dat_o's
+ 4/12/2013 (vd01d) - clk/16 on xoff_o's
+ 4/12/2013 (vd01c) - wired up FC clock too (same as DRC)
+ 4/12/2013 (vd01b) - Removed LVDS on Xoff_o - back to normal
+ 4/12/2013 (vd01a) - DRC inv option added
+ 4/12/2013 (vd019) - LDVS buffers on Xoff_o
+ 4/12/2013 (vd018) - back to normal
+ 4/12/2013 (vd017) - clk on xoff_o and dat_o
+ 3/12/2013 (vd016) - DUFF? 
+ 3/12/2013 (vd015) - added drc160 selectable option
+ 3/12/2013 (vd014) - back to normal with bco and drc enable
+ 3/12/2013 (vd013) - clk40 on bco, drc, coml0, l1r3
+ 3/12/2013 (vd012) - drc=160 with enable
+ 
+ 3/12/2013 (vd008) Regen DCM - changed to include reset logic and make DONE wait LOCK
+                    also needed bitgen option "LCK_cycle" set - I randomed 4
+ 3/12/2013  Born! (a little late - needed to be induced)

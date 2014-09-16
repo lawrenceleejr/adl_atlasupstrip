@@ -1,0 +1,146 @@
+
+TIMESPEC TS_bco = PERIOD "bco" 24 ns HIGH 50%;
+NET "HSIO_R3_P" TNM_NET = "bco"; # swapped BCO and R3 pins
+
+
+#############################
+#  TOP (HSIO)
+#############################
+
+NET "SHUNT_CTL_SW_I" LOC = "P35";
+NET "ADDR0_I"        LOC = "P33";
+NET "ADDR1_I"        LOC = "P32";
+NET "ADDR2_I"        LOC = "P31";
+NET "ADDR3_I"        LOC = "P30";
+NET "ADDR4_I"        LOC = "P29";
+NET "REG_ENA_I"      LOC = "P28";
+NET "REG_END_I"      LOC = "P27";
+NET "TERM_I"         LOC = "P25";
+NET "RSTB_I"         LOC = "P24";
+NET "SW1_O"          LOC = "P21";
+NET "I2C_CLK"        LOC = "P20";
+NET "I2C_DATA"       LOC = "P19";
+NET "SCAN_EN_I"      LOC = "P18";
+NET "SDI_CLK_I"      LOC = "P16";
+NET "SDI_BC_I"       LOC = "P13";
+NET "SDO_BC_O"       LOC = "P11";
+NET "SDO_CLK_O"      LOC = "P10";
+NET "ABCUP_I"        LOC =  "P8";
+NET "SPARE1"         LOC =  "P7";
+NET "SPARE2"         LOC =  "P6";
+NET "SPARE3"         LOC =  "P5";
+NET "SPARE4"         LOC =  "P4";
+NET "SPARE5"         LOC =  "P3";
+
+
+#############################
+#  LEFT (HSIO)
+#############################
+
+NET "HSIO_DXIN0_P"   LOC = "P37";
+NET "HSIO_DXIN0_N"   LOC = "P38";
+NET "HSIO_DXOUT0_P"  LOC = "P42";
+NET "HSIO_DXOUT0_N"  LOC = "P44";
+NET "HSIO_DXOUT1_P"  LOC = "P46";
+NET "HSIO_DXOUT1_N"  LOC = "P48";
+NET "HSIO_DXIN1_P"   LOC = "P47";
+NET "HSIO_DXIN1_N"   LOC = "P49";
+NET "HSIO_L0_CMD_P"  LOC = "P50";
+NET "HSIO_L0_CMD_N"  LOC = "P51";
+NET "HSIO_BCO_P"     LOC = "P54";
+NET "HSIO_BCO_N"     LOC = "P55";
+NET "HSIO_R3_P"      LOC = "P57";
+NET "HSIO_R3_N"      LOC = "P59";
+NET "HSIO_SP0_P"     LOC = "P58";
+NET "HSIO_SP0_N"     LOC = "P60";
+NET "HSIO_DXOUT2_P"  LOC = "P63";
+NET "HSIO_DXOUT2_N"  LOC = "P64";
+NET "HSIO_DXIN2_P"   LOC = "P67";
+NET "HSIO_DXIN2_N"   LOC = "P68";
+NET "HSIO_DXOUT3_P"  LOC = "P69";
+NET "HSIO_DXOUT3_N"  LOC = "P71";
+NET "HSIO_DXIN3_P"   LOC = "P70";
+NET "HSIO_DXIN3_N"   LOC = "P72";
+
+#NET "10K_PULLUP" LOC = "P43"; # R61  I351_A  VS2
+#NET "10K_PULLUP" LOC = "P45"; # R61  I351_A  VS0
+
+
+#############################
+#  RIGHT
+#############################
+
+NET "R3_P"     LOC = "P125";
+NET "R3_N"     LOC = "P127";
+NET "L0_CMD_P" LOC = "P129";
+NET "L0_CMD_N" LOC = "P131";
+NET "DRC_P"    LOC = "P130";
+NET "DRC_N"    LOC = "P132";
+NET "BCO_P"    LOC = "P134";
+NET "BCO_N"    LOC = "P135";
+NET "BDP15_P"  LOC = "P110"; # XOFF_R3_P___FC2_P
+NET "BDP15_N"  LOC = "P111"; # XOFF_R3_N___FC2_N
+NET "BDP14_P"  LOC = "P112"; # DATA3_P___FC1_P
+NET "BDP14_N"  LOC = "P113"; # DATA3_N___FC1_N
+NET "BDP12_P"  LOC = "P114"; # XOFF_R2_P___XOFF_R_P 
+NET "BDP12_N"  LOC = "P116"; # XOFF_R2_N___XOFF_R_N
+NET "BDP13_P"  LOC = "P115"; # DATA_R2_P___DATA_R_N
+NET "BDP13_N"  LOC = "P117"; # DATA_R2_N___DATA_R_P
+NET "BDP11_P"  LOC = "P120"; # XOFF_1_P___XOFF_L_P
+NET "BDP11_N"  LOC = "P121"; # XOFF_1_N___XOFF_L_N 
+NET "BDP10_P"  LOC = "P124"; # DATA_1_P___DATA_L_N 
+NET "BDP10_N"  LOC = "P126"; # DATA_1_N___DATA_L_P
+NET "BDP9_P"   LOC = "P138"; # DATA_R0_P___FCCLK_N
+NET "BDP9_N"   LOC = "P139"; # DATA_R0_N___FCCLK_P
+NET "BDP8_P"   LOC = "P141"; # XOFF_R0_P
+NET "BDP8_N"   LOC = "P143"; # XOFF_R0_N
+
+
+#############################
+#  BOTTOM
+#############################
+
+NET "SDO_BC"       LOC =  "P75"; # D7   I394  SCN_O_BC
+NET "SDO_CLK"      LOC =  "P77"; # D8   I395  SCN_O_CK
+NET "ABCUP"        LOC =  "P79"; # R97  I413
+NET "SDI_BC"       LOC =  "P82"; # R71  I368  SCN_I_BC
+NET "SDI_CLK"      LOC =  "P85"; # R80  I369  SCN_I_CK
+NET "SCAN_ENABLE"  LOC =  "P87"; # R70  I370
+NET "SWITCH1"      LOC =  "P90"; # D9   I396
+NET "SHUNT_CTL_SW" LOC =  "P91"; # R77  I371
+NET "RSTB"         LOC =  "P93"; # R69  I372
+NET "REG_EN_A"     LOC =  "P96"; # R76  I373
+NET "REG_EN_D"     LOC =  "P98"; # R68  I374
+NET "TERM"         LOC =  "P99"; # R75  I380
+NET "ADDR0"        LOC = "P101"; # R74  I375
+NET "ADDR1"        LOC = "P102"; # R67  I376
+NET "ADDR2"        LOC = "P103"; # R73  I377
+NET "ADDR3"        LOC = "P104"; # R66  I378
+NET "ADDR4"        LOC = "P105"; # R72  I379
+
+
+#####################################
+#  Special
+#####################################
+
+#NET "PROG_B" LOC = "P144";
+#NET "TCK" LOC = "P109";
+#NET "TDI" LOC = "P2";
+#NET "TDO" LOC = "P107";
+#NET "TMS" LOC = "P1";
+#NET "DONE" LOC = "P 73"; # R29  I328_B
+
+
+
+#ERROR:Place:1012 - A clock IOB / DCM component pair have been found that are not placed at an optimal clock IOB / DCM
+#   site pair.  The clock component <Udcm/DCM_SP_INST> is placed at site <DCM_X0Y0>.  The clock IO/DCM site can be paired
+#   if they are placed/locked in the same quadrant.  The IO component <HSIO_BCO_P> is placed at site <P54>.  This will
+#   not allow the use of the fast path between the IO and the Clock buffer. If this sub optimal condition is acceptable
+#   for this design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .ucf file to demote this message to a
+#   WARNING and allow your design to continue. However, the use of this override is highly discouraged as it may lead to
+#   very poor timing results. It is recommended that this error condition be corrected in the design. A list of all the
+#   COMP.PINs used in this clock placement rule is listed below. These examples can be used directly in the .ucf file to
+#   override this clock rule.
+
+NET "HSIO_BCO_P" CLOCK_DEDICATED_ROUTE = FALSE;
+PIN "*Udcm/DCM_SP_INST.CLKIN" CLOCK_DEDICATED_ROUTE = FALSE;

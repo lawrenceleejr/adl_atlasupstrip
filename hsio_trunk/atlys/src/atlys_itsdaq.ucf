@@ -1,0 +1,26 @@
+
+
+
+
+#################################################################
+# All the timespec and TIG stuff below is to stop ISE trying to 
+# get clk40a (Atlys internal clock derived bco) to not mess with
+# timing. It failed, so I've ripped it out for now.
+
+#TIMESPEC TS_bco2x = PERIOD "bco2x" TS_bco / 2 HIGH 50%;
+#TIMESPEC TS_bco4x = PERIOD "bco4x" TS_bco / 4 HIGH 50%;
+#TIMESPEC TS_bcon = PERIOD "bco4x" TS_bco PHASE 12 ns HIGH 50%;
+#NET "clk40" TNM_NET = bco;
+#NET "clk80" TNM_NET = bco2x;
+#NET "clk160" TNM_NET = bco4x;
+#NET "clkn40" TNM_NET = bcon;
+
+
+# ISE seems confused by clock muxing, and trys too hard on the internal clock timing, 
+# which isn't really too important, and the above related clock thing didn't work, 
+# so I've whacked them with TIGs!
+#NET "Uclkrstblk/clk40a" TIG;
+#NET "Uclkrstblk/clk80a" TIG;
+#NET "Uclkrstblk/clk160a" TIG;
+#NET "Uclkrstblk/clkn40a" TIG;
+####################################################################

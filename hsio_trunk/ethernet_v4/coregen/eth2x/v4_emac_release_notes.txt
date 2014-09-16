@@ -1,0 +1,140 @@
+COPYRIGHT (c) 2004-2007 XILINX, INC. 2004, 2005, 2006, 2007
+ALL RIGHTS RESERVED
+
+Core name    : Virtex-4 Embedded Tri-Mode Ethernet MAC Wrapper
+Version      : 4.5
+Release Date : August 1, 2007
+File Name    : v4_emac_release_notes.txt
+
+Revision History
+
+Date       By            Version   Change Description
+=================================================================
+1/18/2006  Xilinx, Inc.  4.1       Release for ISE 8.1i
+7/13/2006  Xilinx, Inc   4.2
+9/21/2006  Xilinx, Inc   4.3       Updated hierarchy.
+3/1/2007   Xilinx, Inc   4.4       Release for ISE 9.1i
+8/1/2007   Xilinx, Inc   4.5       Release for ISE 9.2i
+=================================================================
+
+CONTENTS:
+Introduction
+
+Release Notes
+
+   1. System Requirements
+   2. What's new
+   3. Bugs Fixed
+   4. Known issues
+
+Technical Support
+
+=================================================================
+
+
+INTRODUCTION
+============
+
+Thank you for choosing the Virtex-4 Embedded MAC from Xilinx!
+The Xilinx Virtex-4 Embedded MAC is a fully verified, pre-
+implemented core.  To obtain the latest Virtex-4 Embedded MAC
+wrapper updates and documentation, please visit the Virtex-4
+Embedded MAC information page:
+
+Please refer to the Getting Started Guide for more information
+on how to set up and use the Virtex-4 Embedded MAC wrapper and
+example design.
+
+This document contains the release notes for Virtex-4 Embedded
+MAC wrapper Version 4.5 which includes enhancements, resolved
+issues and outstanding known issues.
+
+
+RELEASE NOTES
+=============
+
+This section lists the system requirements, new features and bug fixes,
+as well as known issues associated with this release.
+
+1. System Requirements
+
+   This release of the Virtex-4 Embedded MAC Wrapper is an update
+   to be compatible with ISE 9.2i.  It is fully tested on the new
+   software version.  Please see the release notes for the 9.2i IP
+   Update for full Platform Support and System Requirements.
+
+2. What's new
+
+   The IDELAY component is used in GMII and RGMII PHY standards 
+   to meet setup and hold timing.  This delay element is now on 
+   both the clock as well as the data pins.  This allows the 
+   customer to delay either the clock or the   data to meet setup
+   and hold timing.  In the example design, the clock has been 
+   delayed to prevent added jitter that comes about from delaying
+   the data pins (see XAPP707).  The constraints for setup and hold
+   timing have been updated to ensure compliance with the appropriate 
+   specifications.  Please see the Getting Started Guide for more 
+   information on these constraints.
+
+3. Bugs fixed
+
+   The IDELAY was added to the clock, and the data is no longer delayed
+   to ensure no extra jitter is added to the input path.
+
+4. Known Issues
+
+   For a list of the current known issues with the Virtex-4
+   Embedded MAC Wrapper v4.5, please refer to Answer Record 25222:
+
+   http://support.xilinx.com/xlnx/xil_ans_display.jsp?iLanguageID=1&iCountryID=1&getPagePath=25222
+
+
+TECHNICAL SUPPORT
+=================
+The fastest method for obtaining specific technical support
+for the Virtex-4 Embedded MAC is through the
+http://www.xilinx.com/support website. Questions are routed
+to a team of engineers with specific expertise in using
+the Virtex-4 Embedded MAC Wrapper. Xilinx will provide
+technical support for use of this product as described in
+the Virtex-4 Embedded MAC User Guide and the Virtex-4
+Embedded MAC Getting Started User Guide. Xilinx cannot
+guarantee timing, functionality, or support of this product
+for designs that do not follow these guidelines.
+
+
+Copyright (c) 2004-2006 by Xilinx, Inc. All rights reserved.
+This text/file contains proprietary, confidential
+information of Xilinx, Inc., is distributed under license
+from Xilinx, Inc., and may be used, copied and/or
+disclosed only pursuant to the terms of a valid license
+agreement with Xilinx, Inc. Xilinx hereby grants you
+a license to use this text/file solely for design, simulation,
+implementation and creation of design files limited
+to Xilinx devices or technologies. Use with non-Xilinx
+devices or technologies is expressly prohibited and
+immediately terminates your license unless covered by
+a separate agreement.
+
+Xilinx is providing this design, code, or information
+"as is" solely for use in developing programs and
+solutions for Xilinx devices. By providing this design,
+code, or information as one possible implementation of
+this feature, application or standard, Xilinx is making no
+representation that this implementation is free from any
+claims of infringement. You are responsible for
+obtaining any rights you may require for your implementation.
+Xilinx expressly disclaims any warranty whatsoever with
+respect to the adequacy of the implementation, including
+but not limited to any warranties or representations that this
+implementation is free from claims of infringement, implied
+warranties of merchantability or fitness for a particular
+purpose.
+
+Xilinx products are not intended for use in life support
+appliances, devices, or systems. Use in such applications are
+expressly prohibited.
+
+This copyright and support notice must be retained as part
+of this text at all times. (c) Copyright 2004-2006 Xilinx, Inc.
+All rights reserved.

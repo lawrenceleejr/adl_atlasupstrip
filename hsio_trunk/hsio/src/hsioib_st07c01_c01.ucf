@@ -1,0 +1,16 @@
+##############################################################
+#######  Stave07 (old/original) Interface Board stuff  #######
+#############     F O R    H S I O     C 0 1    ##############
+##############################################################
+
+
+NET "ibpp_lone_mo" LOC = "AG11" |IOSTANDARD = LVDS_25 |SLEW = FAST; # LVDS_25;   # J26.F3     J26_LVDS_10_M  LONEB (J32.10/J33.6) LONE_INB (J26.F3)
+NET "ibpp_lone_po" LOC = "AF11" |IOSTANDARD = LVDS_25 |SLEW = FAST; #LVDS_25;   # J26.E3     J26_LVDS_10_P  LONE (J32.9/J33.5) LONE_IN (J26.E3)
+
+NET "ibfi_tx_dis_o(0)" 		  LOC = "AF3" ;   # J25.E4     GPIO_12  IB09 Net: CE1_FO_TX_DIS0 (TX_DISABLE)
+NET "ibfi_moddef1_o(0)" 	  LOC = "AA8" ;   # J25.A5     GPIO_16  IB09 Net: CD_FO_SCLK0 (SCL)
+NET "ibfi_moddef2_io(0)" 	  LOC = "AC4" ;   # J25.B5     GPIO_17  IB09 Net: CD_FO_SDAT0 (SDA)
+NET "ibfi_tx_dis_o(1)" 		  LOC = "W9" ;   # J25.F4     GPIO_13  IB09 Net: CE1_FO_TX_DIS1 (TX_DISABLE)
+NET "ibfi_moddef1_o(1)" 	  LOC = "AC3" ;   # J25.C5     GPIO_18  IB09 Net: CD_FO_SCLK1 (SCL)
+NET "ibfi_moddef2_io(1)" 	  LOC = "AF6" ;   # J25.D5     GPIO_19  IB09 Net: CD_FO_SDAT1 (SDA)
+

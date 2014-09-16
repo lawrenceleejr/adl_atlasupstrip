@@ -1,0 +1,135 @@
+############################################
+########### H S I O    C 0 0 ###############
+###########  specific stuff  ###############
+############################################
+
+CONFIG PART = 4vfx60ff1152-11;
+CONFIG STEPPING = "0"; # According to datasheet (ds302) version 2 = stepping 0
+
+# for network i/fs and ibpp and some idob
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/dlyctrl_0" LOC = IDELAYCTRL_X0Y7;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/dlyctrl_clk_0" LOC = IDELAYCTRL_X0Y6;
+
+# for idob
+INST "Uclockstop/Uidob_idelayctrl0" LOC = IDELAYCTRL_X0Y4;
+INST "Uclockstop/Uidob_idelayctrl1" LOC = IDELAYCTRL_X0Y5;
+
+TIMESPEC TS_CLK_MGT_125MHz = PERIOD "CLK_MGT_125MHz" 125 MHz HIGH 50 %;
+NET "clk_mgt0a_pi" TNM_NET = "CLK_MGT_125MHz";
+NET "clk_mgt1a_pi" TNM_NET = "CLK_MGT_125MHz";
+
+TIMESPEC TS_CLK_MGT_156MHz = PERIOD "CLK_MGT_156MHz" 156.25 MHz HIGH 50 %;
+NET "clk_mgt0b_pi" TNM_NET = "CLK_MGT_156MHz";
+NET "clk_mgt1b_pi" TNM_NET = "CLK_MGT_156MHz";
+
+#      FPGA_STATUS  
+NET "led_status_o" LOC = K14;
+
+# Pin 7     BANK10_IO3_P  
+NET "Umain/idc_p2_io[6]" LOC = T6;
+# Pin 8     BANK10_IO3_M  
+NET "Umain/idc_p2_io[7]" LOC = R6;
+# Pin 27     BANK10_IO11_P  
+NET "Umain/idc_p2_io[22]" LOC = J5;
+# Pin 28     BANK10_IO11_M  
+NET "Umain/idc_p2_io[23]" LOC = J4;
+# Pin 35     BANK10_IO14_P  
+NET "Umain/idc_p2_io[28]" LOC = F4;
+# Pin 36     BANK10_IO14_M  
+NET "Umain/idc_p2_io[29]" LOC = F3;
+# Pin 37     BANK10_IO15_P  
+NET "Umain/idc_p2_io[30]" LOC = F5;
+# Pin 38     BANK10_IO15_M  
+NET "Umain/idc_p2_io[31]" LOC = G5;
+
+# Pin 5     BANK10_IO18_P  
+NET "Umain/idc_p3_io[4]" LOC = J6;
+# Pin 6     BANK10_IO18_M  
+NET "Umain/idc_p3_io[5]" LOC = K6;
+# Pin 37     BANK10_IO31_P  
+NET "Umain/idc_p3_io[30]" LOC = U8;
+# Pin 38     BANK10_IO31_M  
+NET "Umain/idc_p3_io[31]" LOC = T8;
+
+# Pin 1     BANK11_IO0_P  
+NET "idc_p4_io[0]" LOC = AG32;
+# NET "idc_p4_io(1)" LOC = "AH32" ;   # Pin 2     BANK11_IO0_M  
+# Pin 11     BANK11_IO4_P  
+NET "idc_p4_io[8]" LOC = W27;
+# NET "idc_p4_io(9)" LOC = "V27" ;   # Pin 12     BANK11_IO4_M  
+# Pin 35     BANK11_IO14_P  
+NET "idc_p4_io[28]" LOC = AD32;
+# NET "idc_p4_io(29)" LOC = "AD31" ;   # Pin 36     BANK11_IO14_M  
+# Pin 37     BANK11_IO15_P  
+NET "idc_p4_io[30]" LOC = AD30;
+# NET "idc_p4_io(31)" LOC = "AD29" ;   # Pin 38     BANK11_IO15_M  
+
+
+# Pin 11     BANK11_IO20_P  
+NET "idc_p5_io[8]" LOC = W31;
+# NET "idc_p5_io(9)" LOC = "W30" ;   # Pin 12     BANK11_IO20_M  
+# Pin 27     BANK11_IO27_P  
+NET "idc_p5_io[22]" LOC = AE32;
+# NET "idc_p5_io(23)" LOC = "AE31" ;   # Pin 28     BANK11_IO27_M  
+# Pin 35     BANK11_IO30_P  
+NET "idc_p5_io[28]" LOC = AH30;
+# NET "idc_p5_io(29)" LOC = "AJ30" ;   # Pin 36     BANK11_IO30_M  
+# Pin 37     BANK11_IO31_P  
+NET "idc_p5_io[30]" LOC = AJ32;
+# NET "idc_p5_io(31)" LOC = "AJ31" ;   # Pin 38     BANK11_IO31_M  
+
+
+# This may be same as the MAC clock input     ETH_GTX_CLK
+NET "eth_gtxclk_txc_o" IOSTANDARD = LVCMOS25;
+NET "eth_gtxclk_txc_o" LOC = G25;
+# Marvell infosheet: from Management I/f (MD) active low     ~ETH_INT
+NET "eth_int_ni" IOSTANDARD = LVCMOS25;
+NET "eth_int_ni" LOC = D26;
+#      ETH_RX_CLK
+NET "eth_rx_clk_rxc_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/GMII_RX_CLK_0" LOC = F20;
+#      ETH_TX_CLK
+NET "eth_tx_clk_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/MII_TX_CLK_0" LOC = G20;
+#      ETH_TX_EN
+NET "eth_tx_en_ctl_o" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TX_EN" LOC = F26;
+#      ETH_TXD_0
+NET "eth_txd_o[0]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[0]" LOC = F25;
+#      ETH_TXD_1
+NET "eth_txd_o[1]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[1]" LOC = D22;
+#      ETH_TXD_2
+NET "eth_txd_o[2]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[2]" LOC = E22;
+#      ETH_TXD_3
+NET "eth_txd_o[3]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[3]" LOC = D25;
+#      ETH_TXD_4
+NET "eth_txd_o[4]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[4]" LOC = C25;
+#      ETH_TXD_5
+NET "eth_txd_o[5]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[5]" LOC = J22;
+#      ETH_TXD_6
+NET "eth_txd_o[6]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[6]" LOC = K22;
+#      ETH_TXD_7
+NET "eth_txd_o[7]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TXD[7]" LOC = G26;
+
+
+# ***ISE says:
+# clock IOB clock component is not placed at an optimal clock IOB site. The clock IOB component
+# <eth_rx_clk_rxc_i> is placed at site <F20>. The clock IO site can use the fast path between the IO and the Clock
+# buffer/GCLK if the IOB is placed in the master Clock IOB Site. If this sub optimal condition is acceptable for this
+# design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .ucf file to demote this message to a WARNING and
+# allow your design to continue. However, the use of this override is highly discouraged as it may lead to very poor
+# timing results. It is recommended that this error condition be corrected in the design. A list of all the COMP.PINs
+# used in this clock placement rule is listed below. These examples can be used directly in the .ucf file to override
+# this clock rule.
+# < NET "eth_rx_clk_rxc_i" CLOCK_DEDICATED_ROUTE = FALSE; >
+NET "eth_rx_clk_rxc_i" CLOCK_DEDICATED_ROUTE = FALSE;
+NET "eth_tx_clk_i" CLOCK_DEDICATED_ROUTE = FALSE;
+

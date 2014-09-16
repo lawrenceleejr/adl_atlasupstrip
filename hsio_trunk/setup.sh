@@ -1,0 +1,1 @@
+source /afs/cern.ch/project/parc/xilinx146/14.6/ISE_DS/settings64.sh

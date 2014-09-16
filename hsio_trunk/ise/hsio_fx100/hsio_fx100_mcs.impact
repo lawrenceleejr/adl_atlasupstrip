@@ -1,0 +1,8 @@
+setMode -bs
+setCable -port auto
+identify
+assignFile -p 1 -file hsio_top_fx100.mcs
+Program -p 1 -e -v -loadfpga
+quit
+
+

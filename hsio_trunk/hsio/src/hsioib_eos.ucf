@@ -1,0 +1,234 @@
+####################################################
+############   I B    E O S    C 0 1   #############
+############      for HSIO C01/2       #############
+####################################################
+
+TIMESPEC "TS_CLK_IBE_200MHz" = PERIOD "CLK_IBE_200MHz" 200 MHz HIGH 50 %;
+NET "ibe_osc0_pi"        TNM_NET = "CLK_IBE_200MHz";
+
+NET ibe_osc0_pi LOC=K16; # GC_IO_0_P, Z3:J25/P11,A10
+NET ibe_osc0_mi LOC=L16; # GC_IO_0_M, Z3:J25/P11,B10
+
+#below osc1 pins appropriated by pll further below
+#NET ibe_osc1_pi LOC=K18; # GC_IO_1_P, Z3:J25/P11,C10
+#NET ibe_osc1_mi LOC=K17; # GC_IO_1_M, Z3:J25/P11,D10
+
+
+# Original $%@&£ed-up PCB
+#NET ibe_pll_scl_io LOC=; # VRTN_Z3 !!!, Z3:J25/P11,E9
+#NET ibe_pll_sda_io LOC=; # VRTN_Z3 !!!, Z3:J25/P11,F9
+#NET ibe_pll_ad1 LOC=; # N/C !!!, Z3:J25/P11,G9
+#NET ibe_pll_ad2 LOC=; # N/C !!!, Z3:J25/P11,H9
+
+# Bodge using wires soldered direct: CANCELLED - we have Clocky now
+# AD1(ADDR0), AD2(ADDR1): 
+#  popped and hardwired GND and VDD respectively
+# SCL, SDA wired from pin to Z3 connector
+#NET ibe_pll_scl_io LOC=AA8; # GPIO_16, Z3:J25/P11,A5
+#NET ibe_pll_sda_io LOC=AL6; # GPIO_32, Z3:J25/P11,A7
+#NET ibe_pll_clk_pi LOC=K19;  # GC_IO_3_P, Z3:J25/P11,G10
+#NET ibe_pll_clk_mi LOC=J19; # GC_IO_3_M, Z3:J25/P11,H10
+
+
+
+#### TOP ##############################################
+
+NET ibe_l1rt_po LOC=AM13 | IOSTANDARD=LVDS_25; #*** bcot # J26_LVDS_0_P, Z3:J26,A1
+NET ibe_l1rt_mo LOC=AM12 | IOSTANDARD=LVDS_25; #*** bcot # J26_LVDS_0_M, Z3:J26,B1
+NET ibe_cmdt_po LOC=AM8 | IOSTANDARD=LVDS_25; # J26_LVDS_1_P, Z3:J26,C1
+NET ibe_cmdt_mo LOC=AM7 | IOSTANDARD=LVDS_25; # J26_LVDS_1_M, Z3:J26,D1
+NET ibe_bcot_po LOC=AK14 | IOSTANDARD=LVDS_25; #*** l1rt # J26_LVDS_2_P, Z3:J26,E1
+NET ibe_bcot_mo LOC=AL14 | IOSTANDARD=LVDS_25; #*** l1rt # J26_LVDS_2_M, Z3:J26,F1
+
+NET ibe_dot_pi(0) LOC=AK13; # J26_LVDS_3_P, Z3:J26,G1
+NET ibe_dot_mi(0) LOC=AL13; # J26_LVDS_3_M, Z3:J26,H1
+NET ibe_dot_pi(1) LOC=AL11; # J26_LVDS_4_P, Z3:J26,A2
+NET ibe_dot_mi(1) LOC=AM11; # J26_LVDS_4_M, Z3:J26,B2
+NET ibe_dot_pi(2) LOC=AL9; # J26_LVDS_5_P, Z3:J26,C2
+NET ibe_dot_mi(2) LOC=AK9; # J26_LVDS_5_M, Z3:J26,D2
+NET ibe_dot_pi(3) LOC=AL10; # J26_LVDS_6_P, Z3:J26,E2
+NET ibe_dot_mi(3) LOC=AM10; # J26_LVDS_6_M, Z3:J26,F2
+NET ibe_dot_pi(4) LOC=AF9; #***LOC=AL8; # J26_LVDS_7_P, Z3:J26,G2
+NET ibe_dot_mi(4) LOC=AE9; #***LOC=AK8; # J26_LVDS_7_M, Z3:J26,H2
+NET ibe_dot_pi(5) LOC=AK7; # J26_LVDS_8_P, Z3:J26,A3
+NET ibe_dot_mi(5) LOC=AJ7; # J26_LVDS_8_M, Z3:J26,B3
+NET ibe_dot_pi(6) LOC=AJ9; # J26_LVDS_9_P, Z3:J26,C3
+NET ibe_dot_mi(6) LOC=AH9; # J26_LVDS_9_M, Z3:J26,D3
+NET ibe_dot_pi(7) LOC=AF11; #***LOC=AJ11; # J26_LVDS_10_P, Z3:J26,E3
+NET ibe_dot_mi(7) LOC=AG11; #***LOC=AK11; # J26_LVDS_10_M, Z3:J26,F3
+NET ibe_dot_pi(8) LOC=AH8; # J26_LVDS_11_P, Z3:J26,G3
+NET ibe_dot_mi(8) LOC=AH7; # J26_LVDS_11_M, Z3:J26,H3
+NET ibe_dot_pi(9) LOC=AJ12; # J26_LVDS_12_P, Z3:J26,A4
+NET ibe_dot_mi(9) LOC=AK12; # J26_LVDS_12_M, Z3:J26,B4
+NET ibe_dot_pi(10) LOC=AH10; # J26_LVDS_13_P, Z3:J26,C4
+NET ibe_dot_mi(10) LOC=AJ10; # J26_LVDS_13_M, Z3:J26,D4
+NET ibe_dot_pi(11) LOC=AH14; # J26_LVDS_14_P, Z3:J26,E4
+NET ibe_dot_mi(11) LOC=AJ14; # J26_LVDS_14_M, Z3:J26,F4
+NET ibe_dot_pi(12) LOC=AF10; # J26_LVDS_15_P, Z3:J26,G4
+NET ibe_dot_mi(12) LOC=AG10; # J26_LVDS_15_M, Z3:J26,H4
+NET ibe_dot_pi(13) LOC=AD12; # J26_LVDS_16_P, Z3:J26,A5
+NET ibe_dot_mi(13) LOC=AE12; # J26_LVDS_16_M, Z3:J26,B5
+NET ibe_dot_pi(14) LOC=AG12; # J26_LVDS_17_P, Z3:J26,C5
+NET ibe_dot_mi(14) LOC=AH12; # J26_LVDS_17_M, Z3:J26,D5
+NET ibe_dot_pi(15) LOC=AL8; #***AF9; # J26_LVDS_18_P, Z3:J26,E5
+NET ibe_dot_mi(15) LOC=AK8; #***AE9; # J26_LVDS_18_M, Z3:J26,F5
+NET ibe_dot_pi(16) LOC=AJ11; #***AF11; # J26_LVDS_19_P, Z3:J26,G5
+NET ibe_dot_mi(16) LOC=AK11; #***AG11; # J26_LVDS_19_M, Z3:J26,H5
+NET ibe_dot_pi(17) LOC=AC12; # J26_LVDS_20_P, Z3:J26,A6
+NET ibe_dot_mi(17) LOC=AB12; # J26_LVDS_20_M, Z3:J26,B6
+NET ibe_dot_pi(18) LOC=AG13; # J26_LVDS_21_P, Z3:J26,C6
+NET ibe_dot_mi(18) LOC=AH13; # J26_LVDS_21_M, Z3:J26,D6
+NET ibe_dot_pi(19) LOC=AD11; # J26_LVDS_22_P, Z3:J26,E6
+NET ibe_dot_mi(19) LOC=AE11; # J26_LVDS_22_M, Z3:J26,F6
+NET ibe_dot_pi(20) LOC=AD10; # J26_LVDS_23_P, Z3:J26,G6
+NET ibe_dot_mi(20) LOC=AD9; # J26_LVDS_23_M, Z3:J26,H6
+NET ibe_dot_pi(21) LOC=AE14; # J26_LVDS_24_P, Z3:J26,A7
+NET ibe_dot_mi(21) LOC=AF14; # J26_LVDS_24_M, Z3:J26,B7
+NET ibe_dot_pi(22) LOC=AB11; # J26_LVDS_25_P, Z3:J26,C7
+NET ibe_dot_mi(22) LOC=AA11; # J26_LVDS_25_M, Z3:J26,D7
+NET ibe_dot_pi(23) LOC=AD14; # J26_LVDS_26_P, Z3:J26,E7
+NET ibe_dot_mi(23) LOC=AC13; # J26_LVDS_26_M, Z3:J26,F7
+
+NET ibe_noiset_po LOC=e23; # J26_LVDS_39_P, Z3:J26/P10,G10
+NET ibe_noiset_mo LOC=f23; # J26_LVDS_39_N, Z3:J26/P10,H10
+
+#NET ibe_spita_do_pi LOC=AE13; # J26_LVDS_30_P, Z3:J26,E8
+#NET ibe_spita_do_mi LOC=AF13; # J26_LVDS_30_M, Z3:J26,F8
+NET ibe_spita_clk_po LOC=AJ16; # J26_LVDS_31_P, Z3:J26,G8
+NET ibe_spita_clk_mo LOC=AK16; # J26_LVDS_31_M, Z3:J26,H8
+NET ibe_spita_com_po LOC=H24; # J26_LVDS_32_P, Z3:J26,A9
+NET ibe_spita_com_mo LOC=J24; # J26_LVDS_32_M, Z3:J26,B9
+
+NET ibemon_sclt_o(0) LOC=AF6 | DRIVE=2 | PULLUP; #***AK23; # GPIO_19, Z3:J25,D5
+NET ibemon_sclt_o(1) LOC=AD4 | DRIVE=2 | PULLUP; #***AM30; # GPIO_22, Z3:J25,G5
+NET ibemon_sclt_o(2) LOC=AM3 | DRIVE=2 | PULLUP; #***AK21; # GPIO_25, Z3:J25,B6
+NET ibemon_sdat_io(0) LOC=AE6 | DRIVE=2 | PULLUP; #***AJ27; # GPIO_20, Z3:J25,E5
+NET ibemon_sdat_io(1) LOC=AK6 | DRIVE=2 | PULLUP; #***AL29; # GPIO_23, Z3:J25,H5
+NET ibemon_sdat_io(2) LOC=AL3 | DRIVE=2 | PULLUP; #***AE22; # GPIO_26, Z3:J25,C6
+NET ibemon_convstt_no(0) LOC=AC3; #***AK24; # GPIO_18, Z3:J25,C5
+NET ibemon_convstt_no(1) LOC=AD5; #***AL26; # GPIO_21, Z3:J25,F5
+NET ibemon_convstt_no(2) LOC=AJ6; #***AJ25; # GPIO_24, Z3:J25,A6
+
+
+NET ibewire_sclt_o  LOC=ad6; # GPIO_30,  Z3:J25,G6
+NET ibewire_sdat_io  LOC=am6; # GPIO_31,  Z3:J25,H6
+
+
+#### BOTTOM ##############################################
+
+NET ibe_l1r_po LOC=K26; # *** bco_p J27_LVDS_0_P, Z3:J27,A1
+NET ibe_l1r_mo LOC=J26; # *** bco_m J27_LVDS_0_M, Z3:J27,B1
+NET ibe_cmd_po LOC=D21; # J27_LVDS_1_P, Z3:J27,C1
+NET ibe_cmd_mo LOC=E21; # J27_LVDS_1_M, Z3:J27,D1
+NET ibe_bco_po LOC=P22; # *** l1r_p J27_LVDS_2_P, Z3:J27,E1
+NET ibe_bco_mo LOC=N22; # *** l1r_m J27_LVDS_2_M, Z3:J27,F1
+
+NET ibe_do_pi(0) LOC=E19; # J27_LVDS_3_P, Z3:J27,G1
+NET ibe_do_mi(0) LOC=F19; # J27_LVDS_3_M, Z3:J27,H1
+NET ibe_do_pi(1) LOC=L21; # J27_LVDS_4_P, Z3:J27,A2
+NET ibe_do_mi(1) LOC=M22; # J27_LVDS_4_M, Z3:J27,B2
+NET ibe_do_pi(2) LOC=L26; # J27_LVDS_5_P, Z3:J27,C2
+NET ibe_do_mi(2) LOC=L25; # J27_LVDS_5_M, Z3:J27,D2
+NET ibe_do_pi(3) LOC=P24; # J27_LVDS_6_P, Z3:J27,E2
+NET ibe_do_mi(3) LOC=N24; # J27_LVDS_6_M, Z3:J27,F2
+NET ibe_do_pi(4) LOC=K24; # J27_LVDS_7_P, Z3:J27,G2
+NET ibe_do_mi(4) LOC=L24; # J27_LVDS_7_M, Z3:J27,H2
+NET ibe_do_pi(5) LOC=D30; # J27_LVDS_8_P, Z3:J27,A3
+NET ibe_do_mi(5) LOC=C30; # J27_LVDS_8_M, Z3:J27,B3
+NET ibe_do_pi(6) LOC=D29; # J27_LVDS_9_P, Z3:J27,C3
+NET ibe_do_mi(6) LOC=C29; # J27_LVDS_9_M, Z3:J27,D3
+NET ibe_do_pi(7) LOC=P27; # J27_LVDS_10_P, Z3:J27,E3
+NET ibe_do_mi(7) LOC=P26; # J27_LVDS_10_M, Z3:J27,F3
+NET ibe_do_pi(8) LOC=M26; # J27_LVDS_11_P, Z3:J27,G3
+NET ibe_do_mi(8) LOC=M25; # J27_LVDS_11_M, Z3:J27,H3
+NET ibe_do_pi(9) LOC=D32; # J27_LVDS_12_P, Z3:J27,A4
+NET ibe_do_mi(9) LOC=C32; # J27_LVDS_12_M, Z3:J27,B4
+NET ibe_do_pi(10) LOC=E31; # J27_LVDS_13_P, Z3:J27,C4
+NET ibe_do_mi(10) LOC=D31; # J27_LVDS_13_M, Z3:J27,D4
+NET ibe_do_pi(11) LOC=F29; # J27_LVDS_14_P, Z3:J27,E4
+NET ibe_do_mi(11) LOC=E29; # J27_LVDS_14_M, Z3:J27,F4
+NET ibe_do_pi(12) LOC=H28; # J27_LVDS_15_P, Z3:J27,G4
+NET ibe_do_mi(12) LOC=H27; # J27_LVDS_15_M, Z3:J27,H4
+NET ibe_do_pi(13) LOC=G30; # J27_LVDS_16_P, Z3:J27,A5
+NET ibe_do_mi(13) LOC=F30; # J27_LVDS_16_M, Z3:J27,B5
+NET ibe_do_pi(14) LOC=H30; # J27_LVDS_17_P, Z3:J27,C5
+NET ibe_do_mi(14) LOC=H29; # J27_LVDS_17_M, Z3:J27,D5
+NET ibe_do_pi(15) LOC=J31; # J27_LVDS_18_P, Z3:J27,E5
+NET ibe_do_mi(15) LOC=J30; # J27_LVDS_18_M, Z3:J27,F5
+NET ibe_do_pi(16) LOC=K28; # J27_LVDS_19_P, Z3:J27,G5
+NET ibe_do_mi(16) LOC=J27; # J27_LVDS_19_M, Z3:J27,H5
+NET ibe_do_pi(17) LOC=K29; # J27_LVDS_20_P, Z3:J27,A6
+NET ibe_do_mi(17) LOC=J29; # J27_LVDS_20_M, Z3:J27,B6
+NET ibe_do_pi(18) LOC=J32; # J27_LVDS_21_P, Z3:J27,C6
+NET ibe_do_mi(18) LOC=H32; # J27_LVDS_21_M, Z3:J27,D6
+NET ibe_do_pi(19) LOC=G32; # J27_LVDS_22_P, Z3:J27,E6
+NET ibe_do_mi(19) LOC=G31; # J27_LVDS_22_M, Z3:J27,F6
+NET ibe_do_pi(20) LOC=E32; # J27_LVDS_23_P, Z3:J27,G6
+NET ibe_do_mi(20) LOC=F31; # J27_LVDS_23_M, Z3:J27,H6
+NET ibe_do_pi(21) LOC=M32; # J27_LVDS_24_P, Z3:J27,A7
+NET ibe_do_mi(21) LOC=M31; # J27_LVDS_24_M, Z3:J27,B7
+NET ibe_do_pi(22) LOC=L31; # J27_LVDS_25_P, Z3:J27,C7
+NET ibe_do_mi(22) LOC=L30; # J27_LVDS_25_M, Z3:J27,D7
+NET ibe_do_pi(23) LOC=N27; # J27_LVDS_26_P, Z3:J27,E7
+NET ibe_do_mi(23) LOC=M28; # J27_LVDS_26_M, Z3:J27,F7
+
+NET ibe_noise_po LOC=E24; # J26_LVDS_34_P, Z3:J26/P10,E9
+NET ibe_noise_mo LOC=F24; # J26_LVDS_34_N, Z3:J26/P10,F9
+
+#NET ibe_spia_do_pi LOC=AB13; # J26_LVDS_27_P, Z3:J26,G7
+#NET ibe_spia_do_mi LOC=AA13; # J26_LVDS_27_M, Z3:J26,H7
+#NET ibe_spia_clk_po LOC=AH15; # J26_LVDS_28_P, Z3:J26,A8
+#NET ibe_spia_clk_mo LOC=AJ15; # J26_LVDS_28_M, Z3:J26,B8
+#NET ibe_spia_com_po LOC=AF15; # J26_LVDS_29_P, Z3:J26,C8
+#NET ibe_spia_com_mo LOC=AG15; # J26_LVDS_29_M, Z3:J26,D8
+
+NET ibemon_scl_o(0) LOC=AA6; #***AK29; # GPIO_9, Z3:J25,B4
+NET ibemon_scl_o(1) LOC=AJ29; #***AG27; # GPIO_6, Z3:J25,G3
+NET ibemon_scl_o(2) LOC=AA9; #***AF28; # GPIO_15, Z3:J25,H4
+NET ibemon_sda_io(0) LOC=Y6 | PULLUP; #***AK28; # GPIO_10, Z3:J25,C4
+NET ibemon_sda_io(1) LOC=W9 | PULLUP; #***AE23; # GPIO_13, Z3:J25,F4
+NET ibemon_sda_io(2) LOC=AK29 | PULLUP; #***AF26; # GPIO_7, Z3:J25,H3
+NET ibemon_convst_no(0) LOC=AB6; #***AJ29; # GPIO_8, Z3:J25,A4
+NET ibemon_convst_no(1) LOC=AG3; #***AK27; # GPIO_11, Z3:J25,D4
+NET ibemon_convst_no(2) LOC=Y9; #***AF23; # GPIO_14, Z3:J25,G4
+
+
+NET ibewire_scl_o   LOC=ag7; # GPIO_28,  Z3:J25,E6
+NET ibewire_sda_io   LOC=ad7; # GPIO_29,  Z3:J25,F6
+
+
+### IDCs (J37/38) #######################################
+
+NET ibepp0_com_po LOC=N30; # J27_LVDS_29_P, Z3: J27 C8
+NET ibepp0_com_mo LOC=M30; # J27_LVDS_29_M, Z3: J27 D8
+NET ibepp0_clk_po LOC=P31; # J27_LVDS_30_P, Z3: J27 E8
+NET ibepp0_clk_mo LOC=P30; # J27_LVDS_30_M, Z3: J27 F8
+NET ibepp0_lone_po LOC=N29; # J27_LVDS_31_P, Z3: J27 G8
+NET ibepp0_lone_mo LOC=N28; # J27_LVDS_31_M, Z3: J27 H8
+NET ibepp0_bc_po LOC=R32; # J27_LVDS_32_P, Z3: J27 A9 
+NET ibepp0_bc_mo LOC=R31; # J27_LVDS_32_M, Z3: J27 B9 
+NET ibepp0_hrst_po LOC=L29; # J27_LVDS_33_P, Z3: J27 C9
+NET ibepp0_hrst_mo LOC=L28; # J27_LVDS_33_M, Z3: J27 D9
+NET ibepp0_data0_pi LOC=J25; # J26_LVDS_35_P, Z3: J26 G9
+NET ibepp0_data0_mi LOC=H25; # J26_LVDS_35_M, Z3: J26 H9
+NET ibepp0_data1_pi LOC=C24; # J26_LVDS_36_P, Z3: J26 A10 
+NET ibepp0_data1_mi LOC=D24; # J26_LVDS_36_M, Z3: J26 B10 
+
+NET ibepp1_com_po LOC=R29; # J27_LVDS_35_P, Z3: J27 G9
+NET ibepp1_com_mo LOC=P29; # J27_LVDS_35_M, Z3: J27 H9
+NET ibepp1_clk_po LOC=T29; # J27_LVDS_36_P, Z3: J27 A10
+NET ibepp1_clk_mo LOC=T28; # J27_LVDS_36_M, Z3: J27 B10
+NET ibepp1_lone_po LOC=T31; # J27_LVDS_37_P, Z3: J27 C10
+NET ibepp1_lone_mo LOC=T30; # J27_LVDS_37_M, Z3: J27 D10
+NET ibepp1_bc_po LOC=U28; # J27_LVDS_38_P, Z3: J27 E10
+NET ibepp1_bc_mo LOC=U27; # J27_LVDS_38_M, Z3: J27 F10
+NET ibepp1_hrst_po LOC=T26; # J27_LVDS_39_P, Z3: J27 G10
+NET ibepp1_hrst_mo LOC=R26; # J27_LVDS_39_M, Z3: J27 H10
+NET ibepp1_data0_pi LOC=C23; # J26_LVDS_37_P, Z3: J26 C10
+NET ibepp1_data0_mi LOC=C22; # J26_LVDS_37_M, Z3: J26 D10
+NET ibepp1_data1_pi LOC=G23; # J26_LVDS_38_P, Z3: J26 E10
+NET ibepp1_data1_mi LOC=H23; # J26_LVDS_38_M, Z3: J26 F10
+
+
+
+

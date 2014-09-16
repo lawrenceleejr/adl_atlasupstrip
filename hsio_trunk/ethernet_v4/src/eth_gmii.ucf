@@ -1,0 +1,101 @@
+### Below is from the .ucf supplied with the core.
+#####################################################
+
+#***NET "*refclk_bufg_i"            TNM_NET  = "clk_ref_clk";
+#***TIMESPEC "TS_ref_clk"                = PERIOD "clk_ref_clk" 5000 ps HIGH 50 %;
+
+#***NET "*gtx_clk_ibufg_0_i"         TNM_NET = "clk_gtx_clk";
+#***TIMESPEC "TS_gtx_clk"                = PERIOD "clk_gtx_clk" 7200 ps HIGH 50 %;
+
+NET "*tx_gmii_mii_clk_in_0_i" TNM_NET = "clk_phy_tx_clk0";
+#***TIMESPEC "TS_phy_tx_clk0"            = PERIOD "clk_phy_tx_clk0" 7400 ps HIGH 50 %;
+TIMESPEC TS_phy_tx_clk0 = PERIOD "clk_phy_tx_clk0" 8000 ps HIGH 50 %;
+
+NET "*gmii_rx_clk_0_i" TNM_NET = "clk_phy_rx_clk0";
+#***TIMESPEC "TS_phy_rx_clk0"             = PERIOD "clk_phy_rx_clk0" 7200 ps HIGH 50 %;
+TIMESPEC TS_phy_rx_clk0 = PERIOD "clk_phy_rx_clk0" 8000 ps HIGH 50 %;
+
+#***NET "*host_clk_i"                TNM_NET = "host_clock";
+#***TIMEGRP "clk_host"                      = "host_clock";
+#***TIMESPEC "TS_clk_host"                  = PERIOD "clk_host" 10000 ps HIGH 50 %;
+
+# Locate EMAC instance for timing closure
+# not here - impl specific
+# *** INST "*v4_emac"  LOC = "EMAC_X0Y1";
+
+#################### EMAC 0 GMII Constraints ########################
+# Place flip flops in IOBs
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_0" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_1" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_2" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_3" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_4" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_5" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_6" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RXD_TO_MAC_7" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RX_DV_TO_MAC" IOB =TRUE;
+INST "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/RX_ER_TO_MAC" IOB =TRUE;
+
+#***INST "*gmii_rx_clk_0_bufg" LOC = "BUFGCTRL_X0Y31";
+
+# IDELAYCTRL location - must be same clock region as receiver IOs
+# See Virtex 4 Users Guide for more information
+#***INST "*dlyctrl_0"        LOC = "IDELAYCTRL_X0Y6";
+#***INST "*dlyctrl_clk_0"    LOC = "IDELAYCTRL_X1Y5";
+
+#*** below moved to hsio_c02_fx60/100 files
+#INST "*dlyctrl_0"        LOC = "IDELAYCTRL_X0Y7";
+#INST "*dlyctrl_clk_0"    LOC = "IDELAYCTRL_X0Y6";
+
+
+# IDELAY on data path to align it with the clock
+#Matt Weaver says no:
+#INST "*gmii_rxd?_delay"     IOBDELAY_TYPE = FIXED;
+#INST "*gmii_rx_dv_delay"    IOBDELAY_TYPE = FIXED;
+#INST "*gmii_rx_er_delay"    IOBDELAY_TYPE = FIXED;
+#INST "*gmii_rxd?_delay"     IOBDELAY_VALUE = 0;
+#INST "*gmii_rx_dv_delay"    IOBDELAY_VALUE = 0;
+#INST "*gmii_rx_er_delay"    IOBDELAY_VALUE = 0;
+#INST "*gmii_rx_clk_?_delay" IOBDELAY_TYPE = FIXED;
+
+# GMII spec: 2ns setup time, 0ns hold time
+INST "eth_rxd_i[?]" TNM = "gmii_rx_0";
+INST "eth_rx_dv_ctl_i" TNM = "gmii_rx_0";
+INST "eth_rx_er_i" TNM = "gmii_rx_0";
+
+#Matt Weaver says no:
+#INST "*gmii_rx_clk_0_delay" IOBDELAY_VALUE = 23;
+
+#*** trying to remove some of the constraint here
+#TIMEGRP "gmii_rx_0" OFFSET = IN -6 ns VALID 2 ns BEFORE "eth_rx_clk_rxc_i";
+
+# Remove the following constraints if example design FIFOs are not used
+# These constraints cover any clock domain crossing for metastability.
+# Tx client FIFO:
+#***INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_0" TNM = "tx_metastable";
+#INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_tog"  TNM = "tx_metastable";
+#INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_1" TNM = "tx_stable";
+#INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_sync" TNM = "tx_stable";
+
+INST "*tx_fifo_i?wr_tran_frame_tog" TNM = "tx_metastable";
+INST "*tx_fifo_i?frame_in_fifo_sync" TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_txfer_tog" TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_rd_addr*" TNM = "tx_metastable";
+
+INST "*tx_fifo_i?wr_tran_frame_sync" TNM = "tx_stable";
+INST "*tx_fifo_i?frame_in_fifo" TNM = "tx_stable";
+INST "*tx_fifo_i?wr_txfer_tog_sync" TNM = "tx_stable";
+INST "*tx_fifo_i?wr_addr_diff*" TNM = "tx_stable";
+
+#*** we don't care about this one too much do we?
+#***TIMESPEC "TS_tx_meta_protect" = FROM "tx_metastable" TO "tx_stable" 5 ns;
+
+# Rx client FIFO:
+
+INST "*rx_fifo_i?rd_store_frame_tog" TNM = "rx_metastable";
+INST "*rx_fifo_i?wr_rd_addr_gray_sync*" TNM = "rx_metastable";
+
+INST "*rx_fifo_i?rd_store_frame_sync" TNM = "rx_stable";
+INST "*rx_fifo_i?wr_rd_addr_gray*" TNM = "rx_stable";
+
+

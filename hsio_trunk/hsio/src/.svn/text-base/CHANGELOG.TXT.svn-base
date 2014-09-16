@@ -1,0 +1,468 @@
+[* = known bad, don't use]
+[+ = possibly bad, use with caution]
+[  = could also be bad - let me know ;-)]
+
+ 4/07/14 (4380) - TLU Calib updated
+ 3/07/14 (437f) - Added TDC TLU mode (reg 19. bit 14)
+27/06/14 (437e) - really really fixed no-ts bug
+27/06/14 (437d) - really fixed no-ts bug + better TLU-IB led mapping
+27/06/14 (437c) - fixed no-timestamp option for packetiser bug
+26/06/14 (437b) - ABC130 streams for top only - should be fine for TB
+26/06/14 (4378) - build with usual ABC130 streams, burster in TLU debug added, 
+                  trigger data stream = 144
+26/06/14 (4376) - TLU interface with degug mode added. L0ID works now too (OUTSIGS =0x2222).
+                  Only 2 streams
+24/06/14 (4371) - TLU interface in a good state
+20/06/14 (4369) - ABC130 packet filling with timestamp instead of zeros
+                  note slightly modified data format: link-id is now "block type". see twiki
+29/05/14 (435d) - Fixed RAWSIGS idle output to not set all others low during signal assert
+                  Reinstated old TDC calib, chaged clk switch clock to clk125
+                  lemo_bco_out now uses DDR to regen the clock on the pin
+29/05/14 (435c) - tdc foobed
+29/05/14 (435b) - tdc with encoded output too
+23/05/14 (434e) - tdc test run
+23/05/14 (434d) - no streams - test for tlu IO
+12/05/14 (434c) Added TLU_MODE (CONTROL1, bit 11) - so far send short busy after each trig_ext 
+ 9/05/14 (434b) fixed bugs in sigs decoder, encoder and counters. Looks good in sim.
+ 9/05/14 (434a) reworked trigger top layer and more:
+                 - no more OC_RAWCOM (0x101)
+                 - temporary removal triggered = pattern go option
+					  - BCR and ECR decoding from ABC130 CMD stream
+					  - OCRAW_START lemo changed to pretrig - 
+					    ORs ocraw_start and undelayed non-raw/seq trigger sources 
+					  - Pretrigger stretch option added in CONTROL1, bit 9
+                 - Status reg changed to look at 32b L0ID instead of 24b L1ID
+					  - Added L0ID_L1 status word - contains the last L0ID sent by l1_autogen
+ 8/05/14 (4349) Added OC_COMMAND(ECR) as counter reset for l1_autogen
+ 8/05/14 (4348) (yes, same version, oops!) Automatic L1s from L0s option: reg CONTROL1, bit 10
+ 6/05/14 (4348) Idle high option for RAWSIGs/SEQ
+29/04/14 (4345) Added option to stretch trig_out pulse reg CONTROL1, bit 8
+                First build with separate ocb and locallink libs
+31/03/14 (4343) Removed BUFGMUX - it's syncrhonous, DOH DOH DOH!
+31/03/14 (4342) Added DIFF_TERM for P5 ext clock input ...
+13/03/14 (4341) Ready for new Driver schema bit
+13/03/14 (4340) "improved" timing constraints ... functionally the same as 433c
+12/03/14 (433c) Fixed cyclic bug in sequencer
+10/03/14 (433a) 65MHz BCO capable!! Took >30m to build, so just a proof of principle for when we need it
+10/03/14 (4339) 50MHz BCO capable. Stable clock switching in place - see reg 0.
+                Some LEMOs remapped: 1= Busy out, 2 = BCO out, 3=BCO in, 4=Trig in
+                More DCM status bits in statword 15.
+ 6/03/14 (4332) External clock on LEMOs added - can select either Clocky via P2, or LEMO.
+ 5/03/14 (4331) Clocky fix - pin swaps on IDC conn. Works!
+ 4/03/14 (4330) Clocky build. Clocky didn't work.
+24/02/14 (432f) Swapped clock/r3 to Driver - needs updated Driver f/w (>0xd02b)
+21/02/14 (432e) Added bottom driver connection 
+20/02/14 (432d) fixed deser machine for "odd" state 
+20/02/14 (432c) REALLY Changed header trailer detect to H=0001,0
+20/02/14 (432b) Changed header trailer detect to H=0001,0
+12/02/14 (432a) ISE14! This build with HSIO-A13
+ 7/02/14 (4329) added clock board test on P2 pins, incl. ext_clk input
+30/01/14 (4328) moved I2C IO blocks to top level
+30/01/14 (4327) reverted to stave250 version on TWOWIRE 
+29/01/14 (4326) Changed ABC130 pkt packing timeout tick from 1KHz to 500kHz! 
+28/01/14 (4325) Changed ABC130 pkt packing timeout tick from 10KHz to 1KHz
+13/12/13 (4323) Changed reg 18 mappings - see twiki, tidied some BUFGs to help build
+13/12/13 (4321) Added TMU readback on link 20 (stream 40)
+11/12/13 (4320) Fixed inverted RAWOUT_EN, Capture fixed (broke it when I fixed it last time)
+10/12/13 (431f) Fixed missing RAWOUT_EN bug
+                Made capture start when NON in RAWOUT_EN mode and when new SCAN_EN bit rises
+ 9/12/13 (431e) re-worked Driver dx lines and seq to incorp ABC SCAN
+ 6/12/13 (431c) increased capture len to 10b = max 6 packets = 60kb = 7.6kB
+ 5/12/13 (431b) Re-Fixed Capture 60b bug - it's not a bug :-(
+ 5/12/13 (431b) Fixed Capture 60b bug, increased SEQ ram to 16kx16
+ 5/12/13 (431a) Added capture_start on SCAN_EN
+29/11/13 (4313) smarter header-trailer det - looks for 01 head and 0 trail - 
+                i.e 00FFFFFFFFFFFFFF isn't data!
+27/11/13 (430f) reverted to old tx_packet_format an tried a new ddr block for HSIO-A13
+26/11/13 (430e) trying to fix HSIO-A13 - failed
+24/11/13 (430d) Atlys single-chip version: Fixed channel stream assignments to match driver:
+                2=left, 14=right (or did I get that backwards)
+21/11/13 (430b) changed abc pkt head det to 01 (from 1)
+18/11/13 (4307) 8IH+HSIO-A13 + 4T. Moved IDELAY blocks to pins, reworked output blocks
+23/10/13 (4303) 8IH+HSIO-A13 - new sequencer and improved spy (see rawsigs option).
+                Changes to some opcode handler mechanics - might be buggy
+					 Also noticed some incorrect packet lens - still looking ...
+11/10/13 (4300) Version jump - v42nn is being used by the stave250 branch
+11/10/13 (41f2) 16TH16BH possible tx CRC fix
+ 7/09/13 (41f0) 16TH16BH - fixed short packet padding bug
+ 7/09/13 (41ef) 16TH16BH - hope it works Carlos - I've not tried it at all :-)
+30/09/13 (41ed) fixed CAL_EN register missing bug 
+27/09/13 (41ec) moved the final ABC130 verilog. HSIO-A13, 1T A13 
+                + FCF on B28-29 (120,122) - not seeming to work!
+19/09/13 (41ea) changed rx_packet_decoder to comply better with LL on the input
+					 -- look out for CHOMPs!!
+18/09/13 (41e9) HSIO-A13, 1T A13
+17/09/13 (41e8) HSIO-A13 only - now only stores source MAC when ethtype=0x876X - 
+                good for switch operation when more broadcast packets are expected
+13/09/13 (41e5) 16TH8IH - stavelet build
+13/09/13 (41e4) ABC130 test build
+11/09/13 (41e1)*16TH16BH rebuild for Carlos with histos on top and bottom (NO IDC)
+ 6/09/13 (41e0)*16TH8IH with external clock input on LEMO-J3. reg 0 = 0x100 to enable.
+ 5/09/13 (41d9)*16TH8IH stavelet version with mutiple eth type support. 
+                Some opcodes may not work. Please report.
+29/08/13 (41d8) fixed spy bug. ABC130 only version
+31/07/13 (41d4) Fixed mux bug                
+26/07/13 (41cd) same as 41cc, but with the muxed signals driving the HSIO-A13 - more realistic
+                Works if mux_sel_inv is set - reg 23, bit 1
+25/07/13 (41cc) 16T8I-A13 + HSIO-A13 -- with new mux and a mux sel invert bit (see control reg)
+25/07/13 (41cb) 16 Top streams, 8 IDC streams, all ABC130 (16T8I-A13) + HSIO-ABC130 
+                FORGOT TO ADD THE COMLO and L1R3 muxes - fairly useless!
+24/07/13 (41ca) HSIO-ABC130 only
+22/07/13 (41c9)+48T16B8IH - Everyone happy?
+21/07/13 (41c8) 16T16B8I - better for Carlos?
+21/07/13 (41c7) 48T8I - 1-wire for the stave
+21/07/13 (41c6) 16T16B - 1-wire for Sergio and Carlos too
+15/07/13 (41c3) 16TH8IH - Added I2C/1-wire controller on TWOWIRE ports 3,7
+10/07/13 (41be) 2xABC130 only (on 124,126) 160MHz readout option - set reg 23 bit 2
+ 9/07/13 (41bb) 16TH8IH - new option for sending DCS opcodes (TWOWIRE) on Eth-Type 0x8766 - reg 23,3
+ 4/07/13 (41b5) 2xABC130 only (on 124,126) running at 80MHz readout. incl. single hit generator
+ 2/07/13 (41b3) 48T8I (no histo) - Go Peter go!
+ 2/07/13 (41b2) 1ABC130+8IH - chain of 2 abc130s on stream 124. abc130_test.cpp updated too. bug: no hits reported
+30/05/13 (41ac) 16TH8IH  Cleaned up SVN, added missing files and changed RAWSIGS to allow sending stave signals 
+14/05/13 (41ab) 16TH8IH  Playing with compiling the ABC130 block and the readout block
+                independently and including them as cores.
+14/05/13 (41a8) added ext-trig debug outs
+ 1/05/13 (41a7) 16 top + IDC (incl. histo) - added/moved some debug mappings
+26/04/13 (41a6) 16 top + IDC (incl. histo) - fixed mode40 bug but there may be more ...
+24/04/13 (41a4) 16 top + IDC (incl. histo) - fixed status and register readback bug
+ 5/04/13 (419e) 16 top, 16 bot (incl. histo) NO IDC
+ 5/04/13 (419d) 16 top, all IDC (incl. histo)
+                fixed ext trigger bugs (>1!) - reworked ext trig edge detector, added more sync. Slight mod to 
+                status readback - might fix missing words bug. 
+27/03/13 (4194) 16 top, 16 bot (incl. histo) NO IDC with added stream output debugs on P3
+26/03/13 (4192) 16 top, 16 bot (incl. histo) NO IDC
+25/03/13 (4191) fixed IDC BCO/DCLK swap. 16 top, 4 IDC (incl. histo)
+14/03/13 (418d) readout130 build for 12 modules double sided stave (no histo)
+14/03/13 (418c) fx100 build. top: all 48.  idc: all
+11/03/13 (4189) top: 16 raw, 48 histo. idc: all
+11/03/13 (4188) top: 1 raw, 2 histo. Added stream id in data correction
+11/03/13 (4187) top: 16 raw, 32 histo. Use stream src 1 to switch to second raw set 
+11/03/13 (4186) First test with RAW multi stream mode
+11/03/13 (4185) 48 top histo only, 0 bot, 4 IDC (with histo)
+11/03/13 (4184) 48 top (no histo), 0 bot, 4 IDC (with histo)
+ 8/03/13 (4182) 16 top, 16 bot, 2 IDC (incl. histo)
+ 8/03/13 (4181) 16 top, 4 IDC (incl. histo)
+28/02/13 (4180) Stavelet + IDCs - has optimally phased trigger window option
+28/02/13 (417c) Stavelet top and bottom + 1 IDC (the second one)
+27/02/13 (417a) Moved output block to top level
+                BCO/DCLK output drivers changed - now using DDR buffers
+                Added primative trigger window - enable reg 23.9, adjust using 10:0 of reg 15
+                moved noise_en bit in control reg (now 23.13)
+ 8/02/13 (416d) 2 ABC130-chips
+ 5/02/13 (416c) ABC130-chip sending data
+29/01/13 (4162) First iteration with ABC130 chip inside HSIO (stream 64)
+                New opcode - RAWSIGs - for driving L0/L1/R3/COM signals
+ 2/01/13 (4151) ABC130 pkt formatting tidy, length optimised 
+21/12/12 (414b) ABC130 proto version. Readout for modules of ABC130 or ABCN type. Specify at build time. 
+                Only 1 data stream per ABC130 Module. Raw and capture modes. data gen works too, 
+                but needs enable via bit 5 in CONTROL reg
+29/11/12 (413b) fixed hysteresis code typo, added RAWCOM pattern go (which may not really work)
+12/11/12 (4136) Added programmable busy_delta hi and low levels (aka hysterisis) - see reg 17
+                Tidyied readout_top and ro_unit a little
+ 9/11/12 (4135) changed structure to allow histos to be built without rawfifo option
+ 2/11/12 (4132) busy bugfix
+ 1/11/12 (4131) updated trig_decoder to skip over BCC headers - no more spurios trigger counts??
+30/10/12 (4130) fixed hd_delta stuck at max bug, added vbusy, added harder seq_reset
+29/10/12 (412f) REALLY reverted histo header change (for now)
+29/10/12 (412e) reverted histo header change (for now)
+29/10/12 (412d) changed deser (and ht_delta)  header det from "12zero+11101" to 15zero+"111010"
+                to try stop wrong counting. Added no-en reset to delta
+26/10/12 (412c) changed histo header det from "11101" to "000000000000011101"
+22/10/12 (412b) added lemo_trig_i invert option (See reg 3)
+02/10/12 (412a) improved ro_deser, fixed busy_en
+14/09/12 (4129) fixed some timing inconsistencies with BCO vs DCLK.
+                Removed EOS porch remapping option - it was broken anyway.
+23/08/12 (4123) Rebuild using makefile generated .mcs (and .bit with CCLK) 
+22/08/12 (4121) Added timestamp for make builds 
+22/08/12 (4120) Moved pullups to top level - ISE gets confused otherwise 
+22/08/12 (411f) Added pullups to TWOWIRE ports 
+21/08/12 (411e) bug fixes in watchdog in TWOWIRE, and general tidying of oc_dack function, 
+                Added RESET_OCB opcode, not sure if it works yet
+                In general HSIO is less likeky to hang-up. Stavelet build.
+17/08/12 (4119) re-added the P2 Aux(12) TWOWIRE port(!) + 3 more (13,14,15)
+16/08/12 (4118) re-build with makefile 
+13/08/12 (4117) moved some code around - new control_top to hide ocb sub-sys 
+13/08/12 (4116) 22 module (88 stream) build. 
+13/08/12 (4115) SM Build
+10/08/12 (4114) Stavelet build
+10/08/12 (4112) added filter on magic_number, fixed watchdog too eager bug,
+                removed 0xF080 opcode.
+10/08/12 (4111) more bug fixing, 2 opcodes in an RX packet works for echo. 
+                fyi no streams in this build
+ 9/08/12 (4110) Fixed some bug in back-to-back opcode handling and multi oc's per rx packet
+ 8/08/12 (410f) Multiple opcodes in an RX packet - untested - Stavelet Build
+ 8/08/12 (410d) Added buffer to TWOWIRE - no more delays, hopefully - Stavelet Build
+ 7/08/12 (410c) Added multi-channel in 1 packet option for TWOWIRE, Stavelet Build
+ 3/08/12 (4109) Stavelet Build
+ 3/08/12 (4108) fixed oc_dtack bug - tristates again - seems Z=1 - so now we have oc_dack_n
+ 3/08/12 (4104) re-added all m_powers (only ones used - all the better for bug spotting) 
+                as pkg didn't work
+ 2/08/12 (4102) removed all m_powers - doing from pkg....
+ 1/08/12 (4101) converted t_llsrc. ise just doesn't do well with tristates
+31/07/12 (4100) converted all ll to t_llbus. 
+                Removed all set to zero if not in build generates
+30/07/12 (40ff) Reworked oc_dtack line to be bussed (pseudo open-collector, 
+                even more pseud as XST makes a wide-as-needed OR gate 
+                which is what I wanted in the first place)
+25/07/12 (40fe) OCSEQ fix - no more gaps - 16TH+8PH
+23/07/12 (40fd) Build with Bruces proc DDR pins now attached - 16TH+8PH
+23/07/12 (40fc) Another CRC config error fix (not as much hope as before) - 16TH+8PH
+23/07/12 (40fb) CRC config error fix - HOPEFULLY. Added Bruces proc wrapper.
+18/07/12 (40fa) working TWOWIRE, but no streams (£$%^& CRC says NO on conf problem is back).
+17/07/12 (40f9) changed SHT case handling - just might fix weird bug.
+                Added wdog_clr for each word.
+17/07/12 (40f8) increased bad OC timeout to ~1s to be MUCH longer than serial timeout
+17/07/12 (40f7) fixed missing TWOWIRE word bug
+17/07/12 (40f6) invalid opcode watchdog confirmed working now.
+16/07/12 (40f5) (re)added invalid opcode watchdog, fixed unassigned busys
+13/07/12 (40f4) (16TH, 8IH) mode40, robuster header-det, more reset options (netrx/tx),
+                re-added net statwords. fixed TX data MAC address, now not 0x0000. All untested.
+ 5/07/12 (40ea) (16TH, 8IH) Display fixed and TWOWIRE now supports SHT and I2C. See twiki.
+25/06/12 (40d8) Work on fixing display. Note slow_ticks_gen.vhd move from utils lib to hsio 
+                to allow use of pkg_hsio_globals.vhd
+22/06/12 (40d6) Slightly changed TWOWIRE command format (sorreeee)
+18/06/12 (40d0) Stavelet build (16T+H, 8I+H) with the SHT71 too - see opcode 0x80
+13/06/12 (40c2) Stavelet build - 16 top + 8 IDC streams with histo - 
+                this isn't meant for playing with the SHT71
+13/06/12 (40c1) fixed SHT71 status reads (the $%^& chip doesn't work like the datasheet says!!!!!)
+12/06/12 (40b8) added ocfifo full checking to rx_packet_decoder. 
+                if full incoming packet will not be processed and an ack with oc=0xaaff will be sent.
+                If full during processing rx will hang until it's clear, probably triggering a bark
+11/06/12 (40b6) TWOWIRE: work progresses forwards and backwards. 40b4 worked, 40b5 not ...
+ 8/06/12 (40ad) TWOWIRE: improved fifo handling 
+ 8/06/12 (40ac) reverted to matts net_tx_pktfmt16 - bruces version has 2 CRCs
+ 7/06/12 (40ab) New SHT71 block, with possible i2c option
+29/05/12 (40aa) added SHT71 control block - opcode 0x80 - much debug trialing
+25/05/12 (40a5) Added pattern sending (see opcode 0x70), enabled in control_reg
+24/05/12 (40a4) Added fifo levels read-back, more stream status words, stream busys, 
+                pkt decoder respects size (ECHO is now correct!), reworked rx_packet_decoder_tb
+17/05/12 (40a3) Debug outs rework - P4 moved to P5, P2,3,4 now unused. 
+                Lemo 1,2,3 now show streams and link as selected by reg 21
+16/05/12 (40a2) SM build - 32 top, 32 bot, 0 IDC, histos a not go.
+16/05/12 (40a1) Stave build - 16 top, 8 IDC, histos a gogo. So far it seems good!
+16/05/12 (40a0) ocrawcom_start set back to 12ns - messed up internals a bit
+16/05/12 (409f) ocrawcom_start now syncd and stretched to 25ns
+15/05/12 (409e) Seems to work, but ocrawcom_start has a glitch
+15/05/12 (409d) Yeeeks - somehow lost dbg_oe. test build with just IDCs, no histos ...
+14/05/12 (409c) Rebuild for SM - with 32 top, 32 bot, WITHOUT histo
+14/05/12 (409b) Rebuild for Stave - with 16 top, 8 IDC streams, WITH histo
+11/05/12 (409a) Yes, ANOTHER packet building bugfix in ro_deser, but this time it's working!
+11/05/12 (4099) ANOTHER packet building bugfix in ro_deser
+11/05/12 (4098) Another packet building bugfix in ro_deser
+11/05/12 (4097) Robusterisation of case where trailers are very close to header 
+                (aka while pkt header is being sent)
+11/05/12 (4096) Bug in error packet sending another error packet and overflowing len fifo fixed
+11/05/12 (4095) added len_fifo full checking (doh! to have missed it) 
+                -hopefully we are completely ROBUST now
+10/05/12 (4094) 48 streams
+10/05/12 (4093) added ocb bus fifo after packet decoded to decouple net_tx from net_rx
+09/05/12 (4092) changed to 48 streams, it worked!
+09/05/12 (4091) dropped-packets-count added to second word of stream status packet --
+                WON'T CONFIG - THAT $%^&* CRC ERROR!
+09/05/12 (4090) fixed E/F packet labelling bug
+09/05/12 (408f) changed fifo-full tcs16(15 downto  0) <= cs(31 downto 16);
+cs16(63 downto 16) <= (others => '0'); 
+cs16(79 downto  64) <= cs(95 downto 80);
+cs16(135 downto 80) <= (others => '0');
+o send NOTHING, fragments to go no more than 1,
+                and indefinite wait for trailer after TRAILER_TO error 
+09/05/12 (408e) Re-build for deser-fifo test - very few streams 
+08/05/12 (408d) Re-build for SM mapping with 32 top (0-31) and 32 bottom streams(64-95) (no histos, no IDC) 
+ 1/05/12 (408c) Build for Stave with IDCs
+20/04/12 (408b) Build for SM mapping with 32 top (0-31) and 32 bottom streams(64-95) (no histos, no IDC) - DIDN'T WORK
+ 8/03/12 (408a) Added external trigger input on LEMO-1, has input enables, 
+                synchroniser and prog delay, see in/out/int enable and tdelay registers
+ 8/03/12 (4088) 4086 for supermodule:stream enables (no histos): Top: 0-31, Bottom 8-40, all IDC
+ 5/03/12 (4087) 4086 for supermodule:stream enables (no histos): Top: 0-31, Bottom 16-47, all IDC
+ 2/03/12 (4086) Found problem with autosmx, reverted to automux
+ 2/03/12 (4085) Fix to tx_pktfmt to remove spurious crc from end of data in short packets 
+ 1/03/12 (4084) Moved to stream block (top, bot, pp) separated modulo 64
+29/02/12 (4083) Moving to module build enables (was streams), 
+                optimised ro_fifo len_fifo - saves a good few FFs
+29/02/12 (4082) Added Toms simulated data generator
+28/02/12 (4081) another go at this. fx60: 16+8+8+histos, fx100: 104, no histos, removed network .ucfs
+28/02/12 (4080) still got resource problems - made ro_unit automux synchro too
+27/02/12 (407f) top level of mux now synchro (= 64*20 extra flips flops), 
+                but should help reduce LUT usage, timing
+27/02/12 (407e) seems to work, re-enabled debug outputs.building 20+20+8, with histo. didn't fit
+27/02/12 (407d) NO DEBUG outputs. Added capture start on trigger mode - R_CONTROL, bit 12, 
+                48+8 streams, no histo
+24/02/12 (4078) Added register to output of tx_pkt_format
+24/02/12 (4077) build with no histos 24 and 96 stream
+24/02/12 (4076) removed async resets from histo files
+23/02/12 (4075) removed additional bufg from clk40 chain, building for 32 with histo
+23/02/12 (4074) bugfix - synxmux (the ONLY func change from pre-record versions) broken
+23/02/12 (4073) separated dst_rdy from rest of record - xil don't di bidir records too well
+22/02/12 (4072) reworked some of the ll busses to use records instead, no funcionality is supposed to change
+21/02/12 (4071) Tiered the resets to each top block via FFs, added "Cross Clock Analysis" XST option, 
+                and "Optimised Across Hierachy: Speed" Map option
+20/02/12 (4070) Added seperate resets via ocb_command
+20/02/12 (406f) Added new networking .ucfs, rebuild with histos
+20/02/12 (406e) removed srcrdy fix (see v406c) - xil ll seems to ignore SOF!
+20/02/12 (406d) re-added reset command to inidividual streams - was missed out on all except histo, 
+                reordered capture mode checking in ro_deser - stops real data being used in capture mode
+17/02/12 (406c) src_rdy bug-fix in txfmt - building with 16 str, no histo
+17/02/12 (406b) moved to bram fifos and put IDCs on streams 32-39, always there, always with histo.
+16/02/12 (406a) rebuild with 32 streams and 32 histos. failed timing by 260ps!
+16/02/12 (4069) removed eth statmon blocks, pause controller, build 16 str, no histo
+15/02/12 (4068) reverted to newer mux
+15/02/12 (4067) trying lower speed grade -10
+15/02/12 (4066) trying old syncmux from 310d to fix missing packet bug
+13/02/12 (4065) changed spysig stream-id to 0xF0, fixed tb seq_reset stretch bug
+13/02/12 (4064) removed clocks from sink bus - they cause timing foobars, and no need to look at them
+10/02/12 (4063) first build with spysig stream added
+ 2/01/12 (4062) strobe40 not connected to triggertop bugfix, removed redundant BCO DCM - untested!
+ 2/01/12 (4061) reg order bug-bug-bug fixed with a new reg type
+ 1/01/12 (4060) reg order bug-bug properly fixed
+ 1/01/12 (405f) reg order-bug fixed
+ 1/02/12 (405e) rebuild with fanout=100000 for XST
+31/01/12 (405d) same version AGAIN - rebuild for sanity check AGAIN (at UCL cluster)
+30/01/12 (405c) same version - rebuild for sanity check (on laptop)
+27/01/12 (405c) Fixed trig80 no connected to fake-data gen, removed latches from mux, 
+                played with planAhead, tidied st/unix/local/xilinxate machine logic
+ 1/01/12 (4059) Rebuild in 2012. Initially 4 stream, then 32 - Does NOT have CRC error!
+14/12/11 (4058) Added burster counts to status. removed enables for l1/bcid counting. 
+                added hsio l1/bcid reset commands
+14/12/11 (4057) added new trigger_top, with burster, and improved signal path. 
+                Added oc 0x30 - COMMAND for sending pulses. Remapped dbg pins to be same as per sergio. 
+                changed muxs for bce sel to BUFGMUXs.
+ 5/12/11 (4056) moved STREAMS_EN, HISTOS_EN, BUILD_NO to pkg_hsio_globals.vhd
+ 1/12/11 (4055) histo trailer len fix
+25/11/11 (4054) removed stream overflow detection -- too painful
+24/11/11 (4053) fixed another oc 0x50/5c bug - reverted sma dbg connections
+22/11/11 (4052) fixed oc 0x5c bugs, incl invalid stream detect	
+11/11/11 (4051) same but with version correct, and dbg pins oe reinstated
+ 9/11/11 (4050) added stream debug lines
+ 9/11/11 (404f) moved bot streams from 23-16 to 15-8
+ 8/11/11 (404e) fixed bot bco/l1r swap 
+25/10/11 (404d) Added opcodes Bcast Stream Config/Command
+24/10/11 (404c) Extending stream wr/cmd opcodes for multiple streams/packet
+ 6/10/11 (404b) Started to add slow readout mode (using DCLK=40 setting) option for data muxed at 40MHz
+22/09/11 (404a) re-mapped enables for EOS-porch too. Signal P4 dbg outs look good on scope/LA now
+22/09/11 (4049) fixed buf (no "lo") in fe_sigs_out
+21/09/11 (4048) added new/consistent debug signals for ST/PP outputs on P4
+19/09/11 (4047) changed i2c to include channels and longer timeouts
+14/09/11 (4046) reworked (duplicated) COM timing ffs
+13/09/11 (4045) added timeouts to I2C
+10/09/11 (4044) remapped bottom to start from the other side
+10/09/11 (4043) added eos bottom connections for 16+16, added oc 0x42 for bottom temp readout
+ 8/08/11 (4042) using optimised big mux
+ 8/08/11 (4041) Improved rst clocking, Tom histo with Toms optimisations
+ 5/08/11 (4040) Back to Alex's histo, with same fixes as tom's
+ 5/08/11 (4030) Toms histo with reworked data readout, some reset fixes easier timing, 
+                modified automux, more tigs - even on reg_mon_en and reg_control
+ 3/08/11 (4020) Tom's histogrammer
+ 3/08/11 (4010) 32/32 streams attempt.
+ 3/08/11 (4000) NEW NUMBERING!
+29/07/11 (2071) Added "automux" in ro_unit
+28/07/11 (2070) Rebuild with renamed mux items
+25/07/11 (2069) Fixed rx_pktfmt16
+25/07/11 (2068) ISE13.2!!
+25/07/11 (2067) reworked rx_pktfmt16, added debug for rx_data
+22/07/11 (2066) Integrated Errdems 16b Network interface, with pre-ll mux on the sfps
+21/07/11 (2065) rebuilt AGAIN due to file corruption
+19/07/11 (2064) rebuilt twice after some Xilinx Impact CRC errors
+19/07/11 (2062) fixed EVEN ANOTHER ibpp mapping bug
+18/07/11 (2061) fixed ANOTHER ibpp mapping bug, defaulted stream regs to 0
+18/07/11 (2060) fixed streams_cmd bug
+15/07/11 (205f) 4 streams defaulted to enabled, capture mode
+15/07/11 (205e) new schema 32 stream build (!!)
+14/07/11 (205d) fixed ocb_streams oc_dtack bug, removed all checksum
+12/07/11 (205c) modified crc to be at end of data and count type too
+ 8/07/11 (205b) added crc
+ 6/07/11 (205a) fixed ibpp sigs being mapped to nowhere bug
+ 4/07/11 (2059) tidying, moved ibpps around, no new features
+30/06/11 (2058) moved ack fifo blocks into ocbs
+28/06/11 (2057) simplified clk_main timings, extra TIGs on clk_ready sigs, copper rx_clk
+27/06/11 (2056) stream swap fix
+24/06/11 (2055) second sfp+ working, added 'leds' onto display
+17/06/11 (204b) fixed bco duty cycle, moded temp readback to send early net-ack.
+14/06/11 (2046) fixed reset bug
+ 8/06/11 (2041) even smarter spiser (no half clk), small echo fix
+ 8/06/11 (2040) smarter spiser
+ 7/06/11 (203e) fixed minor bug in 0x101, 0x105 init state oc_valid handling
+ 6/06/11 (203d) echo and spi opcodes added, improved but not brilliant deser erroring
+25/05/11 (203c) updated ocb handling
+25/05/11 (203b) added status and temp readback
+23/05/11 (203a) register readout testing
+19/05/11 (2039) added sf/rj45 network autoswitch
+17/05/11 (2038) timeouts on unrecog opcodes
+12/05/11 (2037) start of new opcode schema + confable sf map
+ 2/03/11 (2036) reworked ro fifos for single clock
+22/02/11 (2035) rebuild with bco_dc improved
+14/02/11 (2033) First of the unified clocks ...
+31/01/11 (2032) Added clk_idelay debug output
+27/01/11 (2031) back to 180Mhz idelay
+27/01/11 (2030) back to 200Mhz - sanity check
+27/01/11 (2029) added better debug, and some streams
+26/01/11 (2028) changed IDELAYCTL clk to 160MHz
+26/01/11 (2027) start of 2011 work build
+30/11/10 (2024) resets AGAIN + eofin wrong clock fix
+29/11/10 (2023) reverted to FIFO16 in ro_unit_fifo
+28/11/10 (2020) clocks sig rename, slight re-org of clk40
+23/11/10 (201f) 16 stream build
+25/11/10 (201e) re-worked resets AGAIN
+25/11/10 (201c) re-worked resets AGAIN
+24/11/10 (201b) Added reset counters for debug
+23/11/10 (201a) reset bug fix again
+23/11/10 (2019) reset bug fix
+23/11/10 (2018) rebuild with 16 streams
+23/11/10 (2017) reworked resets and fifos
+22/11/10 (2016) debug en fix
+22/11/10 (2015) capture mode fix, reworked eof det AGAIN
+21/11/10 (2014) using hsio sff(instead of ib), debugs disableable, ibe_oscs inputs. crude noise out en...
+19/11/10 (2013) added switch to PP option
+19/11/10 (2012) remapped PPs to hyb-str 0-3
+19/11/10 (2011) header/trailer fix, histo fix++ + all the fixes from the non-eos ...
+15/11/10 (2010) new ver numbering 2 in 2010 = C02 with EOS
+02/11/10 (300f) reworked capture and histo chomp fix. UNTESTED
+01/11/10 (300e) improved order of temp readout packet - may take longer, though.
+05/10/10 (300d) rebuild of above, because there may be confusion
+03/10/10 (300c) +37.5 MHz clkfx version, use ext_clk_en (hexsw=5) to select
+24/09/10 (3200) 32 stream build
+15/09/10 (300b) unbuilt version with ti2c mods etc. for svn
+15/09/10 (300a) fixed ti2c state machine
+15/09/10 (3009) added led flash on ti2c_req, parser fix
+15/09/10 (3008) ti2c rework and more debug
+15/09/10 (3007) ti2c quick fix (or not) with debug
+15/09/10 (3006) histo quick fix (or not)
+15/09/10 (3005) 24 channel ti2c
+14/09/10 (3004) ti2c wordstart now on debug output
+13/09/10 (3003) enabled ALL stave streams, doh!
+13/09/10 (3002) fixed pin swaps
+13/09/10 (3001) same with 16st/0his
+12/09/10 (3000) re-worked flow control even more - looks good in sim
+07/09/10 (0003) re-worked flow control (!) 
+07/09/10 (0002) empty pkt handling fix
+06/09/10 (0001) idelay fixes
+06/09/10 (1000) - first build with new fifo no-overflow, error packets etc
+25/09/10 (1000) - added bco duty cycle control, 8 steams, 0 histos
+24/09/10 (1500) - fixed possible deltaeof overflow. priorised ack stream.
+23/09/10 (2000) - re-added ti2c, high hopes
+19/09/10 (1700) - 16 streams - fixed reset
+11/09/10 (1200) - 16 streams - 4 stave hyb, 4 pp hyb
+11/09/10 (1000) - removed oc len change, added pullups for i2c sda lines
+10/09/10 (1700) - trial with changed oc len.
+10/09/10 (1500) - working version.
+10/09/10 (1400) - last recompile worked. add(ing/ed) new reset idea.
+10/08/10 ( 700) - now using stave T for top signals
+10/08/10 ( 700) - insane!
+10/08/10 ( 700) - removed i2c - sanity check
+09/08/10 (1600) - moved stave to 0-3, reduced debug lines
+09/08/10 (1400) - stave 0-3 added (as 4-7) with own enables etc.
+09/08/10 ( 940) - i2c readback added - untested
+04/08/10 (1200) - readback re-added, changed muxes on dclk/bco ...
+04/08/10 (1100) - readback removed - won't fit ...
+05/08/10 (1000) - readback improved
+04/08/10 (2100) - 64 chan + readback
+26/07/10 (1600) - Rebuild with all mods and in SVN
+21/07/10 (1000) - Timing IGnores on IDC debug signals
+20/07/10 (1000) - 8 streams enabled
+15/07/10 (1000) - New EOS IB version
+13/07/10 (1000) - reduced histo-fifo to 1 register, corrected 2nd histo packet size problem
+07/07/10 (1000) - re-added duty cycle correction, added second datagen
+11/06/10 (1200) - removed duty cycle correction from BCO DCM
+                 - dclk enable replaced by bco invert option, better defaults
+                 - includes fixes from 09/06
+11/06/10 (11:00) - Rebuild of good firmware (aka 0xedball50) from 08/06/10
+

@@ -1,0 +1,77 @@
+####################################################################
+###########   S t a v e 0 7 - C 0 1   I  B    S t u f f  ###########
+##############                                      ################
+###############     Common for HSIO C00/1/2        #################
+####################################################################
+
+
+NET "ibpp_reset_mo" LOC = AJ7  | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.B3     J26_LVDS_8_M  HARDRESETB (J32.6/J33.14) HRSTB (J26.B3)
+NET "ibpp_reset_po" LOC = AK7  | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.A3     J26_LVDS_8_P  HARDRESET (J32.5/J33.13) HRST (J26.A3)
+NET "ibpp_com_po"   LOC = AJ9  | SLEW = FAST | IOSTANDARD = LVDS_25;# J26.C3     J26_LVDS_9_P  COMMAND (J32.5/J33.1) COM_IN (J26.C3)
+NET "ibpp_com_mo"   LOC = AH9  | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.D3     J26_LVDS_9_M  COMMANB (J32.6/J33.2) COM_INB (J26.D3)
+#***not common*** NET "ibpp_lone_mo" LOC = "AK11" |IOSTANDARD = LVDS_25 |SLEW = FAST; # LVDS_25;   # J26.F3     J26_LVDS_10_M  LONEB (J32.10/J33.6) LONE_INB (J26.F3)
+#***not common*** NET "ibpp_lone_po" LOC = "AJ11" |IOSTANDARD = LVDS_25 |SLEW = FAST; #LVDS_25;   # J26.E3     J26_LVDS_10_P  LONE (J32.9/J33.5) LONE_IN (J26.E3)
+NET "ibpp_clk_po"   LOC = AH10 | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.C4     J26_LVDS_13_P  CLK (J33.3) CLKL (J26.C4)
+NET "ibpp_clk_mo"   LOC = AJ10 | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.D4     J26_LVDS_13_M  CLKB (J33.4) CLKLB (J26.D4)
+NET "ibpp_bc_po"    LOC = AH14 | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.E4     J26_LVDS_14_P  BC (J32.3/J33.7) SW_CLK (J26.E4)
+NET "ibpp_bc_mo"    LOC = AJ14 | SLEW = FAST | IOSTANDARD = LVDS_25; # J26.F4     J26_LVDS_14_M  BCB (J32.4/J33.8) SW_CLKB (J26.F4)
+NET "ibpp_ido0_pi"  LOC = AH8  | IOSTANDARD = LVDS_25; # J26.G3     J26_LVDS_11_P  ID0_0 (J32.13/J33.9) ID0_0_BUF (J26.G3)
+NET "ibpp_ido0_mi"  LOC = AH7  | IOSTANDARD = LVDS_25; # J26.H3     J26_LVDS_11_M  ID0_0B (J32.14/J33.10) ID0_0B_BUF (J26.H3)
+NET "ibpp_ido1_pi"  LOC = AJ12 | IOSTANDARD = LVDS_25; # J26.A4     J26_LVDS_12_P  ID0_1 (J33.11) ID0_1_BUF (J26.A4)
+NET "ibpp_ido1_mi"  LOC = AK12 | IOSTANDARD = LVDS_25; # J26.B4     J26_LVDS_12_M  ID0_1B (J33.12) ID0_1B_BUF (J26.B4)
+
+
+NET "ibfi_txp(0)" LOC = AP23; # LANE6_TX_P  IB09 Net: CE1_LANE5_TX_P (TD+)
+NET "ibfi_txm(0)" LOC = AP22; # LANE6_TX_M  IB09 Net: CE1_LANE5_TX_M (TD-)
+NET "ibfi_rxp(0)" LOC = AP26; # LANE6_RX_P  IB09 Net: CE1_LANE5_RX_P (RD+)
+NET "ibfi_rxm(0)" LOC = AP25; # LANE6_RX_M  IB09 Net: CE1_LANE5_RX_M (RD-)
+NET "ibfi_txp(1)" LOC = AP21; # LANE7_TX_P  IB09 Net: CE1_LANE6_TX_P (TD+)
+NET "ibfi_txm(1)" LOC = AP20; # LANE7_TX_M  IB09 Net: CE1_LANE6_TX_M (TD-)
+NET "ibfi_rxp(1)" LOC = AP18; # LANE7_RX_P  IB09 Net: CE1_LANE6_RX_P (RD+)
+NET "ibfi_rxm(1)" LOC = AP17; # LANE7_RX_M  IB09 Net: CE1_LANE6_RX_M (RD-)
+
+
+# Lock down the MGT - 105
+INST "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/GT11_DUAL_1000X_inst/GT11_1000X_A" LOC = GT11_X0Y1;
+INST "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/GT11_DUAL_1000X_inst/GT11_1000X_B" LOC = GT11_X0Y0;
+
+# Ethernet/MAC DCM
+INST "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm" LOC = DCM_ADV_X0Y0;
+INST "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/v4_emac_top/v4_emac" LOC = EMAC_X0Y0;
+
+#*** not common*** NET "ibfi_tx_dis_o(0)" LOC = "AE27" ;   # J25.E4     GPIO_12  IB09 Net: CE1_FO_TX_DIS0 (TX_DISABLE)
+#*** not common*** NET "ibfi_moddef1_o(0)" LOC = "AK26" ;   # J25.A5     GPIO_16  IB09 Net: CD_FO_SCLK0 (SCL)
+#*** not common*** NET "ibfi_moddef2_io(0)" LOC = "AL25" ;   # J25.B5     GPIO_17  IB09 Net: CD_FO_SDAT0 (SDA)
+#*** not common*** NET "ibfi_tx_dis_o(1)" LOC = "AE23" ;   # J25.F4     GPIO_13  IB09 Net: CE1_FO_TX_DIS1 (TX_DISABLE)
+#*** not common*** NET "ibfi_moddef1_o(1)" LOC = "AK24" ;   # J25.C5     GPIO_18  IB09 Net: CD_FO_SCLK1 (SCL)
+#*** not common*** NET "ibfi_moddef2_io(1)" LOC = "AK23" ;   # J25.D5     GPIO_19  IB09 Net: CD_FO_SDAT1 (SDA)
+
+
+
+NET "ibag_clk_po" LOC = AM13; # J26.A1     J26_LVDS_0_P   CLK0H (P1.18) CLK0 (J26.A1)
+NET "ibag_clk_mo" LOC = AM12; # J26.B1     J26_LVDS_0_M   CLK0HB (P1.17) CLK0B (J26.B1)
+NET "ibag_l1_po"  LOC = AM8;  # J26.C1     J26_LVDS_1_P   L1H (P1.16) L1 (J26.C1)
+NET "ibag_l1_mo"  LOC = AM7;  # J26.D1     J26_LVDS_1_M   L1HB (P1.15) L1B (J26.D1)
+NET "ibag_com_po" LOC = AK14; # J26.E1     J26_LVDS_2_P   COM0H (P1.11) COMAG0 (J26.E1)
+NET "ibag_com_mo" LOC = AL14; # J26.F1     J26_LVDS_2_M   COM0HB (P1.12) COMAG0B (J26.F1)
+NET "ibag_id0_pi" LOC = AK13; # J26.G1     J26_LVDS_3_P   ID0H (P1.7) ID0BH (J26.G1)
+NET "ibag_id0_mi" LOC = AL13; # J26.H1     J26_LVDS_3_M   ID0HB (P1.8) ID0BHB (J26.H1)
+NET "ibag_id1_mi" LOC = AM11; # J26.B2     J26_LVDS_4_M   ID1HB (P1.19) ID1BHB (J26.B2)
+NET "ibag_id1_pi" LOC = AL11; # J26.A2     J26_LVDS_4_P   ID1H (P1.20) ID1BH (J26.A2)
+NET "ibag_res_mo" LOC = AK8;  # J26.H2     J26_LVDS_7_M   RESHB (P1.14) RESB (J26.H2)
+NET "ibag_res_po" LOC = AL8;  # J26.G2     J26_LVDS_7_P   RESH (P1.13) RES (J26.G2)
+# NET "ibag_databot_pi" LOC = "AL9" ;    # J26.C2     J26_LVDS_5_P   DATABOT0 (P1.5) DATA_0 (J26.C2)
+# NET "ibag_databot_mi" LOC = "AK9" ;    # J26.D2     J26_LVDS_5_M   DATABOT0B (P1.6) DATA_0B (J26.D2)
+# NET "ibag_datatop_pi" LOC = "AL10" ;   # J26.E2     J26_LVDS_6_P   DATA0T1 (P1.24) DATA_1 (J26.E2)
+# NET "ibag_datatop_mi" LOC = "AM10" ;   # J26.F2     J26_LVDS_6_M   DATA0T1B (P1.23) DATA_1B (J26.F2)
+
+# bodged connections on old IB board (C00) - thanks peter.
+#NET "ibag_compp_mio" LOC = "AG11" ;   # J26.H5     J26_LVDS_19_M   ()  (J26.H5)
+#NET "ibag_compp_pio" LOC = "AF11" ;   # J26.G5     J26_LVDS_19_P   ()  (J26.G5)
+
+# NET "ib_testlemo_i(1)" LOC = "AG10" ;   # J26.H4     J26_LVDS_15_M   () TEST_IN_2_BUF (J26.H4)
+# J26.G4     J26_LVDS_15_P   () TEST_IN_1_BUF (J26.G4)
+NET "ib_testlemo_i[0]" LOC = AF10;
+NET "ib_testlemo_i[0]" CLOCK_DEDICATED_ROUTE = FALSE;
+
+

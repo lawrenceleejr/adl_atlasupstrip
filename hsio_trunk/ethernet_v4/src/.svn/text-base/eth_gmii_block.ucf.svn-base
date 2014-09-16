@@ -1,0 +1,142 @@
+CONFIG PART = 4vfx60ff672-10;
+
+NET "*refclk_bufg_i"            TNM_NET  = "clk_ref_clk";
+TIMESPEC "TS_ref_clk"                = PERIOD "clk_ref_clk" 5000 ps HIGH 50 %;
+
+NET "*gtx_clk_ibufg_0_i"         TNM_NET = "clk_gtx_clk";
+TIMESPEC "TS_gtx_clk"                = PERIOD "clk_gtx_clk" 7200 ps HIGH 50 %;
+
+NET "*tx_gmii_mii_clk_in_0_i"    TNM_NET = "clk_phy_tx_clk0";
+TIMESPEC "TS_phy_tx_clk0"            = PERIOD "clk_phy_tx_clk0" 7400 ps HIGH 50 %;
+
+NET "*gmii_rx_clk_0_i"           TNM_NET = "clk_phy_rx_clk0";
+TIMESPEC "TS_phy_rx_clk0"             = PERIOD "clk_phy_rx_clk0" 7200 ps HIGH 50 %;
+
+NET "*tx_client_clk_in_0_i"      TNM_NET = "clk_client_tx_clk0";
+TIMESPEC "TS_client_tx_clk0"            = PERIOD "clk_client_tx_clk0" 7200 ps HIGH 50 %;
+
+NET "*rx_client_clk_in_0_i"      TNM_NET = "clk_client_rx_clk0";
+TIMESPEC "TS_client_rx_clk0"            = PERIOD "clk_client_rx_clk0" 7200 ps HIGH 50 %;
+
+NET "*mii_tx_clk_0_i"            TNM_NET = "clk_mii_tx_clk0";
+TIMESPEC "TS_mii_tx_clk0"               = PERIOD "clk_mii_tx_clk0" 25000 ps HIGH 50 %;
+
+NET "*host_clk_i"                TNM_NET = "host_clock";
+TIMEGRP "clk_host"                      = "host_clock";
+TIMESPEC "TS_clk_host"                  = PERIOD "clk_host" 10000 ps HIGH 50 %;
+
+# Locate EMAC instance for timing closure
+INST "*v4_emac"  LOC = "EMAC_X0Y0";
+
+#################### EMAC 0 GMII Constraints ########################
+# Place flip flops in IOBs
+INST "*gmii0?RXD_TO_MAC*"    IOB = true;
+INST "*gmii0?RX_DV_TO_MAC"   IOB = true;
+INST "*gmii0?RX_ER_TO_MAC"   IOB = true;
+
+INST "gmii_txd_0<?>"     IOSTANDARD = LVTTL;
+INST "gmii_tx_en_0"      IOSTANDARD = LVTTL;
+INST "gmii_tx_er_0"      IOSTANDARD = LVTTL;
+
+INST "gmii_rxd_0<?>"     IOSTANDARD = LVTTL;
+INST "gmii_rx_dv_0"      IOSTANDARD = LVTTL;
+INST "gmii_rx_er_0"      IOSTANDARD = LVTTL;
+
+INST "gmii_tx_clk_0"     IOSTANDARD = LVTTL;
+INST "gmii_rx_clk_0"     IOSTANDARD = LVTTL;
+
+# Example placement for xc4vfx60-ff672
+# Receiver signals
+INST "GMII_RX_CLK_0"     LOC = "C14";
+INST "GMII_RXD_0<7>"     LOC = "N23";
+INST "GMII_RXD_0<6>"     LOC = "N24";
+INST "GMII_RXD_0<5>"     LOC = "C16";
+INST "GMII_RXD_0<4>"     LOC = "B16";
+INST "GMII_RXD_0<3>"     LOC = "N22";
+INST "GMII_RXD_0<2>"     LOC = "M22";
+INST "GMII_RXD_0<1>"     LOC = "E16";
+INST "GMII_RXD_0<0>"     LOC = "D16";
+INST "GMII_RX_DV_0"      LOC = "B15";
+INST "GMII_RX_ER_0"      LOC = "A15";
+
+# Transmitter signals
+INST "GMII_TXD_0<7>"     LOC = "V14";
+INST "GMII_TXD_0<6>"     LOC = "U14";
+INST "GMII_TXD_0<5>"     LOC = "W13";
+INST "GMII_TXD_0<4>"     LOC = "Y13";
+INST "GMII_TXD_0<3>"     LOC = "W14";
+INST "GMII_TXD_0<2>"     LOC = "W15";
+INST "GMII_TXD_0<1>"     LOC = "V11";
+INST "GMII_TXD_0<0>"     LOC = "W11";
+INST "GMII_TX_EN_0"      LOC = "V13";
+INST "GMII_TX_ER_0"      LOC = "V12";
+INST "GMII_TX_CLK_0"     LOC = "V16";
+
+INST "*gmii_rx_clk_0_bufg" LOC = "BUFGCTRL_X0Y31";
+
+# IDELAYCTRL location - must be same clock region as receiver IOs
+# See Virtex 4 Users Guide for more information
+INST "*dlyctrl_0"        LOC = "IDELAYCTRL_X0Y6";
+INST "*dlyctrl_clk_0"    LOC = "IDELAYCTRL_X1Y5";
+
+# IDELAY on data path to align it with the clock
+INST "*gmii_rxd?_delay"     IOBDELAY_TYPE = FIXED;
+INST "*gmii_rx_dv_delay"    IOBDELAY_TYPE = FIXED;
+INST "*gmii_rx_er_delay"    IOBDELAY_TYPE = FIXED;
+INST "*gmii_rxd?_delay"     IOBDELAY_VALUE = 0;
+INST "*gmii_rx_dv_delay"    IOBDELAY_VALUE = 0;
+INST "*gmii_rx_er_delay"    IOBDELAY_VALUE = 0;
+
+INST "*gmii_rx_clk_?_delay" IOBDELAY_TYPE = FIXED;
+
+# GMII spec: 2ns setup time, 0ns hold time
+INST "GMII_RXD_0<?>"     TNM = "gmii_rx_0";
+INST "GMII_RX_DV_0"      TNM = "gmii_rx_0";
+INST "GMII_RX_ER_0"      TNM = "gmii_rx_0";
+
+INST "*gmii_rx_clk_0_delay" IOBDELAY_VALUE = 23;
+
+TIMEGRP "gmii_rx_0" OFFSET = IN -6 ns VALID 2 ns BEFORE "GMII_RX_CLK_0";
+
+INST "gmii_txd_0<?>"     TNM = "sig_gmii_tx_0";
+INST "gmii_tx_en_0"      TNM = "sig_gmii_tx_0";
+INST "gmii_tx_er_0"      TNM = "sig_gmii_tx_0";
+TIMEGRP "sig_gmii_tx_0" OFFSET = OUT 15 ns AFTER "mii_tx_clk_0";
+
+# Give the host bus a 10ns setup, 10ns hold window to lower skew.  Recommended only.
+INST "HOSTADDR<?>" TNM = "host_in_addr";
+INST "HOSTWRDATA<?>" TNM = "host_in_wrdata";
+INST "HOSTRDDATA<?>" TNM = "host_out";
+TIMEGRP "host_in_addr" OFFSET = IN 10 ns VALID 20 ns BEFORE "HOSTCLK";
+TIMEGRP "host_in_wrdata" OFFSET = IN 10 ns VALID 20 ns BEFORE "HOSTCLK";
+
+
+# Remove the following constraints if example design FIFOs are not used
+# These constraints cover any clock domain crossing for metastability.
+# Tx client FIFO:
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_0" TNM = "tx_metastable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_tog"  TNM = "tx_metastable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_col_window_pipe_1" TNM = "tx_stable";
+INST "*client_side_FIFO_emac0?tx_fifo_i?wr_retran_frame_sync" TNM = "tx_stable";
+
+INST "*tx_fifo_i?wr_tran_frame_tog" TNM = "tx_metastable";
+INST "*tx_fifo_i?frame_in_fifo_sync"  TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_txfer_tog"        TNM = "tx_metastable";
+INST "*tx_fifo_i?wr_rd_addr*"         TNM = "tx_metastable";
+
+INST "*tx_fifo_i?wr_tran_frame_sync"  TNM = "tx_stable";
+INST "*tx_fifo_i?frame_in_fifo"       TNM = "tx_stable";
+INST "*tx_fifo_i?wr_txfer_tog_sync"   TNM = "tx_stable";
+INST "*tx_fifo_i?wr_addr_diff*"        TNM = "tx_stable";
+
+TIMESPEC "TS_tx_meta_protect" = FROM "tx_metastable" TO "tx_stable" 5 ns;
+
+# Rx client FIFO:
+
+INST "*rx_fifo_i?rd_store_frame_tog"     TNM = "rx_metastable";
+INST "*rx_fifo_i?wr_rd_addr_gray_sync*"  TNM = "rx_metastable";
+
+INST "*rx_fifo_i?rd_store_frame_sync"    TNM = "rx_stable";
+INST "*rx_fifo_i?wr_rd_addr_gray*"       TNM = "rx_stable";
+
+TIMESPEC "TS_rx_meta_protect" = FROM "rx_metastable" TO "rx_stable" 5 ns;

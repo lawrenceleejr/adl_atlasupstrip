@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DARoots Version="1"
+		Minor="19">
+	<FileSet Name="sim_1"
+			Type="SimulationSrcs"
+			RelSrcDir="$PSRCDIR/sim_1">
+		<Filter Type="Srcs"/>
+		<Config>
+			<Option Name="DesignMode"
+					Val="RTL"/>
+			<Option Name="TopModule"
+					Val="hsio_top"/>
+			<Option Name="TopLib"
+					Val="work"/>
+			<Option Name="TopArchitecture"
+					Val="struct"/>
+			<Option Name="TopRTLFile"
+					Val="$PPRDIR/../../hsio/src/hsio_top_struct.vhd"/>
+			<Option Name="SimulationRunTime"
+					Val="1000 ns"/>
+			<Option Name="UnitUnderTest"
+					Val="UUT"/>
+			<Option Name="SimMode"
+					Val="timing"/>
+			<Option Name="SrcSet"
+					Val="sources_1"/>
+			<Option Name="FuseNoDebug"
+					Val="1"/>
+			<Option Name="NGOutputHDLFormat"
+					Val="vhdl"/>
+			<Option Name="NGRetainHierarchy"
+					Val="1"/>
+		</Config>
+	</FileSet>
+</DARoots>

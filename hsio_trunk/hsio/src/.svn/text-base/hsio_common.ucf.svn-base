@@ -1,0 +1,631 @@
+#################################################
+####    H S I O    C O M M O N    . u c f    ####
+#################################################
+
+# Below moved to hsio_c02_fx60/100 files
+#CONFIG PART = 4vfx60ff1152-11;
+#CONFIG STEPPING = "0"; # According to datasheet (ds302) version 2 = stepping 0
+
+TIMESPEC TS_CLK_125MHz = PERIOD "CLK_125MHz" 8 ns HIGH 50 %;
+NET "clk_xtal_125_pi" TNM_NET = "CLK_125MHz";
+
+#NET "*clk125"                TNM_NET = "CLK_125MHz";
+
+# We need to constrain these clocks directly
+# as we can have faster external clocks
+
+#Note below can be inflated to allow for external clocks at higher rates
+# 83=1.50 100=1.25
+TIMESPEC TS_CLK_80MHz = PERIOD "CLK_80MHz" "TS_CLK_125MHz" * 1.50 HIGH 50.00 %; # 83.3MHz
+TIMESPEC TS_CLK_40MHz = PERIOD "CLK_40MHz" "TS_CLK_80MHz" * 2.00 HIGH 50.00 %; # 41.7MHz
+
+NET "Uclockstop/clk80" TNM_NET = "CLK_80MHz";
+NET "Uclockstop/clk40" TNM_NET = "CLK_40MHz";
+NET "clk_p2_pll" TNM_NET = "CLK_40MHz";
+NET "lemo_clk" TNM_NET = "CLK_40MHz";
+#NET "Uclockstop/clk40_ext_in" TNM_NET = "CLK_40MHz";
+
+#NET "clk" PERIOD = 12 ns;
+#NET "clk_idelay" PERIOD =  6.4 ns;
+#NET "refclk1b" PERIOD = 8 ns;
+
+#NET "Uclockstop/clks_top_ready" TIG;
+NET "Uclockstop/po_ready" TIG;
+NET "Uclockstop/rst125" TIG;
+#NET "rst_clkext" TIG;
+#NET "rst_clkext0" TIG;
+#NET "rst_dcmext" TIG;
+NET "Uclockstop/clkext0_en" TIG;
+NET "Uclockstop/clkext1_en" TIG;
+NET "Uclockstop/stat_o*" TIG;
+
+#NET "clk125" PERIOD = 8 ns;
+#NET "refclk0b" PERIOD = 6 ns;
+#NET "refclk1b" PERIOD = 8 ns;
+
+
+# 125MHz     $1I155\CRYSTAL_CLK_M  
+NET "clk_xtal_125_mi" IOSTANDARD = LVDS_25;
+NET "clk_xtal_125_mi" LOC = J17;
+# 125MHz     $1I155\CRYSTAL_CLK_P  
+NET "clk_xtal_125_pi" IOSTANDARD = LVDS_25;
+NET "clk_xtal_125_pi" LOC = H17;
+
+# TIMESPECS for the below are in separate UCFs
+
+# 125MHz Bank 101-106 / Lane 0-9   
+NET "clk_mgt0a_pi" IOSTANDARD = LVDS_25;
+NET "clk_mgt0a_pi" LOC = M34;
+# 125MHz Bank 101-106 / Lane 0-9   
+NET "clk_mgt0a_mi" IOSTANDARD = LVDS_25;
+NET "clk_mgt0a_mi" LOC = N34;
+# 125MHz Bank 109-114 / Lane 15-19, FO 0-4    
+NET "clk_mgt1a_pi" IOSTANDARD = LVDS_25;
+NET "clk_mgt1a_pi" LOC = AP3;
+# 125MHz Bank 109-114 / Lane 15-19, FO 0-4 
+NET "clk_mgt1a_mi" IOSTANDARD = LVDS_25;
+NET "clk_mgt1a_mi" LOC = AP4;
+
+# 156MHz Bank 101-106 / Lane 7-0 
+NET "clk_mgt0b_mi" IOSTANDARD = LVDS_25;
+NET "clk_mgt0b_mi" LOC = AP28;
+# 156MHz Bank 101-106 / Lane 7-0
+NET "clk_mgt0b_pi" IOSTANDARD = LVDS_25;
+NET "clk_mgt0b_pi" LOC = AP29;
+# 156MHz Bank 109-114 / Lane 15-8
+NET "clk_mgt1b_mi" IOSTANDARD = LVDS_25;
+NET "clk_mgt1b_mi" LOC = K1;
+# 156MHz Bank 109-114 / Lane 15-8
+NET "clk_mgt1b_pi" IOSTANDARD = LVDS_25;
+NET "clk_mgt1b_pi" LOC = J1;
+
+# Lock down the GT11CLK 
+# MGTCLK 102
+INST "Ugt11clk_mgt0a" LOC = GT11CLK_X0Y3;
+# MGTCLK 110
+INST "Ugt11clk_mgt1a" LOC = GT11CLK_X1Y1;
+# MGTCLK 105
+INST "Ugt11clk_mgt0b" LOC = GT11CLK_X0Y1;
+# MGTCLK 113
+INST "Ugt11clk_mgt1b" LOC = GT11CLK_X1Y3;
+
+
+
+# | IOSTANDARD = LVCMOS25;   #      DISP_CLK  
+NET "disp_clk_o" LOC = AG22;
+# | IOSTANDARD = LVCMOS25;   #      DISP_DAT  
+NET "disp_dat_o" LOC = AJ22;
+# | IOSTANDARD = LVCMOS25;   #      ~DISP_LOAD0  
+NET "disp_load_no[0]" LOC = AK18;
+# | IOSTANDARD = LVCMOS25;   #      ~DISP_LOAD1  
+NET "disp_load_no[1]" LOC = AK17;
+# | IOSTANDARD = LVCMOS25;   #      ~DISP_RST  
+NET "disp_rst_no" LOC = AH22;
+
+#***not common*** NET "led_status_o" LOC = "" ;   #      FPGA_STATUS  
+#      $1I155\$1I326\$1N909  
+NET "rst_poweron_ni" LOC = AJ19;
+
+# Pin 1     BANK10_IO0_P  
+NET "idc_p2_io[0]" LOC = P11;
+# Pin 2     BANK10_IO0_M  
+NET "idc_p2_io[1]" LOC = R11;
+# Pin 3     BANK10_IO1_P  
+NET "idc_p2_io[2]" LOC = P10;
+# Pin 4     BANK10_IO1_M  
+NET "idc_p2_io[3]" LOC = P9;
+# Pin 5     BANK10_IO2_P  
+NET "idc_p2_io[4]" LOC = P7;
+# Pin 6     BANK10_IO2_M  
+NET "idc_p2_io[5]" LOC = P6;
+#***not common*** NET "idc_p2_io(6)" LOC = "" ;   # Pin 7     BANK10_IO3_P  
+#***not common*** NET "idc_p2_io(7)" LOC = "" ;   # Pin 8     BANK10_IO3_M  
+# NET "idc_p2_" LOC = "" ;   # Pin 9     DGND  
+# NET "idc_p2_" LOC = "" ;   # Pin 10     DGND  
+# Pin 11     BANK10_IO4_P  
+NET "idc_p2_io[8]" LOC = T5;
+# Pin 12     BANK10_IO4_M  
+NET "idc_p2_io[9]" LOC = T4;
+# Pin 13     BANK10_IO5_P  
+NET "idc_p2_io[10]" LOC = R4;
+# Pin 14     BANK10_IO5_M  
+NET "idc_p2_io[11]" LOC = R3;
+# Pin 15     BANK10_IO6_P  
+NET "idc_p2_io[12]" LOC = P5;
+# Pin 16     BANK10_IO6_M  
+NET "idc_p2_io[13]" LOC = P4;
+# Pin 17     BANK10_IO7_P  
+NET "idc_p2_io[14]" LOC = N5;
+# Pin 18     BANK10_IO7_M  
+NET "idc_p2_io[15]" LOC = N4;
+# NET "idc_p2_" LOC = "" ;   # Pin 19     DGND  
+# NET "idc_p2_" LOC = "" ;   # Pin 20     DGND  
+# Pin 21     BANK10_IO8_P  
+NET "idc_p2_io[16]" LOC = M8;
+# Pin 22     BANK10_IO8_M  
+NET "idc_p2_io[17]" LOC = M7;
+# Pin 23     BANK10_IO9_P  
+NET "idc_p2_io[18]" LOC = L9;
+# Pin 24     BANK10_IO9_M  
+NET "idc_p2_io[19]" LOC = L8;
+# Pin 25     BANK10_IO10_P  
+NET "idc_p2_io[20]" LOC = L10;
+# Pin 26     BANK10_IO10_M  
+NET "idc_p2_io[21]" LOC = M10;
+#***not common*** NET "idc_p2_io(22)" LOC = "" ;   # Pin 27     BANK10_IO11_P  
+#***not common*** NET "idc_p2_io(23)" LOC = "" ;   # Pin 28     BANK10_IO11_M  
+# NET "idc_p2_" LOC = "" ;   # Pin 29     DGND  
+# NET "idc_p2_" LOC = "" ;   # Pin 30     DGND  
+# Pin 31     BANK10_IO12_P  
+NET "idc_p2_io[24]" LOC = G3;
+# Pin 32     BANK10_IO12_M  
+NET "idc_p2_io[25]" LOC = H3;
+# Pin 33     BANK10_IO13_P  
+NET "idc_p2_io[26]" LOC = H5;
+# Pin 34     BANK10_IO13_M  
+NET "idc_p2_io[27]" LOC = H4;
+#***not common*** NET "idc_p2_io(28)" LOC = "" ;   # Pin 35     BANK10_IO14_P  
+#***not common*** NET "idc_p2_io(29)" LOC = "" ;   # Pin 36     BANK10_IO14_M  
+#***not common*** NET "idc_p2_io(30)" LOC = "" ;   # Pin 37     BANK10_IO15_P  
+#***not common*** NET "idc_p2_io(31)" LOC = "" ;   # Pin 38     BANK10_IO15_M  
+# NET "idc_p2_" LOC = "" ;   # Pin 39     DGND  
+# NET "idc_p2_" LOC = "" ;   # Pin 40     DGND  
+
+# Pin 1     BANK10_IO16_P  
+NET "idc_p3_io[0]" LOC = N10;
+# Pin 2     BANK10_IO16_M  
+NET "idc_p3_io[1]" LOC = N9;
+# Pin 3     BANK10_IO17_P  
+NET "idc_p3_io[2]" LOC = N8;
+# Pin 4     BANK10_IO17_M  
+NET "idc_p3_io[3]" LOC = N7;
+#***not common*** NET "idc_p3_io(4)" LOC = "" ;   # Pin 5     BANK10_IO18_P  
+#***not common*** NET "idc_p3_io(5)" LOC = "" ;   # Pin 6     BANK10_IO18_M  
+# Pin 7     BANK10_IO19_P  
+NET "idc_p3_io[6]" LOC = L6;
+# Pin 8     BANK10_IO19_M  
+NET "idc_p3_io[7]" LOC = L5;
+# NET "idc_p3_" LOC = "" ;   # Pin 9     DGND  
+# NET "idc_p3_" LOC = "" ;   # Pin 10     DGND  
+# Pin 11     BANK10_IO20_P  
+NET "idc_p3_io[8]" LOC = K4;
+# Pin 12     BANK10_IO20_M  
+NET "idc_p3_io[9]" LOC = K3;
+# Pin 13     BANK10_IO21_P  
+NET "idc_p3_io[10]" LOC = L4;
+# Pin 14     BANK10_IO21_M  
+NET "idc_p3_io[11]" LOC = L3;
+# Pin 15     BANK10_IO22_P  
+NET "idc_p3_io[12]" LOC = M6;
+# Pin 16     BANK10_IO22_M  
+NET "idc_p3_io[13]" LOC = M5;
+# Pin 17     BANK10_IO23_P  
+NET "idc_p3_io[14]" LOC = M3;
+# Pin 18     BANK10_IO23_M  
+NET "idc_p3_io[15]" LOC = N3;
+# NET "idc_p3_" LOC = "" ;   # Pin 19     DGND  
+# NET "idc_p3_" LOC = "" ;   # Pin 20     DGND  
+# Pin 21     BANK10_IO24_P  
+NET "idc_p3_io[16]" LOC = T11;
+# Pin 22     BANK10_IO24_M  
+NET "idc_p3_io[17]" LOC = T10;
+# Pin 23     BANK10_IO25_P  
+NET "idc_p3_io[18]" LOC = R8;
+# Pin 24     BANK10_IO25_M  
+NET "idc_p3_io[19]" LOC = R7;
+# Pin 25     BANK10_IO26_P  
+NET "idc_p3_io[20]" LOC = T9;
+# Pin 26     BANK10_IO26_M  
+NET "idc_p3_io[21]" LOC = R9;
+# Pin 27     BANK10_IO27_P  
+NET "idc_p3_io[22]" LOC = U3;
+# Pin 28     BANK10_IO27_M  
+NET "idc_p3_io[23]" LOC = T3;
+# NET "idc_p3_" LOC = "" ;   # Pin 29     DGND  
+# NET "idc_p3_" LOC = "" ;   # Pin 30     DGND  
+# Pin 31     BANK10_IO28_P  
+NET "idc_p3_io[24]" LOC = U7;
+# Pin 32     BANK10_IO28_M  
+NET "idc_p3_io[25]" LOC = U6;
+# Pin 33     BANK10_IO29_P  
+NET "idc_p3_io[26]" LOC = V4;
+# Pin 34     BANK10_IO29_M  
+NET "idc_p3_io[27]" LOC = V3;
+# Pin 35     BANK10_IO30_P  
+NET "idc_p3_io[28]" LOC = V5;
+# Pin 36     BANK10_IO30_M  
+NET "idc_p3_io[29]" LOC = U5;
+#***not common*** NET "idc_p3_io(30)" LOC = "" ;   # Pin 37     BANK10_IO31_P  
+#***not common*** NET "idc_p3_io(31)" LOC = "" ;   # Pin 38     BANK10_IO31_M  
+# NET "idc_p3_" LOC = "" ;   # Pin 39     DGND  
+# NET "idc_p3_" LOC = "" ;   # Pin 40     DGND  
+
+
+#***not common*** NET "idc_p4_io(0)" LOC = "" ;   # Pin 1     BANK11_IO0_P  
+#***not common*** # NET "idc_p4_io(1)" LOC = "" ;   # Pin 2     BANK11_IO0_M  
+# Pin 3     BANK11_IO1_P  
+NET "idc_p4_io[2]" LOC = W25;
+# Pin 4     BANK11_IO1_M  
+NET "idc_p4_io[3]" LOC = W24;
+# Pin 5     BANK11_IO2_P  
+NET "idc_p4_io[4]" LOC = AA26;
+# Pin 6     BANK11_IO2_M  
+NET "idc_p4_io[5]" LOC = AA25;
+# Pin 7     BANK11_IO3_P  
+NET "idc_p4_io[6]" LOC = W26;
+# Pin 8     BANK11_IO3_M  
+NET "idc_p4_io[7]" LOC = Y26;
+# NET "idc_p4_" LOC = "" ;   # Pin 9     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 10     DGND  
+#***not common*** NET "idc_p4_io(8)" LOC = "" ;   # Pin 11     BANK11_IO4_P  
+#***not common*** # NET "idc_p4_io(9)" LOC = "" ;   # Pin 12     BANK11_IO4_M  
+# Pin 13     BANK11_IO5_P  
+NET "idc_p4_io[10]" LOC = U32;
+# Pin 14     BANK11_IO5_M  
+NET "idc_p4_io[11]" LOC = U31;
+# Pin 15     BANK11_IO6_P  
+NET "idc_p4_io[12]" LOC = V30;
+# Pin 16     BANK11_IO6_M  
+NET "idc_p4_io[13]" LOC = U30;
+# Pin 17     BANK11_IO7_P  
+NET "idc_p4_io[14]" LOC = V29;
+# Pin 18     BANK11_IO7_M  
+NET "idc_p4_io[15]" LOC = V28;
+# NET "idc_p4_" LOC = "" ;   # Pin 19     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 20     DGND  
+# Pin 21     BANK11_IO8_P  
+NET "idc_p4_io[16]" LOC = W32;
+# Pin 22     BANK11_IO8_M  
+NET "idc_p4_io[17]" LOC = V32;
+# Pin 23     BANK11_IO9_P  
+NET "idc_p4_io[18]" LOC = Y29;
+# Pin 24     BANK11_IO9_M  
+NET "idc_p4_io[19]" LOC = W29;
+# Pin 25     BANK11_IO10_P  
+NET "idc_p4_io[20]" LOC = AB26;
+# Pin 26     BANK11_IO10_M  
+NET "idc_p4_io[21]" LOC = AB25;
+# Pin 27     BANK11_IO11_P  
+NET "idc_p4_io[22]" LOC = AB28;
+# Pin 28     BANK11_IO11_M  
+NET "idc_p4_io[23]" LOC = AB27;
+# NET "idc_p4_" LOC = "" ;   # Pin 29     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 30     DGND  
+# Pin 31     BANK11_IO12_P  
+NET "idc_p4_io[24]" LOC = AC28;
+# Pin 32     BANK11_IO12_M  
+NET "idc_p4_io[25]" LOC = AC27;
+# Pin 33     BANK11_IO13_P  
+NET "idc_p4_io[26]" LOC = AC30;
+# Pin 34     BANK11_IO13_M  
+NET "idc_p4_io[27]" LOC = AC29;
+#***not common*** NET "idc_p4_io(28)" LOC = "" ;   # Pin 35     BANK11_IO14_P  
+#***not common*** # NET "idc_p4_io(29)" LOC = "" ;   # Pin 36     BANK11_IO14_M  
+#***not common*** NET "idc_p4_io(30)" LOC = "" ;   # Pin 37     BANK11_IO15_P  
+#***not common*** # NET "idc_p4_io(31)" LOC = "" ;   # Pin 38     BANK11_IO15_M  
+# NET "idc_p4_" LOC = "" ;   # Pin 39     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 40     DGND  
+
+
+# Pin 1     BANK11_IO16_P  
+NET "idc_p5_io[0]" LOC = Y24;
+# Pin 2     BANK11_IO16_M  
+NET "idc_p5_io[1]" LOC = AA24;
+# Pin 3     BANK11_IO17_P  
+NET "idc_p5_io[2]" LOC = AC25;
+# Pin 4     BANK11_IO17_M  
+NET "idc_p5_io[3]" LOC = AD25;
+# Pin 5     BANK11_IO18_P  
+NET "idc_p5_io[4]" LOC = Y28;
+# Pin 6     BANK11_IO18_M  
+NET "idc_p5_io[5]" LOC = Y27;
+# Pin 7     BANK11_IO19_P  
+NET "idc_p5_io[6]" LOC = AA29;
+# Pin 8     BANK11_IO19_M  
+NET "idc_p5_io[7]" LOC = AA28;
+# NET "idc_p5_" LOC = "" ;   # Pin 9     DGND  
+# NET "idc_p5_" LOC = "" ;   # Pin 10     DGND  
+#***not common*** NET "idc_p5_io(8)" LOC = "" ;   # Pin 11     BANK11_IO20_P  
+#***not common*** # NET "idc_p5_io(9)" LOC = "" ;   # Pin 12     BANK11_IO20_M  
+# Pin 13     BANK11_IO21_P  
+NET "idc_p5_io[10]" LOC = Y32;
+# Pin 14     BANK11_IO21_M  
+NET "idc_p5_io[11]" LOC = Y31;
+# Pin 15     BANK11_IO22_P  
+NET "idc_p5_io[12]" LOC = AA31;
+# Pin 16     BANK11_IO22_M  
+NET "idc_p5_io[13]" LOC = AA30;
+# Pin 17     BANK11_IO23_P  
+NET "idc_p5_io[14]" LOC = AB31;
+# Pin 18     BANK11_IO23_M  
+NET "idc_p5_io[15]" LOC = AB30;
+# NET "idc_p5_" LOC = "" ;   # Pin 19     DGND  
+# NET "idc_p5_" LOC = "" ;   # Pin 20     DGND  
+# Pin 21     BANK11_IO24_P  
+NET "idc_p5_io[16]" LOC = AB32;
+# Pin 22     BANK11_IO24_M  
+NET "idc_p5_io[17]" LOC = AC32;
+# Pin 23     BANK11_IO25_P  
+NET "idc_p5_io[18]" LOC = AD27;
+# Pin 24     BANK11_IO25_M  
+NET "idc_p5_io[19]" LOC = AD26;
+# Pin 25     BANK11_IO26_P  
+NET "idc_p5_io[20]" LOC = AE29;
+# Pin 26     BANK11_IO26_M  
+NET "idc_p5_io[21]" LOC = AF29;
+#***not common*** NET "idc_p5_io(22)" LOC = "" ;   # Pin 27     BANK11_IO27_P  
+#***not common*** # NET "idc_p5_io(23)" LOC = "" ;   # Pin 28     BANK11_IO27_M  
+# NET "idc_p5_" LOC = "" ;   # Pin 29     DGND  
+# NET "idc_p5_" LOC = "" ;   # Pin 30     DGND  
+# Pin 31     BANK11_IO28_P  
+NET "idc_p5_io[24]" LOC = AF31;
+# Pin 32     BANK11_IO28_M  
+NET "idc_p5_io[25]" LOC = AF30;
+# Pin 33     BANK11_IO29_P  
+NET "idc_p5_io[26]" LOC = AG31;
+# Pin 34     BANK11_IO29_M  
+NET "idc_p5_io[27]" LOC = AG30;
+#***not common*** NET "idc_p5_io(28)" LOC = "" ;   # Pin 35     BANK11_IO30_P  
+#***not common*** # NET "idc_p5_io(29)" LOC = "" ;   # Pin 36     BANK11_IO30_M  
+#***not common*** NET "idc_p5_io(30)" LOC = "" ;   # Pin 37     BANK11_IO31_P  
+#***not common*** # NET "idc_p5_io(31)" LOC = "" ;   # Pin 38     BANK11_IO31_M  
+# NET "idc_p5_" LOC = "" ;   # Pin 39     DGND  
+# NET "idc_p5_" LOC = "" ;   # Pin 40     DGND  
+
+
+# *** not common ----------------------------------------------------------------------------------
+# *** not common  Ethernet constraints - for fibre i/f (mostly?)
+# *** not common  additional generic constraints in ethernet_v4/src/*.ucf
+# *** not common -----------------------------------------------------------------------------------
+
+# *** not common *** start Erdem 
+# *** not common INST *tx_client_dcm         LOC = DCM_ADV_X0Y0;
+# *** not common INST "*GT11_1000X_A" LOC = "GT11_X1Y3";
+# *** not common INST "*GT11_1000X_B" LOC = "GT11_X1Y2";
+
+# *** not common #INST "*Ueth2x_locallink/v4_emac_block/v4_emac_top/v4_emac"  LOC = "EMAC_X0Y0";
+# *** not common *** end Erdem 
+
+
+
+## fifo gen suggested stuff (ug175, pg 98) for fixing cross domain timing 
+## All fifos max delay = 2x slower clock period
+###NET Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> MAXDELAY = 24 ns;
+###NET Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> MAXDELAY = 24 ns;
+###NET Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> MAXDELAY = 24 ns;
+###NET Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> MAXDELAY = 24 ns;
+
+#NET Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> MAXDELAY = 48 ns;
+#NET Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> MAXDELAY = 48 ns;
+
+
+## All fifos, ignore sync paths
+###NET Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> TIG;
+###NET Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> TIG;
+###NET Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> TIG;
+###NET Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> TIG;
+
+
+#NET Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/gcx.clkx/wr_pntr_gc<?> TIG;
+#NET Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/gcx.clkx/rd_pntr_gc<?> TIG;
+
+## for Dist FIFOs only - improves timing
+###INST "Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/mem/gdm.dm/Mram*" TNM= RAMSOURCE;
+###INST "Urp*/Ureadout_unit/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/mem/gdm.dm/dout*" TNM= FFDEST;
+###INST "Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/mem/gdm.dm/Mram*" TNM= RAMSOURCE;
+###INST "Ureadout_unit*/Udata_fifo/lengths_fifo/BU2/U0/grf.rf/mem/gdm.dm/dout*" TNM= FFDEST;
+
+#INST "Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/mem/gdm.dm/Mram*" TNM= RAMSOURCE;
+#INST "Ureadout_unit/Udata_fifo/eof_domain_cross_fifo/BU2/U0/grf.rf/mem/gdm.dm/dout*" TNM= FFDEST;
+
+#TIMESPEC TS_RAM_FF= FROM "RAMSOURCE" TO "FFDEST" 8 ns DATAPATHONLY;
+
+
+##################################################################################
+## Ethernet GMII stuff. Generic stuff is in ethernet_v4/src/eth_gmii.ucf
+##################################################################################
+
+#      ETH_COL
+NET "eth_col_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/GMII_COL_0" LOC = G21;
+# Marvell infosheet: “Low Power Down Modes” -active high     ETH_COMA
+NET "eth_coma_o" IOSTANDARD = LVCMOS25;
+NET "eth_coma_o" LOC = E28;
+#      ETH_CRS
+NET "eth_crs_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/GMII_CRS_0" LOC = F28;
+#***not common*** NET "eth_gtxclk_txc_o" LOC = "" | IOSTANDARD = LVCMOS25;   # This may be same as the MAC clock input     ETH_GTX_CLK
+#***not common*** NET "eth_int_ni" LOC = "" | IOSTANDARD = LVCMOS25;   # Marvell infosheet: from Management I/f (MD) active low     ~ETH_INT
+
+#NET "eth_mdc_o" LOC = "E26" | IOSTANDARD = LVCMOS25;   #      ETH_MDC
+#NET "eth_md_io" LOC = "K21" | IOSTANDARD = LVCMOS25;   #      ETH_MDIO
+#*** swapped
+#      ETH_MDC
+NET "eth_mdc_o" IOSTANDARD = LVCMOS25;
+NET "eth_mdc_o" LOC = K21;
+#      ETH_MDIO
+NET "eth_md_io" IOSTANDARD = LVCMOS25;
+NET "eth_md_io" LOC = E26;
+
+#      ~ETH_RESET
+NET "eth_reset_no" IOSTANDARD = LVCMOS25;
+NET "eth_reset_no" LOC = F21;
+#***not common*** NET "eth_rx_clk_rxc_i" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_RX_CLK
+#      ETH_RX_DV
+NET "eth_rx_dv_ctl_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RX_DV" LOC = G28;
+#      ETH_RX_ER
+NET "eth_rx_er_i" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RX_ER" LOC = G27;
+#      ETH_RXD_0
+NET "eth_rxd_i[0]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[0]" LOC = E27;
+#      ETH_RXD_1
+NET "eth_rxd_i[1]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[1]" LOC = D27;
+#      ETH_RXD_2
+NET "eth_rxd_i[2]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[2]" LOC = K23;
+#      ETH_RXD_3
+NET "eth_rxd_i[3]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[3]" LOC = L23;
+#      ETH_RXD_4
+NET "eth_rxd_i[4]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[4]" LOC = C28;
+#      ETH_RXD_5
+NET "eth_rxd_i[5]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[5]" LOC = C27;
+#      ETH_RXD_6
+NET "eth_rxd_i[6]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[6]" LOC = H20;
+#      ETH_RXD_7
+NET "eth_rxd_i[7]" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_RXD[7]" LOC = J20;
+#***not common*** NET "eth_tx_clk_i" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TX_CLK
+#***not common*** NET "eth_tx_en_ctl_o" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TX_EN
+#      ETH_TX_ER
+NET "eth_tx_er_o" IOSTANDARD = LVCMOS25;
+NET "Unet_usb_top/Ugmii_locallink/v4_emac_block/gmii0/GMII_TX_ER" LOC = J21;
+#***not common*** NET "eth_txd_o(0)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_0
+#***not common*** NET "eth_txd_o(1)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_1
+#***not common*** NET "eth_txd_o(2)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_2
+#***not common*** NET "eth_txd_o(3)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_3
+#***not common*** NET "eth_txd_o(4)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_4
+#***not common*** NET "eth_txd_o(5)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_5
+#***not common*** NET "eth_txd_o(6)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_6
+#***not common*** NET "eth_txd_o(7)" LOC = "" | IOSTANDARD = LVCMOS25;   #      ETH_TXD_7
+
+
+# Locate EMAC instance for timing closure
+#***INST "*v4_emac"  LOC = "EMAC_X0Y1";
+
+#***not common below *** 
+# ***ISE says:
+# clock IOB clock component is not placed at an optimal clock IOB site. The clock IOB component
+# <eth_rx_clk_rxc_i> is placed at site <F20>. The clock IO site can use the fast path between the IO and the Clock
+# buffer/GCLK if the IOB is placed in the master Clock IOB Site. If this sub optimal condition is acceptable for this
+# design, you may use the CLOCK_DEDICATED_ROUTE constraint in the .ucf file to demote this message to a WARNING and
+# allow your design to continue. However, the use of this override is highly discouraged as it may lead to very poor
+# timing results. It is recommended that this error condition be corrected in the design. A list of all the COMP.PINs
+# used in this clock placement rule is listed below. These examples can be used directly in the .ucf file to override
+# this clock rule.
+# < NET "eth_rx_clk_rxc_i" CLOCK_DEDICATED_ROUTE = FALSE; >
+#NET "eth_rx_clk_rxc_i" CLOCK_DEDICATED_ROUTE = FALSE;
+#NET "eth_tx_clk_i" CLOCK_DEDICATED_ROUTE = FALSE;
+#***not common above*** 
+
+### end eth_gmii ###################################################################
+
+
+#      USB_D0  
+NET "usb_d_io[0]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[0]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[0]" LOC = AK32;
+#      USB_D1  
+NET "usb_d_io[1]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[1]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[1]" LOC = AK31;
+#      USB_D2  
+NET "usb_d_io[2]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[2]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[2]" LOC = AL19;
+#      USB_D3  
+NET "usb_d_io[3]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[3]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[3]" LOC = AL18;
+#      USB_D4  
+NET "usb_d_io[4]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[4]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[4]" LOC = AM32;
+#      USB_D5  
+NET "usb_d_io[5]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[5]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[5]" LOC = AM31;
+#      USB_D6  
+NET "usb_d_io[6]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[6]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[6]" LOC = AC23;
+#      USB_D7  
+NET "usb_d_io[7]" IOSTANDARD = LVCMOS25;
+NET "usb_d_io[7]" PULLDOWN;
+NET "Unet_usb_top/usb_d_io[7]" LOC = AC22;
+#      ~USB_RD  
+NET "usb_rd_o" IOSTANDARD = LVCMOS25;
+NET "usb_rd_o" LOC = AL31;
+# check dir     ~USB_RXF  
+NET "usb_rxf_i" IOSTANDARD = LVCMOS25;
+NET "usb_rxf_i" LOC = AL20;
+# check dir     ~USB_TXE  
+NET "usb_txe_i" IOSTANDARD = LVCMOS25;
+NET "usb_txe_i" LOC = AM20;
+#      USB_WR  
+NET "usb_wr_o" IOSTANDARD = LVCMOS25;
+NET "usb_wr_o" LOC = AL30;
+
+#      HEXSW_BIT1  
+NET "sw_hex_ni[0]" IOSTANDARD = LVCMOS25;
+NET "sw_hex_ni[0]" PULLUP;
+NET "sw_hex_ni[0]" LOC = AJ21;
+#      HEXSW_BIT0  
+NET "sw_hex_ni[1]" IOSTANDARD = LVCMOS25;
+NET "sw_hex_ni[1]" PULLUP;
+NET "sw_hex_ni[1]" LOC = AJ17;
+#      HEXSW_BIT2  
+NET "sw_hex_ni[2]" IOSTANDARD = LVCMOS25;
+NET "sw_hex_ni[2]" PULLUP;
+NET "sw_hex_ni[2]" LOC = AH17;
+#      HEXSW_BIT3  
+NET "sw_hex_ni[3]" IOSTANDARD = LVCMOS25;
+NET "sw_hex_ni[3]" PULLUP;
+NET "sw_hex_ni[3]" LOC = AG21;
+
+
+#*** idelay locs for IDO IDELAYS
+INST "Uclockstop/Uidot_idelayctrl0" LOC = IDELAYCTRL_X2Y0;
+INST "Uclockstop/Uidot_idelayctrl1" LOC = IDELAYCTRL_X2Y1;
+
+# Below moved to hsio_c02_fx60/100 files
+#INST "*Uidob_idelayctrl0"        LOC = "IDELAYCTRL_X0Y4";
+#INST "*Uidob_idelayctrl1"        LOC = "IDELAYCTRL_X0Y5";
+
+
+#NET "*Umainfeout/reg_control_i*" TIG;
+#NET "*Umainfeout/reg_com_enable_i*" TIG;
+
+## Matt attempts to remove silly derived constraints and unroutable bcos
+#TIMESPEC TS_CLK_40MHz = PERIOD "CLK_40MHz" 42 MHz HIGH 50 %;
+#TIMESPEC TS_CLK_160MHz = PERIOD "CLK_160MHz" TS_CLK_40MHz * 4 HIGH 50 %;
+
+#NET "Umain/Uclocksmain/clk_bco_nodc"  TNM_NET = "CLK_40MHz";
+#NET "Umain/Uclocksmain/clk_dbco" TNM_NET = "CLK_40MHz";
+
+# Tigs on all debug and extranea
+NET "Umain/dispword*" TIG;
+NET "Umain/idc_p3*" TIG;
+NET "Umain/idc_p4*" TIG;
+NET "Umain/idc_p5*" TIG;
+#NET "Umain/sma_io*" TIG;
+#NET "Umain/dbg_oe" TIG;
+NET "Umain/dbg_*" TIG;
+
+# Place:645 - A clock IOB clock component is not placed at an optimal clock IOB site.
+# The clock IOB component <idc_p2_io<30>> is placed at site <J5>. 
+# The clock IO site can use the fast path between the IO and the Clock buffer/GCLK 
+# if the IOB is placed in the master Clock IOB Site. If this sub optimal condition 
+# is acceptable for this design, you may use the CLOCK_DEDICATED_ROUTE constraint in
+# the .ucf file to demote this message to a WARNING and allow your design to continue.
+# However, the use of this override is highly discouraged as it may lead to very poor
+# timing results.
+# It is recommended that this error condition be corrected in the design.
+# A list of all the COMP.PINs used in this clock placement rule is listed below.
+# These examples can be used directly in the .ucf file to override this clock rule.
+NET "idc_p2_io<30>" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+### TDC RLOC  -- SLICE LOC
+#INST "Umain/Utriggertop/Utdc/stopcontrol" RLOC_ORIGIN="X84Y148";
+
+
+
+
+

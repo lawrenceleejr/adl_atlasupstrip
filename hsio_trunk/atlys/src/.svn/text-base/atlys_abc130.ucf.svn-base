@@ -1,0 +1,111 @@
+TIMESPEC TS_atlys_clk = PERIOD "atlys_clk" 10 ns HIGH 50%;
+NET "clk_i" TNM_NET = atlys_clk;
+
+TIMESPEC TS_BCO = PERIOD "CLK_BCO" 24 ns HIGH 50%;
+NET "vmod_exp_pio(10)" TNM_NET = "CLK_BCO";
+
+TIMESPEC TS_DRC = PERIOD "CLK_DRC" "TS_BCO" / 4 HIGH 50.00 %;
+NET "sh_bco" TNM_NET = "CLK_BCO";
+NET "sh_drc" TNM_NET = "CLK_DRC";
+
+##################################################################
+# All the timespec and TIG stuff below is to stop ISE trying to 
+# get clk40a (Atlys internal clock derived bco) to not mess with
+# timing. It failed, so I've ripped it out for now.
+
+#TIMESPEC TS_bco2x = PERIOD "bco2x" TS_bco / 2 HIGH 50%;
+#TIMESPEC TS_bco4x = PERIOD "bco4x" TS_bco / 4 HIGH 50%;
+#TIMESPEC TS_bcon = PERIOD "bco4x" TS_bco PHASE 12 ns HIGH 50%;
+#NET "clk40" TNM_NET = bco;
+#NET "clk80" TNM_NET = bco2x;
+#NET "clk160" TNM_NET = bco4x;
+#NET "clkn40" TNM_NET = bcon;
+
+
+# ISE seems confused by clock muxing, and trys too hard on the internal clock timing, 
+# which isn't really too important, and the above related clock thing didn't work, 
+# so I've whacked them with TIGs!
+#NET "Uclkrstblk/clk40a" TIG;
+#NET "Uclkrstblk/clk80a" TIG;
+#NET "Uclkrstblk/clk160a" TIG;
+#NET "Uclkrstblk/clkn40a" TIG;
+####################################################################
+
+#NET "vmod_exp_pio<10>" CLOCK_DEDICATED_ROUTE = FALSE;
+#NET "vmod_exp_pio<11>" CLOCK_DEDICATED_ROUTE = FALSE;
+
+
+# Trying to stop timing issues between the 40 and 160 MHz domains
+# This is the sledge hammer approach - but it might work!
+#
+# soft error detect from reg system
+  #NET "*serK" TIG;
+##CSR stuff
+  #NET "*ID*" TIG;
+##pad signals
+  #NET "*DATLoen" TIG; -- these are not found -- why??
+  #NET "*DATRoen" TIG;
+  #NET "*XOFFLoen" TIG;
+  #NET "*XOFFRoen" TIG;-- these are not found -- why??
+##data and flow control from above
+  #NET "*regConfig0*" TIG;
+  #NET "*L1_packet*" TIG;
+  #NET "*L1_DCL_fifowr" TIG;
+  #NET "*R3_packet*" TIG;
+  #NET "*R3_DCL_FIFO_wr" TIG;
+  #NET "*ofRegReadVal*" TIG;
+  #NET "*ofRegPush" TIG;
+  #NET "*regReadVal*" TIG;
+  #NET "*regReadPush" TIG;
+  #NET "*registerAddress*" TIG;
+##flow-control back to above
+  #NET "*L1DCLfifoFull" TIG;
+  #NET "*R3DCLfifoFull" TIG;
+  #NET "*CSRaFifoFull" TIG;
+  #NET "*CSRbFifoFull" TIG;
+  #NET "*thruFifoFull" TIG;
+  #NET "*L1FIFOoverflow" TIG;
+  #NET "*R3FIFOoverflow" TIG;
+  #NET "*CSRaFIFOoverflow" TIG;
+  #NET "*CSRbFIFOoverflow" TIG;
+  #NET "*thruFIFOoverflow" TIG;
+  
+    
+  
+  
+  
+  
+#ERROR:Place:1136 - This design contains a global buffer instance,
+#   <Uclkrstblk/Udcm40b/clkout3_buf>, driving the net, <clk160>, that is driving
+#   the following (first 30) non-clock load pins.
+#   < PIN: Udrv/drc1.A4; >
+#   This is not a recommended design practice in Spartan-6 due to limitations in
+#   the global routing that may cause excessive delay, skew or unroutable
+#   situations.  It is recommended to only use a BUFG resource to drive clock
+#   loads. If you wish to override this recommendation, you may use the
+#   CLOCK_DEDICATED_ROUTE constraint (given below) in the .ucf file to demote
+#   this message to a WARNING and allow your design to continue.
+PIN "Uclkrstblk/Udcm40b/clkout3_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#ERROR:Place:1136 - This design contains a global buffer instance,
+#   <Uclkrstblk/Udcm40b/clkout2_buf>, driving the net, <clk80>, that is driving
+#   the following (first 30) non-clock load pins.
+#   < PIN: Udrv/drc1.A6; >
+#   This is not a recommended design practice in Spartan-6 due to limitations in
+#   the global routing that may cause excessive delay, skew or unroutable
+#   situations.  It is recommended to only use a BUFG resource to drive clock
+#   loads. If you wish to override this recommendation, you may use the
+#   CLOCK_DEDICATED_ROUTE constraint (given below) in the .ucf file to demote
+#   this message to a WARNING and allow your design to continue.
+PIN "Uclkrstblk/Udcm40b/clkout2_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;
+#ERROR:Place:1136 - This design contains a global buffer instance,
+#   <Uclkrstblk/Udcm40b/clkout1_buf>, driving the net, <clk40>, that is driving
+#   the following (first 30) non-clock load pins.
+#   < PIN: Udrv/drc1.A5; >
+#   < PIN: Udrv/sh_bco_o1.A5; >
+#   This is not a recommended design practice in Spartan-6 due to limitations in
+#   the global routing that may cause excessive delay, skew or unroutable
+#   situations.  It is recommended to only use a BUFG resource to drive clock
+#   loads. If you wish to override this recommendation, you may use the
+#   CLOCK_DEDICATED_ROUTE constraint (given below) in the .ucf file to demote
+#   this message to a WARNING and allow your design to continue.
+PIN "Uclkrstblk/Udcm40b/clkout1_buf.O" CLOCK_DEDICATED_ROUTE = FALSE;

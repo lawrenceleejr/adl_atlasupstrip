@@ -1,0 +1,193 @@
+V3 114
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/cal_block_v1_4_1.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/cal_block_v1_4_1 1410224433 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/cal_block_v1_4_1.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/NUMERIC_STD 1370735611 \
+      LB ethernet_v4
+AR ethernet_v4/cal_block_v1_4_1/rtl 1410224434 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/cal_block_v1_4_1.vhd \
+      EN ethernet_v4/cal_block_v1_4_1 1410224433
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/dcm_reset.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/dcm_reset 1410224451 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/dcm_reset.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/dcm_reset/rtl 1410224452 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/dcm_reset.vhd \
+      EN ethernet_v4/dcm_reset 1410224451 CP sync_block
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/eth2x16 1410224449 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/eth2x16/WRAPPER 1410224450 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16.vhd \
+      EN ethernet_v4/eth2x16 1410224449 CP EMAC
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_block.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth2x16_block 1410224501 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_block.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/eth2x16_block/TOP_LEVEL 1410224502 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_block.vhd \
+      EN ethernet_v4/eth2x16_block 1410224501 CP GT11_DUAL_1000X CP gt11_init_rx \
+      CP gt11_init_tx CP BUFG CP DCM_BASE CP dcm_reset CP eth2x16
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_locallink_muxed.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/eth2x16_locallink_muxed 1410224582 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_locallink_muxed.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PH ethernet_v4/eth_types 1410224496
+AR ethernet_v4/eth2x16_locallink_muxed/TOP_LEVEL 1410224583 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_locallink_muxed.vhd \
+      EN ethernet_v4/eth2x16_locallink_muxed 1410224582 CP eth2x16_block \
+      CP eth_fifo_16
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_top_struct.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth2x16_top 1410224652 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_top_struct.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/STD_LOGIC_UNSIGNED 1370735609 \
+      PB ieee/std_logic_arith 1370735608 LB unisim PH unisim/VCOMPONENTS 1370735613 \
+      PH ethernet_v4/eth_types 1410224496 LB utils PH utils/pkg_types 1410224428
+AR ethernet_v4/eth2x16_top/struct 1410224653 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth2x16_top_struct.vhd \
+      EN ethernet_v4/eth2x16_top 1410224652 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/std_logic_arith 1370735608 PB ieee/STD_LOGIC_UNSIGNED 1370735609 \
+      LB utils PH utils/pkg_types 1410224428 CP eth2x16_locallink_muxed \
+      CP host_interface CP m_buff CP m_inv CP m_power CP eth_stat_decoder \
+      CP statword_build
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_16.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/eth_fifo_16 1410224499 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_16.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609 PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/eth_fifo_16/RTL 1410224500 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_16.vhd \
+      EN ethernet_v4/eth_fifo_16 1410224499 CP tx_client_fifo_16 \
+      CP rx_client_fifo_16
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_8_16.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth_fifo_8_16 1410224580 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_8_16.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609 PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/eth_fifo_8_16/RTL 1410224581 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_fifo_8_16.vhd \
+      EN ethernet_v4/eth_fifo_8_16 1410224580 CP rx_client_fifo_16 \
+      CP tx_client_fifo_16
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth_gmii 1410224497 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/eth_gmii/WRAPPER 1410224498 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii.vhd \
+      EN ethernet_v4/eth_gmii 1410224497 CP EMAC
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii16_locallink.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth_gmii16_locallink 1410224650 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii16_locallink.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/eth_gmii16_locallink/TOP_LEVEL 1410224651 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii16_locallink.vhd \
+      EN ethernet_v4/eth_gmii16_locallink 1410224650 CP eth_gmii_block \
+      CP eth_fifo_8_16
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii_block.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/eth_gmii_block 1410224578 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii_block.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/eth_gmii_block/TOP_LEVEL 1410224579 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_gmii_block.vhd \
+      EN ethernet_v4/eth_gmii_block 1410224578 CP gmii_if CP IBUF CP IDELAYCTRL \
+      CP SRL16 CP BUFGMUX CP IBUFG CP IDELAY CP BUFG CP eth_gmii
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_stat_decoder.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/eth_stat_decoder 1410224576 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_stat_decoder.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/std_logic_arith 1370735608 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609
+AR ethernet_v4/eth_stat_decoder/rtl 1410224577 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_stat_decoder.vhd \
+      EN ethernet_v4/eth_stat_decoder 1410224576
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_types.vhd 2014/09/05.22:56:43 P.68d
+PH ethernet_v4/eth_types 1410224496 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/eth_types.vhd \
+      PB ieee/std_logic_1164 1370735607 PB std/TEXTIO 1370735606
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gmii_if.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/gmii_if 1410224494 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gmii_if.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607
+AR ethernet_v4/gmii_if/PHY_IF 1410224495 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gmii_if.vhd \
+      EN ethernet_v4/gmii_if 1410224494 CP ODDR CP OBUF CP IBUF CP IDELAY
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_dual_1000X.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/GT11_dual_1000X 1410224447 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_dual_1000X.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/NUMERIC_STD 1370735611 LB unisim \
+      PH unisim/VCOMPONENTS 1370735613
+AR ethernet_v4/GT11_dual_1000X/structural 1410224448 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_dual_1000X.vhd \
+      EN ethernet_v4/GT11_dual_1000X 1410224447 CP gt11togt_rxclkcorcnt_shim \
+      CP GT11 CP cal_block_v1_4_1
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_rx.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/gt11_init_rx 1410224445 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_rx.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/NUMERIC_STD 1370735611 LB unisim \
+      PH unisim/VCOMPONENTS 1370735613
+AR ethernet_v4/gt11_init_rx/rtl 1410224446 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_rx.vhd \
+      EN ethernet_v4/gt11_init_rx 1410224445 CP SRL16E CP FDE CP FDRE
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_tx.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/GT11_INIT_TX 1410224443 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_tx.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/NUMERIC_STD 1370735611 LB unisim \
+      PH unisim/VCOMPONENTS 1370735613
+AR ethernet_v4/GT11_INIT_TX/rtl 1410224444 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_init_tx.vhd \
+      EN ethernet_v4/GT11_INIT_TX 1410224443
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_to_gt_rxclkcorcnt_shim.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/gt11togt_rxclkcorcnt_shim 1410224431 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_to_gt_rxclkcorcnt_shim.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/gt11togt_rxclkcorcnt_shim/rtl 1410224432 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/gt11_to_gt_rxclkcorcnt_shim.vhd \
+      EN ethernet_v4/gt11togt_rxclkcorcnt_shim 1410224431
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/host_interface.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/host_interface 1410224574 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/host_interface.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/std_logic_arith 1370735608 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609
+AR ethernet_v4/host_interface/rtl 1410224575 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/host_interface.vhd \
+      EN ethernet_v4/host_interface 1410224574
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/pause_quanta_timer.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/PauseQuantaTimer 1410224648 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/pause_quanta_timer.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/std_logic_arith 1370735608 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609
+AR ethernet_v4/PauseQuantaTimer/rtl 1410224649 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/pause_quanta_timer.vhd \
+      EN ethernet_v4/PauseQuantaTimer 1410224648
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/rx_client_fifo_16.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/rx_client_fifo_16 1410224441 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/rx_client_fifo_16.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609 PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/rx_client_fifo_16/RTL 1410224442 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/rx_client_fifo_16.vhd \
+      EN ethernet_v4/rx_client_fifo_16 1410224441 CP RAMB16_S18_S18
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/statword_build.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/statword_build 1410224572 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/statword_build.vhd \
+      PB ieee/std_logic_1164 1370735607 PB ieee/std_logic_arith 1370735608 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609
+AR ethernet_v4/statword_build/rtl 1410224573 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/statword_build.vhd \
+      EN ethernet_v4/statword_build 1410224572
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/sync_block.vhd 2014/09/05.22:56:43 P.68d
+EN ethernet_v4/sync_block 1410224429 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/sync_block.vhd \
+      PB ieee/std_logic_1164 1370735607 LB unisim PH unisim/VCOMPONENTS 1370735613
+AR ethernet_v4/sync_block/structural 1410224430 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/sync_block.vhd \
+      EN ethernet_v4/sync_block 1410224429 CP FD
+FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/tx_client_fifo_16.vhd 2014/09/05.22:56:41 P.68d
+EN ethernet_v4/tx_client_fifo_16 1410224439 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/tx_client_fifo_16.vhd \
+      LB unisim PH unisim/VCOMPONENTS 1370735613 PB ieee/std_logic_1164 1370735607 \
+      PB ieee/STD_LOGIC_UNSIGNED 1370735609 PB ieee/NUMERIC_STD 1370735611
+AR ethernet_v4/tx_client_fifo_16/RTL 1410224440 \
+      FL /afs/cern.ch/work/l/leejr/SCT/hsio_trunk/ethernet_v4/src/tx_client_fifo_16.vhd \
+      EN ethernet_v4/tx_client_fifo_16 1410224439 CP RAMB16_S18_S18

@@ -1,0 +1,63 @@
+###########################
+#### H S I O  C 0 0    ####
+####   Reset Test      ####
+###########################
+CONFIG PART = 4vfx60ff1152-11;
+CONFIG STEPPING = "0"; # According to datasheet (ds302) version 2 = stepping 0
+
+
+TIMESPEC "TS_CLK_125MHz" = PERIOD "CLK_125MHz" 125 MHz HIGH 50 %;
+NET "clk_xtal_125_pi"        TNM_NET = "CLK_125MHz";
+
+#NET "Uclockstop/clk40" PERIOD = 24ns;
+#NET "clk_startup" PERIOD = 24 ns;
+#NET "Uclocksmain/clk_ro" PERIOD = 12 ns;
+
+
+NET "clk_xtal_125_mi" LOC = "J17" |IOSTANDARD = LVDS_25;   # 125MHz     $1I155\CRYSTAL_CLK_M  
+NET "clk_xtal_125_pi" LOC = "H17" |IOSTANDARD = LVDS_25;   # 125MHz     $1I155\CRYSTAL_CLK_P  
+
+NET "led_status_o" LOC = "K14" ;   #      FPGA_STATUS  
+NET "rst_poweron_ni" LOC = "AJ19" ;   #      $1I155\$1I326\$1N909  
+
+NET "idc_p4_io(0)" LOC = "AG32" ;   # Pin 1     BANK11_IO0_P  
+# NET "idc_p4_io(1)" LOC = "AH32" ;   # Pin 2     BANK11_IO0_M  
+NET "idc_p4_io(2)" LOC = "W25" ;   # Pin 3     BANK11_IO1_P  
+# NET "idc_p4_io(3)" LOC = "W24" ;   # Pin 4     BANK11_IO1_M  
+NET "idc_p4_io(4)" LOC = "AA26" ;   # Pin 5     BANK11_IO2_P  
+# NET "idc_p4_io(5)" LOC = "AA25" ;   # Pin 6     BANK11_IO2_M  
+NET "idc_p4_io(6)" LOC = "W26" ;   # Pin 7     BANK11_IO3_P  
+# NET "idc_p4_io(7)" LOC = "Y26" ;   # Pin 8     BANK11_IO3_M  
+# NET "idc_p4_" LOC = "" ;   # Pin 9     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 10     DGND  
+NET "idc_p4_io(8)" LOC = "W27" ;   # Pin 11     BANK11_IO4_P  
+# NET "idc_p4_io(9)" LOC = "V27" ;   # Pin 12     BANK11_IO4_M  
+NET "idc_p4_io(10)" LOC = "U32" ;   # Pin 13     BANK11_IO5_P  
+# NET "idc_p4_io(11)" LOC = "U31" ;   # Pin 14     BANK11_IO5_M  
+NET "idc_p4_io(12)" LOC = "V30" ;   # Pin 15     BANK11_IO6_P  
+# NET "idc_p4_io(13)" LOC = "U30" ;   # Pin 16     BANK11_IO6_M  
+NET "idc_p4_io(14)" LOC = "V29" ;   # Pin 17     BANK11_IO7_P  
+# NET "idc_p4_io(15)" LOC = "V28" ;   # Pin 18     BANK11_IO7_M  
+# NET "idc_p4_" LOC = "" ;   # Pin 19     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 20     DGND  
+NET "idc_p4_io(16)" LOC = "W32" ;   # Pin 21     BANK11_IO8_P  
+# NET "idc_p4_io(17)" LOC = "V32" ;   # Pin 22     BANK11_IO8_M  
+NET "idc_p4_io(18)" LOC = "Y29" ;   # Pin 23     BANK11_IO9_P  
+# NET "idc_p4_io(19)" LOC = "W29" ;   # Pin 24     BANK11_IO9_M  
+NET "idc_p4_io(20)" LOC = "AB26" ;   # Pin 25     BANK11_IO10_P  
+# NET "idc_p4_io(21)" LOC = "AB25" ;   # Pin 26     BANK11_IO10_M  
+NET "idc_p4_io(22)" LOC = "AB28" ;   # Pin 27     BANK11_IO11_P  
+# NET "idc_p4_io(23)" LOC = "AB27" ;   # Pin 28     BANK11_IO11_M  
+# NET "idc_p4_" LOC = "" ;   # Pin 29     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 30     DGND  
+NET "idc_p4_io(24)" LOC = "AC28" ;   # Pin 31     BANK11_IO12_P  
+# NET "idc_p4_io(25)" LOC = "AC27" ;   # Pin 32     BANK11_IO12_M  
+NET "idc_p4_io(26)" LOC = "AC30" ;   # Pin 33     BANK11_IO13_P  
+# NET "idc_p4_io(27)" LOC = "AC29" ;   # Pin 34     BANK11_IO13_M  
+NET "idc_p4_io(28)" LOC = "AD32" ;   # Pin 35     BANK11_IO14_P  
+# NET "idc_p4_io(29)" LOC = "AD31" ;   # Pin 36     BANK11_IO14_M  
+NET "idc_p4_io(30)" LOC = "AD30" ;   # Pin 37     BANK11_IO15_P  
+# NET "idc_p4_io(31)" LOC = "AD29" ;   # Pin 38     BANK11_IO15_M  
+# NET "idc_p4_" LOC = "" ;   # Pin 39     DGND  
+# NET "idc_p4_" LOC = "" ;   # Pin 40     DGND  
+

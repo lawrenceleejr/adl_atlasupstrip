@@ -1,0 +1,200 @@
+CONFIG PART = 4vfx60ff1152-11;
+CONFIG STEPPING = "0"; # According to datasheet (ds302) version 2 = stepping 0
+
+
+TIMESPEC "TS_CLK_125MHz" = PERIOD "CLK_125MHz" 125 MHz HIGH 50 %;
+NET "clk_xtal_125_pi"        TNM_NET = "CLK_125MHz";
+
+NET "clk_xtal_125_mi" LOC = "J17" |IOSTANDARD = LVDS_25;   # 125MHz     $1I155\CRYSTAL_CLK_M  
+NET "clk_xtal_125_pi" LOC = "H17" |IOSTANDARD = LVDS_25;   # 125MHz     $1I155\CRYSTAL_CLK_P  
+NET "rst_poweron_ni" LOC = "AJ19" ;   #      $1I155\$1I326\$1N909  
+
+NET ibs09_convst_n_o(0) LOC=AJ29;
+NET ibs09_scl_o(0) LOC=AK29;
+NET ibs09_sda_io(0) LOC=AK28;
+NET ibs09_convst_n_o(1) LOC=AK27;
+NET ibs09_scl_o(1) LOC=AE27;
+NET ibs09_sda_io(1) LOC=AE23;
+NET ibs09_convst_n_o(2) LOC=AF23;
+NET ibs09_scl_o(2) LOC=AF28;
+NET ibs09_sda_io(2) LOC=AK26;
+
+NET ibs09_convstt_n_o(0) LOC=AK24;
+NET ibs09_sclt_o(0) LOC=AK23;
+NET ibs09_sdat_io(0) LOC=AJ27;
+NET ibs09_convstt_n_o(1) LOC=AL26;
+NET ibs09_sclt_o(1) LOC=AM30;
+NET ibs09_sdat_io(1) LOC=AL29;
+NET ibs09_convstt_n_o(2) LOC=AJ25;
+NET ibs09_sclt_o(2) LOC=AK21;
+NET ibs09_sdat_io(2) LOC=AE22;
+
+NET ibs09_slc_wire_o LOC=AL28;
+NET ibs09_sda_wire_io LOC=AM28;
+NET ibs09_slc_wiret_o LOC=AM27;
+NET ibs09_sda_wiret_io LOC=AM26;
+
+NET ibs09_bcot_po LOC=AM13 | IOSTANDARD=LVDS_25;
+NET ibs09_bcot_mo LOC=AM12 | IOSTANDARD=LVDS_25;
+NET ibs09_cmdt_po LOC=AM8 | IOSTANDARD=LVDS_25;
+NET ibs09_cmdt_mo LOC=AM7 | IOSTANDARD=LVDS_25;
+NET ibs09_l1rt_po LOC=AK14 | IOSTANDARD=LVDS_25;
+NET ibs09_l1rt_mo LOC=AL14 | IOSTANDARD=LVDS_25;
+NET ibs09_dot_pi(0) LOC=AK13;
+NET ibs09_dot_mi(0) LOC=AL13;
+NET ibs09_dot_pi(1) LOC=AL11;
+NET ibs09_dot_mi(1) LOC=AM11;
+NET ibs09_dot_pi(2) LOC=AL9;
+NET ibs09_dot_mi(2) LOC=AK9;
+NET ibs09_dot_pi(3) LOC=AL10;
+NET ibs09_dot_mi(3) LOC=AM10;
+NET ibs09_dot_pi(4) LOC=AL8;
+NET ibs09_dot_mi(4) LOC=AK8;
+NET ibs09_dot_pi(5) LOC=AK7;
+NET ibs09_dot_mi(5) LOC=AJ7;
+NET ibs09_dot_pi(6) LOC=AJ9;
+NET ibs09_dot_mi(6) LOC=AH9;
+NET ibs09_dot_pi(7) LOC=AJ11;
+NET ibs09_dot_mi(7) LOC=AK11;
+NET ibs09_dot_pi(8) LOC=AH8;
+NET ibs09_dot_mi(8) LOC=AH7;
+NET ibs09_dot_pi(9) LOC=AJ12;
+NET ibs09_dot_mi(9) LOC=AK12;
+NET ibs09_dot_pi(10) LOC=AH10;
+NET ibs09_dot_mi(10) LOC=AJ10;
+NET ibs09_dot_pi(11) LOC=AH14;
+NET ibs09_dot_mi(11) LOC=AJ14;
+NET ibs09_dot_pi(12) LOC=AF10;
+NET ibs09_dot_mi(12) LOC=AG10;
+NET ibs09_dot_pi(13) LOC=AD12;
+NET ibs09_dot_mi(13) LOC=AE12;
+NET ibs09_dot_pi(14) LOC=AG12;
+NET ibs09_dot_mi(14) LOC=AH12;
+NET ibs09_dot_pi(15) LOC=AF9;
+NET ibs09_dot_mi(15) LOC=AE9;
+NET ibs09_dot_pi(16) LOC=AF11;
+NET ibs09_dot_mi(16) LOC=AG11;
+NET ibs09_dot_pi(17) LOC=AC12;
+NET ibs09_dot_mi(17) LOC=AB12;
+NET ibs09_dot_pi(18) LOC=AG13;
+NET ibs09_dot_mi(18) LOC=AH13;
+NET ibs09_dot_pi(19) LOC=AD11;
+NET ibs09_dot_mi(19) LOC=AE11;
+NET ibs09_dot_pi(20) LOC=AD10;
+NET ibs09_dot_mi(20) LOC=AD9;
+NET ibs09_dot_pi(21) LOC=AE14;
+NET ibs09_dot_mi(21) LOC=AF14;
+NET ibs09_dot_pi(22) LOC=AB11;
+NET ibs09_dot_mi(22) LOC=AA11;
+NET ibs09_dot_pi(23) LOC=AD14;
+NET ibs09_dot_mi(23) LOC=AC13;
+NET ibs09_spia_do_pi LOC=AB13;
+NET ibs09_spia_do_mi LOC=AA13;
+NET ibs09_spia_clk_po LOC=AH15;
+NET ibs09_spia_clk_mo LOC=AJ15;
+NET ibs09_spia_com_po LOC=AF15;
+NET ibs09_spia_com_mo LOC=AG15;
+NET ibs09_spita_do_pi LOC=AE13;
+NET ibs09_spita_do_mi LOC=AF13;
+NET ibs09_spita_clk_po LOC=AJ16;
+NET ibs09_spita_clk_mo LOC=AK16;
+NET ibs09_spita_com_po LOC=H24;
+NET ibs09_spita_com_mo LOC=J24;
+
+NET ibs09_bco_po LOC=K26;
+NET ibs09_bco_mo LOC=J26;
+NET ibs09_cmd_po LOC=D21;
+NET ibs09_cmd_mo LOC=E21;
+NET ibs09_l1r_po LOC=P22;
+NET ibs09_l1r_mo LOC=N22;
+NET ibs09_do_pi(0) LOC=E19;
+NET ibs09_do_mi(0) LOC=F19;
+NET ibs09_do_pi(1) LOC=L21;
+NET ibs09_do_mi(1) LOC=M22;
+NET ibs09_do_pi(2) LOC=L26;
+NET ibs09_do_mi(2) LOC=L25;
+NET ibs09_do_pi(3) LOC=P24;
+NET ibs09_do_mi(3) LOC=N24;
+NET ibs09_do_pi(4) LOC=K24;
+NET ibs09_do_mi(4) LOC=L24;
+NET ibs09_do_pi(5) LOC=D30;
+NET ibs09_do_mi(5) LOC=C30;
+NET ibs09_do_pi(6) LOC=D29;
+NET ibs09_do_mi(6) LOC=C29;
+NET ibs09_do_pi(7) LOC=P27;
+NET ibs09_do_mi(7) LOC=P26;
+NET ibs09_do_pi(8) LOC=M26;
+NET ibs09_do_mi(8) LOC=M25;
+NET ibs09_do_pi(9) LOC=D32;
+NET ibs09_do_mi(9) LOC=C32;
+NET ibs09_do_pi(10) LOC=E31;
+NET ibs09_do_mi(10) LOC=D31;
+NET ibs09_do_pi(11) LOC=F29;
+NET ibs09_do_mi(11) LOC=E29;
+NET ibs09_do_pi(12) LOC=H28;
+NET ibs09_do_mi(12) LOC=H27;
+NET ibs09_do_pi(13) LOC=G30;
+NET ibs09_do_mi(13) LOC=F30;
+NET ibs09_do_pi(14) LOC=H30;
+NET ibs09_do_mi(14) LOC=H29;
+NET ibs09_do_pi(15) LOC=J31;
+NET ibs09_do_mi(15) LOC=J30;
+NET ibs09_do_pi(16) LOC=K28;
+NET ibs09_do_mi(16) LOC=J27;
+NET ibs09_do_pi(17) LOC=K29;
+NET ibs09_do_mi(17) LOC=J29;
+NET ibs09_do_pi(18) LOC=J32;
+NET ibs09_do_mi(18) LOC=H32;
+NET ibs09_do_pi(19) LOC=G32;
+NET ibs09_do_mi(19) LOC=G31;
+NET ibs09_do_pi(20) LOC=E32;
+NET ibs09_do_mi(20) LOC=F31;
+NET ibs09_do_pi(21) LOC=M32;
+NET ibs09_do_mi(21) LOC=M31;
+NET ibs09_do_pi(22) LOC=L31;
+NET ibs09_do_mi(22) LOC=L30;
+NET ibs09_do_pi(23) LOC=N27;
+NET ibs09_do_mi(23) LOC=M28;
+
+
+NET ibpp0_testi_pi(0) LOC=J25;
+NET ibpp0_testi_mi(0) LOC=H25;
+NET ibpp0_testi_pi(1) LOC=C24;
+NET ibpp0_testi_mi(1) LOC=D24;
+NET ibpp0_testi_pi(2) LOC=C23;
+NET ibpp0_testi_mi(2) LOC=C22;
+NET ibpp0_testi_pi(3) LOC=G23;
+NET ibpp0_testi_mi(3) LOC=H23;
+
+NET ibpp0_testo_po(0) LOC=N30;
+NET ibpp0_testo_mo(0) LOC=M30;
+NET ibpp0_testo_po(1) LOC=P31;
+NET ibpp0_testo_mo(1) LOC=P30;
+NET ibpp0_testo_po(2) LOC=N29;
+NET ibpp0_testo_mo(2) LOC=N28;
+NET ibpp0_testo_po(3) LOC=R32;
+NET ibpp0_testo_mo(3) LOC=R31;
+NET ibpp0_testo_po(4) LOC=L29;
+NET ibpp0_testo_mo(4) LOC=L28;
+
+
+NET ibpp0_testo_po(5) LOC=R29;
+NET ibpp0_testo_mo(5) LOC=P29;
+NET ibpp0_testo_po(6) LOC=T29;
+NET ibpp0_testo_mo(6) LOC=T28;
+NET ibpp0_testo_po(7) LOC=T31;
+NET ibpp0_testo_mo(7) LOC=T30;
+NET ibpp0_testo_po(8) LOC=U28;
+NET ibpp0_testo_mo(8) LOC=U27;
+NET ibpp0_testo_po(9) LOC=T26;
+NET ibpp0_testo_mo(9) LOC=R26;
+
+NET ibclk_osc0_pi LOC=K16;
+NET ibclk_osc0_mi LOC=L16;
+NET ibclk_osc1_pi LOC=K18;
+NET ibclk_osc1_mi LOC=K17;
+
+
+
+
+

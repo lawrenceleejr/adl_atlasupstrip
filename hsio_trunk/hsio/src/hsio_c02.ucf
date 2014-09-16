@@ -1,0 +1,13 @@
+################################################
+##########     H S I O     C 0 2    ############
+#########  ucf with hsio c02 uncommon stuff  ####
+################################################
+
+TIMESPEC "TS_CLK_MGT_125MHz" = PERIOD "CLK_MGT_125MHz" 125 MHz HIGH 50 %;
+NET "clk_mgt0a_pi"        TNM_NET = "CLK_MGT_125MHz";
+NET "clk_mgt1a_pi"        TNM_NET = "CLK_MGT_125MHz";
+
+TIMESPEC "TS_CLK_MGT_156MHz" = PERIOD "CLK_MGT_156MHz" 156.25 MHz HIGH 50 %;
+NET "clk_mgt0b_pi"        TNM_NET = "CLK_MGT_156MHz";
+NET "clk_mgt1b_pi"        TNM_NET = "CLK_MGT_156MHz";
+
