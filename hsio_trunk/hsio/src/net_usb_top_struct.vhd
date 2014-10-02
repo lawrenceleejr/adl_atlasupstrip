@@ -242,61 +242,61 @@ architecture struct of net_usb_top is
 
 
 
-
-
-   -- PGP Front End Wrapper                                                                                                                                                                                                                                                     
-   component BUFGMUX port (O: out std_logic; I0: in std_logic; I1: in std_logic; S: in std_logic); end component;
-   component PgpFrontEnd
-      generic (
-      MgtMode    : string  := "A";
-      RefClkSel  : string  := "REFCLK1"
-      );
-      port (
-      pgpRefClk1       : in  std_logic;
-      pgpRefClk2       : in  std_logic;
-      mgtRxRecClk      : out std_logic;
-      pgpClk           : in  std_logic;
-      pgpReset         : in  std_logic;
-      pgpDispA         : out std_logic_vector(7 downto 0);
-      pgpDispB         : out std_logic_vector(7 downto 0);
-      resetOut         : out std_logic;
-      locClk           : in  std_logic;
-      locReset         : in  std_logic;
-      cmdEn            : out std_logic;
-      cmdOpCode        : out std_logic_vector(7  downto 0);
-      cmdCtxOut        : out std_logic_vector(23 downto 0);
-      regReq           : out std_logic;
-      regOp            : out std_logic;
-      regInp           : out std_logic;
-      regAck           : in  std_logic;
-      regFail          : in  std_logic;
-      regAddr          : out std_logic_vector(23 downto 0);
-      regDataOut       : out std_logic_vector(31 downto 0);
-      regDataIn        : in  std_logic_vector(31 downto 0);
-      frameTxEnable    : in  std_logic;
-      frameTxSOF       : in  std_logic;
-      frameTxEOF       : in  std_logic;
-      frameTxEOFE      : in  std_logic;
-      frameTxData      : in  std_logic_vector(15 downto 0);
-      frameTxAFull     : out std_logic;
-      frameRxValid     : out std_logic;
-      frameRxReady     : in  std_logic;
-      frameRxSOF       : out std_logic;
-      frameRxEOF       : out std_logic;
-      frameRxEOFE      : out std_logic;
-      frameRxData      : out std_logic_vector(15 downto 0);
-      valid            : out std_logic;
-      eof              :out std_logic;
-      sof              :out std_logic;
-      mgtRxN           : in  std_logic;
-      mgtRxP           : in  std_logic;
-      mgtTxN           : out std_logic;
-      mgtTxP           : out std_logic;
-      mgtCombusIn      : in  std_logic_vector(15 downto 0);
-      mgtCombusOut     : out std_logic_vector(15 downto 0)
-      );
-   end component;
-
+--
+--
+--   -- PGP Front End Wrapper                                                                                                                                                                                                                                                     
+--   component BUFGMUX port (O: out std_logic; I0: in std_logic; I1: in std_logic; S: in std_logic); end component;
+--   component PgpFrontEnd
+--      generic (
+--      MgtMode    : string  := "A";
+--      RefClkSel  : string  := "REFCLK1"
+--      );
+--      port (
+--      pgpRefClk1       : in  std_logic;
+--      pgpRefClk2       : in  std_logic;
+--      mgtRxRecClk      : out std_logic;
+--      pgpClk           : in  std_logic;
+--      pgpReset         : in  std_logic;
+--      pgpDispA         : out std_logic_vector(7 downto 0);
+--      pgpDispB         : out std_logic_vector(7 downto 0);
+--      resetOut         : out std_logic;
+--      locClk           : in  std_logic;
+--      locReset         : in  std_logic;
+--      cmdEn            : out std_logic;
+--      cmdOpCode        : out std_logic_vector(7  downto 0);
+--      cmdCtxOut        : out std_logic_vector(23 downto 0);
+--      regReq           : out std_logic;
+--      regOp            : out std_logic;
+--      regInp           : out std_logic;
+--      regAck           : in  std_logic;
+--      regFail          : in  std_logic;
+--      regAddr          : out std_logic_vector(23 downto 0);
+--      regDataOut       : out std_logic_vector(31 downto 0);
+--      regDataIn        : in  std_logic_vector(31 downto 0);
+--      frameTxEnable    : in  std_logic;
+--      frameTxSOF       : in  std_logic;
+--      frameTxEOF       : in  std_logic;
+--      frameTxEOFE      : in  std_logic;
+--      frameTxData      : in  std_logic_vector(15 downto 0);
+--      frameTxAFull     : out std_logic;
+--      frameRxValid     : out std_logic;
+--      frameRxReady     : in  std_logic;
+--      frameRxSOF       : out std_logic;
+--      frameRxEOF       : out std_logic;
+--      frameRxEOFE      : out std_logic;
+--      frameRxData      : out std_logic_vector(15 downto 0);
+--      valid            : out std_logic;
+--      eof              :out std_logic;
+--      sof              :out std_logic;
+--      mgtRxN           : in  std_logic;
+--      mgtRxP           : in  std_logic;
+--      mgtTxN           : out std_logic;
+--      mgtTxP           : out std_logic;
+--      mgtCombusIn      : in  std_logic_vector(15 downto 0);
+--      mgtCombusOut     : out std_logic_vector(15 downto 0)
+--      );
+--   end component;
+--
    -- Component Declarations
    component PauseQuantaTimer
    port (
@@ -997,36 +997,36 @@ begin
 
 
 
-
-
-   -- PGP Front End                                                                                                                                                                                                                                                             
-   U_PgpFrontEnd: PgpFrontEnd port map (
-      pgpRefClk1    => clk125,    pgpRefClk2    => '0',
-      mgtRxRecClk   => open,       pgpClk        => clk125,
-      pgpReset      => '0',        pgpDispA      => open,
-      pgpDispB      => open,       resetOut      => open,
-      locClk        => clk125,     locReset      => '0',
-      cmdEn         => open,       cmdOpCode     => open,
-      cmdCtxOut     => open,       regReq        => open,
-      regInp        => open,
-      regOp         => open,       regAck        => '0',
-      regFail       => '0',        regAddr       => open,
-      regDataOut    => open,       regDataIn     => (others=>'0'),
-      frameTxEnable => '0',  frameTxSOF    => '0',
-      frameTxEOF    => '0',      frameTxEOFE   => '0',
-      frameTxData   => (others=>'0'),       frameTxAFull  => open,
-      frameRxValid  => open,
-      frameRxReady  => '0',   frameRxSOF    => open,
-      frameRxEOF    => open,     frameRxEOFE   => open,
-      frameRxData   => open,    valid => open,
-      eof => open, sof => open,
-      mgtRxN        => '0',
-      mgtRxP        => '0',         mgtTxN        => open,
-      mgtTxP        => open,         mgtCombusIn   => (others=>'0'),
-      mgtCombusOut  => open
-   );
-
-
+--
+--
+--   -- PGP Front End                                                                                                                                                                                                                                                             
+--   U_PgpFrontEnd: PgpFrontEnd port map (
+--      pgpRefClk1    => open,    pgpRefClk2    => '0',
+--      mgtRxRecClk   => open,       pgpClk        => open,
+--      pgpReset      => '0',        pgpDispA      => open,
+--      pgpDispB      => open,       resetOut      => open,
+--      locClk        => open,     locReset      => '0',
+--      cmdEn         => open,       cmdOpCode     => open,
+--      cmdCtxOut     => open,       regReq        => open,
+--      regInp        => open,
+--      regOp         => open,       regAck        => '0',
+--      regFail       => '0',        regAddr       => open,
+--      regDataOut    => open,       regDataIn     => (others=>'0'),
+--      frameTxEnable => '0',  frameTxSOF    => '0',
+--      frameTxEOF    => '0',      frameTxEOFE   => '0',
+--      frameTxData   => (others=>'0'),       frameTxAFull  => open,
+--      frameRxValid  => open,
+--      frameRxReady  => '0',   frameRxSOF    => open,
+--      frameRxEOF    => open,     frameRxEOFE   => open,
+--      frameRxData   => open,    valid => open,
+--      eof => open, sof => open,
+--      mgtRxN        => '0',
+--      mgtRxP        => '0',         mgtTxN        => open,
+--      mgtTxP        => open,         mgtCombusIn   => (others=>'0'),
+--      mgtCombusOut  => open
+--   );
+--
+--
 
 
 
