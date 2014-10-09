@@ -1,0 +1,62 @@
+7/30:
+
+Ok. Talked with Martin. A bunch of new info.
+
+Framed readout is for direct from the FEs. MCC is "raw". The framing is when there's a frame-start signal and then bits are read out until a frame end. Bits are read in with a 8b10b structure, which is 8 bit sets separated by 2 bits to prevent very long strings of 1s or 0s.
+
+deser8b10b does the deserializing
+decoder8b10b converts back into 8 bit words
+pgpencoder wraps the data in the pgp directions and reads it into...
+fei4fifo
+where fei4dataflag tells if the fifo is full or not
+
+Each of the fifos is then input into the MUX (so already processed for PGP) where it's then read out into the PGP
+
+mxdata -> swapdata (wordswapper for changing endianness) -> PGP front end
+
+From Bruce:
+
+We have a few options, but the reasonably viable ones are 1) adapt the pixel HSIO firmware to read from the strip FE and then everything else is the same as the pixels, though this apparently might require more changes to the high level code. 2) change the existing strip HSIO readout to output to PGP (->RCE) rather than directly to ethernet. This is apparently more friendly to the existing high level software.
+
+After talking to Martin about these two options, it doesn't seem like it matters to anyone how much synergy there is at the HSIO firmware level between pixels and strips. Therefore, it seems like the nominal plan is to go with plan 2).
+
+Talked to Jack this morning about perhaps getting our own Adelaide teststand with the latest version of the hardware to be based here at CERN for the sake of my development work.
+
+
+Within Strip HSIO Firmware - it appears that you define components and then the actual layout/connections are done within the ISE IDE / maybe even graphically, so that needs to wait a bit. 
+
+But also hsio_top_struct.vhd defines the ethernet interface, so I might just be able to shoehorn the PGP stuff into here.
+
+
+7/29:
+
+Email from Martin explained a bunch. A "Channel" can either be an FE (as it is for the IBL) or an MCC (for the old modules). There are often two datalines out of these components, but only one is ever used but "(the pixel modules can be configured to use either data line or both)."
+
+7/27:
+
+The deserializer -> FIFO chain should be super similar to pixels. Could have two serial lines per module, but could also just treat each serial as a separate "module".
+
+
+
+
+7/24:
+
+Made a flow chart on gliffy - helpful
+Reading about the FE chips: http://ac.els-cdn.com/S0168900205013926/1-s2.0-S0168900205013926-main.pdf?_tid=3406a58c-134a-11e4-a05a-00000aab0f02&acdnat=1406217195_869294b3398f192bca2b6642d747b1b5
+
+Learned that we might need two serial in/out lines in HsioSCTCore.vhd - one for each side of the SCT module.
+
+The whole current setup is here: http://iopscience.iop.org/1748-0221/2/09/P09003/pdf/1748-0221_2_09_P09003.pdf
+
+But didn't learn much.
+
+But this is interesting: http://iopscience.iop.org/1748-0221/3/01/P01003/pdf/1748-0221_3_01_P01003.pdf
+
+Figure 4 should help.
+
+
+Here's the format of the FE output pg35: http://www-eng.lbl.gov/~jmjoseph/Atlas-SiROD/Manuals/usersManual-v164.pdf
+
+The problem is that pixels have serialin(15 downto 0) and I don't know what this is. 16 channels are read. There are 16 frontends per module. So I assume Hsio firmware is per-module.
+
+http://www-eng.lbl.gov/~jmjoseph/Atlas-SiROD/Manuals/usersManual-v164.pdf
