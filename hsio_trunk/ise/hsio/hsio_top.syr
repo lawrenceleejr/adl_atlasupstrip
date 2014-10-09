@@ -423,13 +423,13 @@ Architecture pgptxsched of Entity pgptxsched is up to date.
 *                     Design Hierarchy Analysis                         *
 =========================================================================
 Analyzing hierarchy for entity <hsio_top> in library <hsio> (architecture <struct>) with generics.
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <clocks_main> in library <hsio> (architecture <struct>) with generics.
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <clocks_top> in library <hsio> (architecture <struct>) with generics.
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <dio_ibeos_drv> in library <hsio> (architecture <struct>) with generics.
 	LINK_ID_MIN = 32
@@ -444,7 +444,7 @@ Analyzing hierarchy for entity <dio_ibeos_idc> in library <hsio> (architecture <
 	LINK_ID_MIN = 66
 
 Analyzing hierarchy for entity <hsio_proc_wrapper> in library <hsio> (architecture <behavioral>) with generics.
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <main_top> in library <hsio> (architecture <struct>) with generics.
 	BUILD_NO = 1
@@ -454,7 +454,7 @@ Analyzing hierarchy for entity <main_top> in library <hsio> (architecture <struc
 	RO_MOD_PRES = "000000000000000000000000000000000000"
 	RO_MOD_RAW = "000000000000000000000000000000000000"
 	RO_MOD_TYPE = "000000000000000000000000000000000000"
-	SIM_MODE = 0
+	SIM_MODE = 1
 	TOP_ID = 3074
 	TRIG_TDC_EN = 1
 	TRIG_TLU_EN = 1
@@ -483,7 +483,7 @@ Analyzing hierarchy for entity <cg_dcm_80_160> in library <hsio> (architecture <
 
 Analyzing hierarchy for entity <count_delay> in library <utils> (architecture <rtl>) with generics.
 	BITS = 25
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <edge_detect> in library <utils> (architecture <rtl>).
 
@@ -561,7 +561,7 @@ Analyzing hierarchy for entity <ll_syncmux256> in library <locallink> (architect
 
 Analyzing hierarchy for entity <ticks_gen> in library <utils> (architecture <rtl>) with generics.
 	CLK_MHZ = 80
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <disp_top> in library <hsio> (architecture <rtl>).
 
@@ -571,7 +571,7 @@ Analyzing hierarchy for entity <disp_binmap> in library <hsio> (architecture <rt
 
 Analyzing hierarchy for entity <ticks_gen> in library <utils> (architecture <rtl>) with generics.
 	CLK_MHZ = 40
-	SIM_MODE = 0
+	SIM_MODE = 1
 
 Analyzing hierarchy for entity <counter> in library <utils> (architecture <rtl>) with generics.
 	BITS = 8
@@ -604,6 +604,10 @@ Analyzing hierarchy for entity <lls_make> in library <locallink> (architecture <
 Analyzing hierarchy for entity <ll_enbuff> in library <utils> (architecture <rtl>).
 
 Analyzing hierarchy for entity <ll_enbuffn> in library <utils> (architecture <rtl>).
+
+Analyzing hierarchy for entity <PgpFrontEnd> in library <work> (architecture <pgpfrontend>) with generics.
+	MgtMode = "A"
+	RefClkSel = "REFCLK1"
 
 Analyzing hierarchy for entity <m_power> in library <utils> (architecture <rtl>).
 
@@ -726,6 +730,37 @@ Analyzing hierarchy for entity <eth_gmii_block> in library <ethernet_v4> (archit
 Analyzing hierarchy for entity <eth_fifo_8_16> in library <ethernet_v4> (architecture <rtl>) with generics.
 	FULL_DUPLEX_ONLY = false
 
+Analyzing hierarchy for entity <PgpMgtWrap> in library <work> (architecture <pgpmgtwrap>) with generics.
+	AckTimeout = 8
+	CScopeEnPhy = "DISABLE"
+	MgtMode = "A"
+	PicMode = 0
+	RefClkSel = "REFCLK1"
+
+Analyzing hierarchy for entity <PgpCmdSlave> in library <work> (architecture <pgpcmdslave>) with generics.
+	AsyncFIFO = "TRUE"
+	DestId = 0
+	DestMask = 1
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 91: Size of operands are different : result is <false>.
+
+Analyzing hierarchy for entity <PgpCmdSlave> in library <work> (architecture <pgpcmdslave>) with generics.
+	AsyncFIFO = "FALSE"
+	DestId = 1
+	DestMask = 1
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 42: Size of operands are different : result is <false>.
+
+Analyzing hierarchy for entity <PgpDataBuffer> in library <work> (architecture <pgpdatabuffer>).
+
+Analyzing hierarchy for entity <PgpRegSlave> in library <work> (architecture <pgpregslave>) with generics.
+	AsyncFIFO = "TRUE"
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 126: Size of operands are different : result is <false>.
+
+Analyzing hierarchy for entity <PgpRegSlave> in library <work> (architecture <pgpregslave>) with generics.
+	AsyncFIFO = "FALSE"
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 59: Size of operands are different : result is <false>.
+
+Analyzing hierarchy for entity <PgpDsBuff> in library <work> (architecture <pgpdsbuff>).
+
 Analyzing hierarchy for entity <ll_ack_gen> in library <locallink> (architecture <rtl>).
 
 Analyzing hierarchy for entity <ll_fifo_ack_gen> in library <locallink> (architecture <rtl>).
@@ -758,6 +793,12 @@ Analyzing hierarchy for entity <rx_client_fifo_16> in library <ethernet_v4> (arc
 
 Analyzing hierarchy for entity <tx_client_fifo_16> in library <ethernet_v4> (architecture <rtl>).
 
+Analyzing hierarchy for entity <PgpTop> in library <work> (architecture <pgptop>) with generics.
+	AckTimeout = 8
+	PicMode = 0
+
+Analyzing hierarchy for entity <PgpPicRemBuff> in library <work> (architecture <pgppicrembuff>).
+
 Analyzing hierarchy for entity <sct_sim_lfsr> in library <hsio> (architecture <rtl>).
 
 Analyzing hierarchy for entity <GT11_DUAL_1000X> in library <ethernet_v4> (architecture <structural>).
@@ -771,6 +812,20 @@ Analyzing hierarchy for entity <gt11_init_tx> in library <ethernet_v4> (architec
 Analyzing hierarchy for entity <dcm_reset> in library <ethernet_v4> (architecture <rtl>).
 
 Analyzing hierarchy for entity <eth2x16> in library <ethernet_v4> (architecture <wrapper>).
+
+Analyzing hierarchy for entity <PgpAckRx> in library <work> (architecture <pgpackrx>) with generics.
+	AckTimeout = 8
+
+Analyzing hierarchy for entity <PgpCellRx> in library <work> (architecture <pgpcellrx>) with generics.
+	PicMode = 0
+
+Analyzing hierarchy for entity <PgpCellTx> in library <work> (architecture <pgpcelltx>).
+
+Analyzing hierarchy for entity <PgpPhy> in library <work> (architecture <pgpphy>).
+
+Analyzing hierarchy for entity <PgpRxTrack> in library <work> (architecture <pgprxtrack>).
+
+Analyzing hierarchy for entity <PgpTxSched> in library <work> (architecture <pgptxsched>).
 
 Analyzing hierarchy for entity <gt11togt_rxclkcorcnt_shim> in library <ethernet_v4> (architecture <rtl>).
 
@@ -792,7 +847,7 @@ Analyzing hierarchy for entity <sync_block> in library <ethernet_v4> (architectu
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing generic Entity <hsio_top> in library <hsio> (Architecture <struct>).
-	SIM_MODE = 0
+	SIM_MODE = 1
     Set user-defined property "KEEP =  true" for signal <clk_p2_pll>.
     Set user-defined property "KEEP =  true" for signal <lemo_clk>.
     Set user-defined property "KEEP =  true" for signal <rst125> in unit <clocks_top>.
@@ -908,7 +963,7 @@ WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/hsio_
 Entity <hsio_top> analyzed. Unit <hsio_top> generated.
 
 Analyzing generic Entity <clocks_main> in library <hsio> (Architecture <struct>).
-	SIM_MODE = 0
+	SIM_MODE = 1
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/clocks_main_struct.vhd" line 201: Unconnected output port 'CLK0_OUT' of component 'cg_dcm_80_160_ps'.
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/clocks_main_struct.vhd" line 233: Unconnected output port 'reset_no' of component 'xilinx_reset'.
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/clocks_main_struct.vhd" line 233: Unconnected output port 'resetq_o' of component 'xilinx_reset'.
@@ -962,7 +1017,7 @@ Analyzing Entity <m_power> in library <utils> (Architecture <rtl>).
 Entity <m_power> analyzed. Unit <m_power> generated.
 
 Analyzing generic Entity <clocks_top> in library <hsio> (Architecture <struct>).
-	SIM_MODE = 0
+	SIM_MODE = 1
     Set user-defined property "KEEP =  true" for signal <clk40>.
     Set user-defined property "KEEP =  true" for signal <clk40_ext_in>.
     Set user-defined property "KEEP =  true" for signal <clk80>.
@@ -1106,7 +1161,7 @@ Entity <cg_dcm_80_160> analyzed. Unit <cg_dcm_80_160> generated.
 
 Analyzing generic Entity <count_delay> in library <utils> (Architecture <rtl>).
 	BITS = 25
-	SIM_MODE = 0
+	SIM_MODE = 1
 Entity <count_delay> analyzed. Unit <count_delay> generated.
 
 Analyzing Entity <edge_detect> in library <utils> (Architecture <rtl>).
@@ -1655,7 +1710,7 @@ WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/idela
 Entity <idelay_block.16> analyzed. Unit <idelay_block.16> generated.
 
 Analyzing generic Entity <hsio_proc_wrapper> in library <hsio> (Architecture <behavioral>).
-	SIM_MODE = 0
+	SIM_MODE = 1
 Entity <hsio_proc_wrapper> analyzed. Unit <hsio_proc_wrapper> generated.
 
 Analyzing generic Entity <main_top> in library <hsio> (Architecture <struct>).
@@ -1666,7 +1721,7 @@ Analyzing generic Entity <main_top> in library <hsio> (Architecture <struct>).
 	RO_MOD_PRES = "000000000000000000000000000000000000"
 	RO_MOD_RAW = "000000000000000000000000000000000000"
 	RO_MOD_TYPE = "000000000000000000000000000000000000"
-	SIM_MODE = 0
+	SIM_MODE = 1
 	TOP_ID = 3074
 	TRIG_TDC_EN = 1
 	TRIG_TLU_EN = 1
@@ -2530,7 +2585,7 @@ Entity <ll_smx_unit> analyzed. Unit <ll_smx_unit> generated.
 
 Analyzing generic Entity <ticks_gen.1> in library <utils> (Architecture <rtl>).
 	CLK_MHZ = 80
-	SIM_MODE = 0
+	SIM_MODE = 1
 Entity <ticks_gen.1> analyzed. Unit <ticks_gen.1> generated.
 
 Analyzing Entity <disp_top> in library <hsio> (Architecture <rtl>).
@@ -2556,7 +2611,7 @@ Entity <disp_binmap> analyzed. Unit <disp_binmap> generated.
 
 Analyzing generic Entity <ticks_gen.2> in library <utils> (Architecture <rtl>).
 	CLK_MHZ = 40
-	SIM_MODE = 0
+	SIM_MODE = 1
 Entity <ticks_gen.2> analyzed. Unit <ticks_gen.2> generated.
 
 Analyzing generic Entity <counter.1> in library <utils> (Architecture <rtl>).
@@ -2581,6 +2636,30 @@ WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_us
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 791: Unconnected output port 'HOSTMIIMRDY' of component 'eth_gmii16_locallink'.
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 791: Unconnected output port 'HOSTRDDATA' of component 'eth_gmii16_locallink'.
 WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 974: Unconnected output port 'hi' of component 'm_power'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'mgtRxRecClk' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'pgpDispA' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'pgpDispB' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'resetOut' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'cmdEn' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'cmdOpCode' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'cmdCtxOut' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'regReq' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'regOp' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'regInp' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'regAddr' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'regDataOut' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameTxAFull' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameRxValid' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameRxSOF' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameRxEOF' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameRxEOFE' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'frameRxData' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'valid' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'eof' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'sof' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'mgtTxN' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'mgtTxP' of component 'PgpFrontEnd'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/net_usb_top_struct.vhd" line 1003: Unconnected output port 'mgtCombusOut' of component 'PgpFrontEnd'.
 Entity <net_usb_top> analyzed. Unit <net_usb_top> generated.
 
 Analyzing Entity <PauseQuantaTimer> in library <ethernet_v4> (Architecture <rtl>).
@@ -3653,6 +3732,302 @@ Entity <ll_enbuff> analyzed. Unit <ll_enbuff> generated.
 Analyzing Entity <ll_enbuffn> in library <utils> (Architecture <rtl>).
 Entity <ll_enbuffn> analyzed. Unit <ll_enbuffn> generated.
 
+Analyzing generic Entity <PgpFrontEnd> in library <work> (Architecture <pgpfrontend>).
+	MgtMode = "A"
+	RefClkSel = "REFCLK1"
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd" line 688: Unconnected output port 'localVersion' of component 'PgpMgtWrap'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd" line 688: Unconnected output port 'remoteVersion' of component 'PgpMgtWrap'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd" line 688: Unconnected output port 'mgtDO' of component 'PgpMgtWrap'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd" line 688: Unconnected output port 'mgtDRdy' of component 'PgpMgtWrap'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd" line 839: Unconnected output port 'regInp' of component 'PgpRegSlave'.
+Entity <PgpFrontEnd> analyzed. Unit <PgpFrontEnd> generated.
+
+Analyzing generic Entity <PgpMgtWrap> in library <work> (Architecture <pgpmgtwrap>).
+	AckTimeout = 8
+	CScopeEnPhy = "DISABLE"
+	MgtMode = "A"
+	PicMode = 0
+	RefClkSel = "REFCLK1"
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'CHBONDO' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXSTATUS' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXCHARISCOMMA' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXCOMMADET' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXLOSSOFSYNC' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXREALIGN' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXRECCLK2' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'TXOUTCLK1' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'TXOUTCLK2' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXCYCLELIMIT' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'TXCYCLELIMIT' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXCALFAIL' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'TXCALFAIL' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXSIGDET' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXMCLK' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'TXPCSHCLKOUT' of component 'GT11'.
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Unconnected output port 'RXPCSHCLKOUT' of component 'GT11'.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd" line 779: Instantiating black box module <GT11>.
+    Set user-defined property "ALIGN_COMMA_WORD =  2" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "BANDGAPSEL =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "BIASRESSEL =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CCCB_ARBITRATOR_DISABLE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_LIMIT =  16" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_MODE =  NONE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_ONE_SHOT =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_1_1 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_1_2 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_1_3 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_1_4 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_1_MASK =  1110" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_1 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_2 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_3 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_4 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_MASK =  1111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_2_USE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CHAN_BOND_SEQ_LEN =  1" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_CORRECT_USE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_8B10B_DE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_MAX_LAT =  48" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_MIN_LAT =  36" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_1_1 =  00110111100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_1_2 =  00100011100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_1_3 =  00100011100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_1_4 =  00100011100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_1_MASK =  0000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_1 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_2 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_3 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_4 =  00000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_MASK =  1111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_2_USE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_DROP =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CLK_COR_SEQ_LEN =  4" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "COMMA32 =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "COMMA_10B_MASK =  3FF" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "CYCLE_LIMIT_SEL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DCDR_FILTER =  010" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DEC_MCOMMA_DETECT =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DEC_PCOMMA_DETECT =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DEC_VALID_COMMA_ONLY =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DIGRX_FWDCLK =  01" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "DIGRX_SYNC_MODE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "ENABLE_DCDR =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "FDET_HYS_CAL =  010" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "FDET_HYS_SEL =  001" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "FDET_LCK_CAL =  101" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "FDET_LCK_SEL =  111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "GT11_MODE =  A" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "IREFBIASMODE =  11" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "LOOPCAL_WAIT =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "MCOMMA_32B_VALUE =  00000283" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "MCOMMA_DETECT =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "OPPOSITE_SELECT =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PCOMMA_32B_VALUE =  0000017C" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PCOMMA_DETECT =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PCS_BIT_SLIP =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMACLKENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMACOREPWRENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMAIREFTRIM =  0111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMAVBGCTRL =  00000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMAVREFTRIM =  0111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "PMA_BIT_SLIP =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "POWER_ENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "REPEATER =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXACTST =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXAFEEQ =  000000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXAFEPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXAFETST =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXAPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXASYNCDIVIDE =  01" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXBY_32 =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCDRLOS =  000000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCLK0_FORCE_PMACLK =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCLKMODE =  000011" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCMADJ =  10" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCPSEL =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCPTST =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCRCCLOCKDOUBLE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCRCENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCRCINITVAL =  FFFFFFFF" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCRCINVERTGEN =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCRCSAMECLOCK =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCTRL1 =  200" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXCYCLE_LIMIT_SEL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXDATA_SEL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXDCCOUPLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXDIGRESET =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXDIGRX =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXEQ =  4000FF0303030101" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFDCAL_CLOCK_DIVIDE =  NONE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFDET_HYS_CAL =  010" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFDET_HYS_SEL =  001" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFDET_LCK_CAL =  101" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFDET_LCK_SEL =  100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFECONTROL1 =  10" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFECONTROL2 =  111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXFETUNE =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXLB =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXLKADJ =  00000" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXLKAPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXLOOPCAL_WAIT =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXLOOPFILT =  1111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXOUTDIV2SEL =  2" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXPDDTST =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXPLLNDIVSEL =  20" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXPMACLKSEL =  REFCLK1" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRCPADJ =  011" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRCPPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRECCLK1_USE_SYNC =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRIBADJ =  11" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRPDPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXRSDPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXSLOWDOWN_CAL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXUSRDIVISOR =  1" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXVCODAC_INIT =  0000101001" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RXVCO_CTRL_ENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RX_BUFFER_USE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "RX_CLOCK_DIVIDER =  01" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "SAMPLE_8X =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "SH_CNT_MAX =  64" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "SH_INVALID_CNT_MAX =  16" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "SLOWDOWN_CAL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXABPMACLKSEL =  REFCLK1" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXAPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXAREFBIASSEL =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXASYNCDIVIDE =  01" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCLK0_FORCE_PMACLK =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCLKMODE =  0100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCPSEL =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCRCCLOCKDOUBLE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCRCENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCRCINITVAL =  FFFFFFFF" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCRCINVERTGEN =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCRCSAMECLOCK =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXCTRL1 =  200" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXDATA_SEL =  00" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXDAT_PRDRV_DAC =  111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXDAT_TAP_DAC =  11011" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXDIGPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXFDCAL_CLOCK_DIVIDE =  NONE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXHIGHSIGNALEN =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXLOOPFILT =  0101" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXLVLSHFTPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXOUTCLK1_USE_SYNC =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXOUTDIV2SEL =  2" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPHASESEL =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPLLNDIVSEL =  20" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPOST_PRDRV_DAC =  111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPOST_TAP_DAC =  00010" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPOST_TAP_PD =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPRE_PRDRV_DAC =  111" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPRE_TAP_DAC =  00001" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXPRE_TAP_PD =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXSLEWRATE =  FALSE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TXTERMTRIM =  1100" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TX_BUFFER_USE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "TX_CLOCK_DIVIDER =  01" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "VCODAC_INIT =  0000101001" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "VCO_CTRL_ENABLE =  TRUE" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set user-defined property "VREFBIASMODE =  11" for instance <U_MGT> in unit <PgpMgtWrap>.
+    Set property "syn_noprune = TRUE" for unit <GT11>.
+Entity <PgpMgtWrap> analyzed. Unit <PgpMgtWrap> generated.
+
+Analyzing generic Entity <PgpTop> in library <work> (Architecture <pgptop>).
+	AckTimeout = 8
+	PicMode = 0
+Entity <PgpTop> analyzed. Unit <PgpTop> generated.
+
+Analyzing generic Entity <PgpAckRx> in library <work> (Architecture <pgpackrx>).
+	AckTimeout = 8
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 315: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 556: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 636: Mux is complete : default of case is discarded
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 726: Instantiating black box module <pgp_fifo_8x256>.
+    Set property "syn_noprune = TRUE" for unit <pgp_fifo_8x256>.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 742: Instantiating black box module <pgp_dpram_51x256>.
+    Set property "syn_noprune = TRUE" for unit <pgp_dpram_51x256>.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd" line 752: Instantiating black box module <pgp_adder_16_16>.
+    Set property "syn_noprune = TRUE" for unit <pgp_adder_16_16>.
+Entity <PgpAckRx> analyzed. Unit <PgpAckRx> generated.
+
+Analyzing generic Entity <PgpCellRx> in library <work> (Architecture <pgpcellrx>).
+	PicMode = 0
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellRx.vhd" line 372: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellRx.vhd" line 402: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellRx.vhd" line 474: Mux is complete : default of case is discarded
+INFO:Xst:2679 - Register <dropNextCell> in unit <PgpCellRx> has a constant value of 0 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <cellRxShort> in unit <PgpCellRx> has a constant value of 0 during circuit operation. The register is replaced by logic.
+Entity <PgpCellRx> analyzed. Unit <PgpCellRx> generated.
+
+Analyzing Entity <PgpCellTx> in library <work> (Architecture <pgpcelltx>).
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellTx.vhd" line 262: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellTx.vhd" line 539: Mux is complete : default of case is discarded
+Entity <PgpCellTx> analyzed. Unit <PgpCellTx> generated.
+
+Analyzing Entity <PgpPhy> in library <work> (Architecture <pgpphy>).
+Entity <PgpPhy> analyzed. Unit <PgpPhy> generated.
+
+Analyzing Entity <PgpRxTrack> in library <work> (Architecture <pgprxtrack>).
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRxTrack.vhd" line 146: Mux is complete : default of case is discarded
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRxTrack.vhd" line 331: Instantiating black box module <pgp_fifo_9x256>.
+    Set property "syn_noprune = TRUE" for unit <pgp_fifo_9x256>.
+Entity <PgpRxTrack> analyzed. Unit <PgpRxTrack> generated.
+
+Analyzing Entity <PgpTxSched> in library <work> (Architecture <pgptxsched>).
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpTxSched.vhd" line 189: Mux is complete : default of case is discarded
+INFO:Xst:1561 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpTxSched.vhd" line 230: Mux is complete : default of case is discarded
+Entity <PgpTxSched> analyzed. Unit <PgpTxSched> generated.
+
+Analyzing generic Entity <PgpCmdSlave.1> in library <work> (Architecture <pgpcmdslave>).
+	AsyncFIFO = "TRUE"
+	DestId = 0
+	DestMask = 1
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 161: Instantiating black box module <pgp_afifo_20x511>.
+    Set property "syn_noprune = TRUE" for unit <pgp_afifo_20x511>.
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 176: Size of operands are different : result is <false>.
+Entity <PgpCmdSlave.1> analyzed. Unit <PgpCmdSlave.1> generated.
+
+Analyzing generic Entity <PgpCmdSlave.2> in library <work> (Architecture <pgpcmdslave>).
+	AsyncFIFO = "FALSE"
+	DestId = 1
+	DestMask = 1
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 160: Size of operands are different : result is <false>.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd" line 177: Instantiating black box module <pgp_fifo_20x512>.
+    Set property "syn_noprune = TRUE" for unit <pgp_fifo_20x512>.
+Entity <PgpCmdSlave.2> analyzed. Unit <PgpCmdSlave.2> generated.
+
+Analyzing Entity <PgpDataBuffer> in library <work> (Architecture <pgpdatabuffer>).
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpDataBuffer.vhd" line 216: Instantiating black box module <pgp_afifo_20x511>.
+    Set property "syn_noprune = TRUE" for unit <pgp_afifo_20x511>.
+Entity <PgpDataBuffer> analyzed. Unit <PgpDataBuffer> generated.
+
+Analyzing Entity <PgpPicRemBuff> in library <work> (Architecture <pgppicrembuff>).
+WARNING:Xst:753 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpPicRemBuff.vhd" line 230: Unconnected output port 'full' of component 'pgp_fifo_21x512'.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpPicRemBuff.vhd" line 230: Instantiating black box module <pgp_fifo_21x512>.
+    Set property "syn_noprune = TRUE" for unit <pgp_fifo_21x512>.
+Entity <PgpPicRemBuff> analyzed. Unit <PgpPicRemBuff> generated.
+
+Analyzing generic Entity <PgpRegSlave.1> in library <work> (Architecture <pgpregslave>).
+	AsyncFIFO = "TRUE"
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 219: Instantiating black box module <pgp_afifo_20x511>.
+    Set property "syn_noprune = TRUE" for unit <pgp_afifo_20x511>.
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 234: Size of operands are different : result is <false>.
+Entity <PgpRegSlave.1> analyzed. Unit <PgpRegSlave.1> generated.
+
+Analyzing generic Entity <PgpRegSlave.2> in library <work> (Architecture <pgpregslave>).
+	AsyncFIFO = "FALSE"
+WARNING:Xst:795 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 218: Size of operands are different : result is <false>.
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd" line 235: Instantiating black box module <pgp_fifo_20x512>.
+    Set property "syn_noprune = TRUE" for unit <pgp_fifo_20x512>.
+Entity <PgpRegSlave.2> analyzed. Unit <PgpRegSlave.2> generated.
+
+Analyzing Entity <PgpDsBuff> in library <work> (Architecture <pgpdsbuff>).
+WARNING:Xst:2211 - "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpDsBuff.vhd" line 113: Instantiating black box module <pgp_afifo_20x511>.
+    Set property "syn_noprune = TRUE" for unit <pgp_afifo_20x511>.
+Entity <PgpDsBuff> analyzed. Unit <PgpDsBuff> generated.
+
 Analyzing Entity <twowire_tri> in library <utils> (Architecture <rtl>).
 Entity <twowire_tri> analyzed. Unit <twowire_tri> generated.
 
@@ -3703,6 +4078,15 @@ INFO:Xst:2679 - Register <odr_read_data<32>> in unit <host_interface> has a cons
 INFO:Xst:2679 - Register <odr_read_data<33>> in unit <host_interface> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <odr_read_data<34>> in unit <host_interface> has a constant value of 0 during circuit operation. The register is replaced by logic.
 INFO:Xst:2679 - Register <capture_speed_vector_0> in unit <eth_gmii_block> has a constant value of 00 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <frameTxAFull> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflowRst> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflowRstDly0> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflowRstDly1> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflowDly0> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflowDly1> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <intOverFlow> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <fifoerr> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <asyncOflow> in unit <PgpDataBuffer> has a constant value of X during circuit operation. The register is replaced by logic.
 
 Synthesizing Unit <hsio_proc_wrapper>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/hsio_proc_wrapper.vhd".
@@ -5629,6 +6013,249 @@ INFO:Xst:1799 - State 10000000000000 is never reached in FSM <sd_state>.
 Unit <cal_block_v1_4_1_2> synthesized.
 
 
+Synthesizing Unit <PgpCellRx>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellRx.vhd".
+WARNING:Xst:2109 - Contents of latch <vc3RemBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly2EOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellSerial> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <dly2Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <interCellCount> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXX.
+WARNING:Xst:2109 - Contents of latch <intFrameRxValid> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <vc1RemBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly2EOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly2EOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly7SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc1RemBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly4SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRxCellError> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3EOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dly1SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <inCellRx> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <firstCellRx> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <expSerial> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <intFrameRxSOF> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <intCellRxEmpty> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4EOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly0Width> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1EOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1EOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cellRxAck> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly6SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc2RemBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly0EOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc2RemBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intFrameRxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly0Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dly3SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc0RemBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly1Width> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkReadyDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly0SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellRxDone> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <dly5Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intFrameRxWidth> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3EOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1EOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3EOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1Data> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dly2Width> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <inCellCrc> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly0EOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <dly0EOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc3RemBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <vc0RemBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly5SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellRxSize> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCellRxDataVc> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <cellRxNAck> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intCellRxSOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellRxSeq> never changes during circuit operation. The latch is removed and the signal is tied to value 00000000.
+WARNING:Xst:2109 - Contents of latch <dly2SOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFrameRxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFrameRxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dly3Width> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <crcNotZero> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Found 4-bit 4-to-1 multiplexer for signal <muxFrameRxSOF>.
+    Found 4-bit 4-to-1 multiplexer for signal <muxFrameRxValid>.
+    Summary:
+	inferred   8 Multiplexer(s).
+Unit <PgpCellRx> synthesized.
+
+
+Synthesizing Unit <PgpCellTx>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCellTx.vhd".
+WARNING:Xst:2109 - Contents of latch <cellSerial> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <dly4TxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dlyFrameTxWidth> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <frameReadyOut> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <txState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <selSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4CrcMask> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <selValid> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dlyFrameTxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1TxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dlyFrameTxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <pibTxEOC> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <cellTxInp> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxWidth> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <randData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <pibTxData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3CrcMask> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <selEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly2TxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1TxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <payloadCount> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <pibTxData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4TxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4TxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <pibTxData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly3TxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly3TxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <selData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly2TxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellTxSOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly2TxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dly2CrcMask> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <selData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3TxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1TxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly2TxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1TxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <selData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selCrcMask> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <cellTxAcked> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellTxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibTxData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly4TxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly3TxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1CrcMask> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <pibTxData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dlyFrameTxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibTxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <selData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <selWidth> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <nextAcked> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+Unit <PgpCellTx> synthesized.
+
+
+Synthesizing Unit <PgpPhy>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpPhy.vhd".
+WARNING:Xst:2109 - Contents of latch <rxDetectTrain> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibFail> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <sofDetect> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <phyTxData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <rxDetectVer> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibRxData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <stateCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <phyTxData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly1RxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <phyTxData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly0RxData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <phyTxDataK> never changes during circuit operation. The latch is removed and the signal is tied to value 00.
+WARNING:Xst:2109 - Contents of latch <phyTxData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <curDebug> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <remoteVersion> never changes during circuit operation. The latch is removed and the signal is tied to value 00000000.
+WARNING:Xst:2109 - Contents of latch <rxDetectVerErr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibRxWidth> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <txDlyEOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <phyTxData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <txDlyEOF> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibRxData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <curState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <pibRxData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <phyTxData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxSOC> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <txDlyEOFE> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <rxDetectIdle> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <dly1RxDataK> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <rxDetectInvert> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intPhyRxPolarity> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibRxEOC> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibRxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pattCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <pibLinkReady> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <dly0RxDataK> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+    Using one-hot encoding for signal <curState>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <curState> of Case statement line 217 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <curState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+Unit <PgpPhy> synthesized.
+
+
+Synthesizing Unit <PgpTxSched>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpTxSched.vhd".
+WARNING:Xst:2109 - Contents of latch <arbTxIdle> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <curState> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <vcInFrame<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcInFrame<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcInFrame<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcInFrame<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <arbTxVc> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <arbEnDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Using one-hot encoding for signal <curState>.
+    Using one-hot encoding for signal <nxtTxVc>.
+    Found 1-bit 4-to-1 multiplexer for signal <nxtTxValid>.
+    Found 4-bit 4-to-1 multiplexer for signal <nxtTxVc>.
+    Summary:
+	inferred   5 Multiplexer(s).
+Unit <PgpTxSched> synthesized.
+
+
 Synthesizing Unit <cg_dcm_80_160_ps>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/coregen/cg_dcm_80_160_ps.vhd".
 Unit <cg_dcm_80_160_ps> synthesized.
@@ -6726,6 +7353,510 @@ WARNING:Xst:646 - Signal <client_rx_data_0_i<15:8>> is assigned but never used. 
 Unit <eth_gmii> synthesized.
 
 
+Synthesizing Unit <PgpCmdSlave_1>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd".
+WARNING:Xst:646 - Signal <locWidth> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <intDestId<5:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <fifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdOpCode> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCntEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <fifoErr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <intDestId> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+Unit <PgpCmdSlave_1> synthesized.
+
+
+Synthesizing Unit <PgpCmdSlave_2>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpCmdSlave.vhd".
+WARNING:Xst:646 - Signal <locWidth> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <intDestId<5:1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <fifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdOpCode> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCntEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <fifoErr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <intDestId> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdCtxOut<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intCmdEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+Unit <PgpCmdSlave_2> synthesized.
+
+
+Synthesizing Unit <PgpRegSlave_1>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd".
+WARNING:Xst:647 - Input <vcFrameTxAckEn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAckCid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcRemBuffFull> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2109 - Contents of latch <intTid<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intVc> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <intTid<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intDest> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXX.
+WARNING:Xst:2109 - Contents of latch <intWrData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRxCntEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <rxFifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respValid> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegStart> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respReqDly<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intReq> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intOpCode> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <intTid<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRxCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <respReqDly<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<24>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intInp> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<30>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<25>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<31>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<26>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<27>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<28>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<29>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <curState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <intData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intWrData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxSOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFail> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respAckDly<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <fifoErr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <respAckDly<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intReqCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <respCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTout> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intOp> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Using one-hot encoding for signal <curState>.
+Unit <PgpRegSlave_1> synthesized.
+
+
+Synthesizing Unit <PgpRegSlave_2>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRegSlave.vhd".
+WARNING:Xst:647 - Input <vcFrameTxAckEn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAckCid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcRemBuffFull> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:2109 - Contents of latch <intTid<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intVc> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <intTid<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intDest> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXX.
+WARNING:Xst:2109 - Contents of latch <intWrData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRxCntEn> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <rxFifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respValid> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegStart> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respReqDly<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intReq> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intOpCode> never changes during circuit operation. The latch is removed and the signal is tied to value XX.
+WARNING:Xst:2109 - Contents of latch <intTid<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRxCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <respReqDly<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<24>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intInp> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<30>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<25>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<31>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<26>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<27>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<28>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<29>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <curState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <intData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intWrData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxSOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFail> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <respAckDly<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <fifoErr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <respAckDly<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intWrData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<2>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intWrData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<3>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intReqCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<4>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxEOF> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <respCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<5>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<6>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<7>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTout> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<8>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<10>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<9>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<11>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<12>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<13>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intAddress<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intTid<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<14>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intOp> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcFrameTxData<15>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intTid<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAddress<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Using one-hot encoding for signal <curState>.
+Unit <PgpRegSlave_2> synthesized.
+
+
+Synthesizing Unit <PgpDsBuff>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpDsBuff.vhd".
+WARNING:Xst:647 - Input <vcFrameRxWidth> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <rxFifoDout<19>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <rxFifoCount<6:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <rxFifoValid> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <vcLocBuffAFull> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+Unit <PgpDsBuff> synthesized.
+
+
+Synthesizing Unit <PgpAckRx>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpAckRx.vhd".
+WARNING:Xst:646 - Signal <cidMemRdB> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intVc2Seq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<24>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<25>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<30>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<31>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<26>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<27>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<32>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidSaveData> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<33>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<28>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<34>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<29>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFrameTxAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<40>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<35>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<41>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<36>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFrameTxAckEn> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<42>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<37>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <locCellRxSeq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<43>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<38>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<44>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<39>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<50>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<45>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intVc1Seq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<46>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <regFifoWr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<47>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<48>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<49>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFrameTxAckCid> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemWrA> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <seqFifoDoutVal> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <seqNumber> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <startSeqNum> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <seqState> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intVc3Seq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <ackTimer> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <dlyRxFlag> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intVc0Seq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <seqFifoRd> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemWrAReq> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <regFifoDin> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <locCellRxAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <seqRxFlag> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cidMemDinA<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+    Using one-hot encoding for signal <seqState>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <seqState> of Case statement line 408 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <seqState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Found 32-bit 4-to-1 multiplexer for signal <muxFrameTxCid>.
+    Summary:
+	inferred  32 Multiplexer(s).
+Unit <PgpAckRx> synthesized.
+
+
+Synthesizing Unit <PgpRxTrack>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpRxTrack.vhd".
+WARNING:Xst:2109 - Contents of latch <vc2SeqNum> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <vc1SeqNum> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intCellTxAckReq> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc0SeqNum> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <vc2InFrame> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellTxNAck> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <frameRxSeq> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <vc1InFrame> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellTxAckSeq> never changes during circuit operation. The latch is removed and the signal is tied to value 00000000.
+WARNING:Xst:2109 - Contents of latch <vc0InFrame> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intAbort> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <ackTxFifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <frameRxAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <frameRxNAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc3InFrame> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <vc3SeqNum> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cellTxAck> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+Unit <PgpRxTrack> synthesized.
+
+
+Synthesizing Unit <PgpPicRemBuff>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpPicRemBuff.vhd".
+WARNING:Xst:647 - Input <vcFrameTxAckEn> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAck> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:647 - Input <vcFrameTxAckCid> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
+WARNING:Xst:646 - Signal <syncDout<17>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:1780 - Signal <intCid> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <cellCount> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <wrCount> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <syncDin<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncAFull> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncValid> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncWr> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncDin<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <syncSOC> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intFifoRdDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+Unit <PgpPicRemBuff> synthesized.
+
+
 Synthesizing Unit <clocks_main>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/clocks_main_struct.vhd".
 WARNING:Xst:647 - Input <clk_bco_dutycycle_we_i> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -7067,6 +8198,33 @@ Synthesizing Unit <eth_fifo_8_16>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/ethernet_v4/src/eth_fifo_8_16.vhd".
 WARNING:Xst:646 - Signal <tx_data_valid_int<1>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 Unit <eth_fifo_8_16> synthesized.
+
+
+Synthesizing Unit <PgpDataBuffer>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpDataBuffer.vhd".
+WARNING:Xst:646 - Signal <asyncDout<17>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+Unit <PgpDataBuffer> synthesized.
+
+
+Synthesizing Unit <PgpTop>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpTop.vhd".
+WARNING:Xst:2109 - Contents of latch <phyLinkErrorDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cellRxCellErrorDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <countNack> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pgpSeqError> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <countLinkError> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <linkDownBlock<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <countCellError> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <nackCountIncDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <countLinkDown> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+Unit <PgpTop> synthesized.
 
 
 Synthesizing Unit <control_top>.
@@ -7850,6 +9008,43 @@ WARNING:Xst:1780 - Signal <addr_filter_enable_0_i> is never used or assigned. Th
 Unit <eth2x16_block> synthesized.
 
 
+Synthesizing Unit <PgpMgtWrap>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpMgtWrap.vhd".
+WARNING:Xst:2109 - Contents of latch <mgtTxReset> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <mgtTxPmaReset> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <phyInitDone> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <mgtRxReset> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <phyLinkError> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <txStateCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXX.
+WARNING:Xst:2109 - Contents of latch <mgtRxPmaReset> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <txPcsResetCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <curTxState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <rxStateCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <curRxState> never changes during circuit operation. The latch is removed and the signal is tied to value XXX.
+WARNING:Xst:2109 - Contents of latch <rxPcsResetCnt> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <pibLock<0>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <pibLock<1>> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+    Using one-hot encoding for signal <curTxState>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <curTxState> of Case statement line 1260 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <curTxState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <curRxState> of Case statement line 1426 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <curRxState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+    Using one-hot encoding for signal <curRxState>.
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <curTxState> of Case statement line 1260 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <curTxState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+INFO:Xst:2117 - HDL ADVISOR - Mux Selector <curRxState> of Case statement line 1426 was re-encoded using one-hot encoding. The case statement will be optimized (default statement optimization), but this optimization may lead to design initialization problems. To ensure the design works safely, you can:
+   	- add an 'INIT' attribute on signal <curRxState> (optimization is then done without any risk)
+   	- use the attribute 'signal_encoding user' to avoid onehot optimization
+   	- use the attribute 'safe_implementation yes' to force XST to perform a safe (but less efficient) optimization
+Unit <PgpMgtWrap> synthesized.
+
+
 Synthesizing Unit <main_top>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/hsio/src/main_top_struct.vhd".
 WARNING:Xst:647 - Input <stat_word_cu<63:16>> is never used. This port will be preserved and left unconnected if it belongs to a top-level block or it belongs to a sub-block and the hierarchy of this sub-block is preserved.
@@ -8457,6 +9652,66 @@ WARNING:Xst:646 - Signal <MODULECOUNT> is assigned but never used. This unconnec
 Unit <main_top> synthesized.
 
 
+Synthesizing Unit <PgpFrontEnd>.
+    Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/pgp/hdl/PgpFrontEnd.vhd".
+WARNING:Xst:646 - Signal <vc3RemBuffFull> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vc3RemBuffAFull> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vc3FrameTxReady> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vc3FrameTxAckEn> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vc3FrameTxAckCid> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <vc3FrameTxAck> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <pibState> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <intCmdCtxOut> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<11>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<12>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<13>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<14>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<20>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<15>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<21>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pibReLink> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<16>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<22>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<17>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cntOverFlow> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<23>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<18>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cntCellError> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<24>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<19>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<30>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<25>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<31>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<26>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<27>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<0>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <resetOut> never changes during circuit operation. The latch is removed and the signal is tied to value 0.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<28>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<1>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<2>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<29>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<3>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<4>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<5>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<6>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<7>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <scratchPad> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<8>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<9>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <pllLock> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <countReset> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegFail> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <intRegAck> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <cntLinkDown> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <pllLockDly> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+WARNING:Xst:2109 - Contents of latch <txCount> never changes during circuit operation. The latch is removed and the signal is tied to value XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+WARNING:Xst:2109 - Contents of latch <cntLinkError> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <cntNack> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <cntPllLock> never changes during circuit operation. The latch is removed and the signal is tied to value XXXX.
+WARNING:Xst:2109 - Contents of latch <intRegDataIn<10>> never changes during circuit operation. The latch is removed and the signal is tied to value X.
+Unit <PgpFrontEnd> synthesized.
+
+
 Synthesizing Unit <eth2x16_locallink_muxed>.
     Related source file is "/home/daqdev/work/adl_atlasupstrip/hsio_trunk/ethernet_v4/src/eth2x16_locallink_muxed.vhd".
 WARNING:Xst:1305 - Output <tx1_overflow> is never assigned. Tied to value 0.
@@ -8776,13 +10031,13 @@ Macro Statistics
  8-bit comparator less                                 : 6
  8-bit comparator not equal                            : 1
  9-bit comparator greater                              : 2
-# Multiplexers                                         : 35
+# Multiplexers                                         : 43
  1-bit 13-to-1 multiplexer                             : 1
  1-bit 144-to-1 multiplexer                            : 1
  1-bit 16-to-1 multiplexer                             : 4
  1-bit 256-to-1 multiplexer                            : 3
  1-bit 32-to-1 multiplexer                             : 2
- 1-bit 4-to-1 multiplexer                              : 7
+ 1-bit 4-to-1 multiplexer                              : 15
  1-bit 64-to-1 multiplexer                             : 4
  1-bit 68-to-1 multiplexer                             : 1
  16-bit 10-to-1 multiplexer                            : 1
@@ -9357,6 +10612,8 @@ WARNING:Xst:1290 - Hierarchical block <U_41> is unconnected in block <Usfeth2x16
 WARNING:Xst:1290 - Hierarchical block <g0[0].Uethstatdec> is unconnected in block <Usfeth2x16>.
    It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <g0[1].Uethstatdec> is unconnected in block <Usfeth2x16>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <U_PgpFrontEnd> is unconnected in block <Unet_usb_top>.
    It will be removed from the design.
 WARNING:Xst:1426 - The value init of the FF/Latch sq_0 hinder the constant cleaning in the block Utrgburst.
    You should achieve better results by setting this init to 1.
@@ -14746,14 +16003,14 @@ WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <sqLen_2> has a cons
 WARNING:Xst:2677 - Node <sqLen_1> of sequential type is unconnected in block <trig_burst>.
 WARNING:Xst:2677 - Node <sqLen_0> of sequential type is unconnected in block <trig_burst>.
 WARNING:Xst:2677 - Node <sqLen_2> of sequential type is unconnected in block <trig_burst>.
-WARNING:Xst:2041 - Unit ocb_rawseq: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_echo_watchdog: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_nio.
+WARNING:Xst:2041 - Unit ocb_command: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
+WARNING:Xst:2041 - Unit ocb_rawseq: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_rawsigs: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_regblock: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_statread: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_streams: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:2041 - Unit ocb_twowire: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
-WARNING:Xst:2041 - Unit ocb_command: 1 internal tristate is replaced by logic (pull-up yes): oc_dack_no.
 WARNING:Xst:1906 - Unit ocb_command is merged (output ports from interface drive multi-sources)
 WARNING:Xst:1906 - Unit ocb_echo_watchdog is merged (output ports from interface drive multi-sources)
 WARNING:Xst:1906 - Unit ocb_rawseq is merged (output ports from interface drive multi-sources)
@@ -14786,6 +16043,10 @@ Optimizing unit <ll_enbuffn> ...
 Optimizing unit <m_buff> ...
 
 Optimizing unit <m_inv> ...
+
+Optimizing unit <PgpCellTx> ...
+
+Optimizing unit <PgpPhy> ...
 
 Optimizing unit <twowire_tri> ...
 
@@ -14893,6 +16154,10 @@ Optimizing unit <cal_block_v1_4_1_1> ...
 
 Optimizing unit <cal_block_v1_4_1_2> ...
 
+Optimizing unit <PgpCellRx> ...
+
+Optimizing unit <PgpTxSched> ...
+
 Optimizing unit <cg_dcm_80_160_ps> ...
 
 Optimizing unit <xilinx_reset> ...
@@ -14951,6 +16216,22 @@ Optimizing unit <gmii_if> ...
 
 Optimizing unit <eth_gmii> ...
 
+Optimizing unit <PgpCmdSlave_1> ...
+
+Optimizing unit <PgpCmdSlave_2> ...
+
+Optimizing unit <PgpRegSlave_1> ...
+
+Optimizing unit <PgpRegSlave_2> ...
+
+Optimizing unit <PgpDsBuff> ...
+
+Optimizing unit <PgpAckRx> ...
+
+Optimizing unit <PgpRxTrack> ...
+
+Optimizing unit <PgpPicRemBuff> ...
+
 Optimizing unit <trig_burst> ...
 
 Optimizing unit <disp_top> ...
@@ -14985,6 +16266,10 @@ Optimizing unit <eth_gmii_block> ...
 
 Optimizing unit <eth_fifo_8_16> ...
 
+Optimizing unit <PgpDataBuffer> ...
+
+Optimizing unit <PgpTop> ...
+
 Optimizing unit <trigger_top> ...
 
 Optimizing unit <ll_syncmux256> ...
@@ -14997,7 +16282,11 @@ Optimizing unit <eth_gmii16_locallink> ...
 
 Optimizing unit <eth2x16_block> ...
 
+Optimizing unit <PgpMgtWrap> ...
+
 Optimizing unit <readout_top> ...
+
+Optimizing unit <PgpFrontEnd> ...
 
 Optimizing unit <eth2x16_locallink_muxed> ...
 
@@ -24652,6 +25941,8 @@ WARNING:Xst:2677 - Node <tx_data_valid_1> of sequential type is unconnected in b
 WARNING:Xst:2677 - Node <rd_rem_0> of sequential type is unconnected in block <rx_fifo_i>.
 WARNING:Xst:2677 - Node <rd_rem_int_0> of sequential type is unconnected in block <rx_fifo_i>.
 WARNING:Xst:2677 - Node <rd_rem_reg_0> of sequential type is unconnected in block <rx_fifo_i>.
+WARNING:Xst:1290 - Hierarchical block <U_PgpFrontEnd> is unconnected in block <Unet_usb_top>.
+   It will be removed from the design.
 WARNING:Xst:1290 - Hierarchical block <U_40> is unconnected in block <Usfeth2x16>.
    It will be removed from the design.
 WARNING:Xst:2677 - Node <odr_read_data_10> of sequential type is unconnected in block <Uhost_interface>.
@@ -25413,14 +26704,14 @@ Design Statistics
 # IOs                              : 457
 
 Cell Usage :
-# BELS                             : 8146
+# BELS                             : 8145
 #      BUF                         : 2
 #      GND                         : 101
 #      INV                         : 321
 #      LUT1                        : 265
 #      LUT1_D                      : 64
-#      LUT2                        : 1087
-#      LUT3                        : 1978
+#      LUT2                        : 1088
+#      LUT3                        : 1976
 #      LUT4                        : 2177
 #      LUT4_D                      : 2
 #      MUXCY                       : 661
@@ -25492,10 +26783,10 @@ Device utilization summary:
 
 Selected Device : 4vfx60ff1152-11 
 
- Number of Slices:                     4110  out of  25280    16%  
+ Number of Slices:                     4109  out of  25280    16%  
  Number of Slice Flip Flops:           4699  out of  50560     9%  
- Number of 4 input LUTs:               5953  out of  50560    11%  
-    Number used as logic:              5894
+ Number of 4 input LUTs:               5952  out of  50560    11%  
+    Number used as logic:              5893
     Number used as Shift registers:      59
  Number of IOs:                         457
  Number of bonded IOBs:                 387  out of    576    67%  
@@ -25659,9 +26950,9 @@ Timing Summary:
 Speed Grade: -11
 
    Minimum period: 317.160ns (Maximum Frequency: 3.153MHz)
-   Minimum input arrival time before clock: 7.571ns
+   Minimum input arrival time before clock: 7.526ns
    Maximum output required time after clock: 11.001ns
-   Maximum combinational path delay: 5.414ns
+   Maximum combinational path delay: 5.597ns
 
 Timing Detail:
 --------------
@@ -25817,10 +27108,10 @@ Offset:              1.039ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_xtal_125_pi'
-  Clock period: 3.809ns (frequency: 262.522MHz)
+  Clock period: 3.995ns (frequency: 250.300MHz)
   Total number of paths / destination ports: 36 / 36
 -------------------------------------------------------------------------
-Offset:              3.809ns (Levels of Logic = 2)
+Offset:              3.995ns (Levels of Logic = 2)
   Source:            Umain/rst (FF)
   Destination:       Umain/g3.Uticksgen/count_1_0 (FF)
   Source Clock:      clk_xtal_125_pi rising 0.7X
@@ -25830,13 +27121,13 @@ Offset:              3.809ns (Levels of Logic = 2)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q             373   0.307   2.105  rst (rst)
+     FD:C->Q             373   0.307   2.291  rst (rst)
      begin scope: 'g3.Uticksgen'
-     LUT4:I3->O            4   0.166   0.325  count_0_or0000 (count_0_or0000)
-     FDR:R                     0.906          count_0_0
+     LUT4:I0->O            4   0.166   0.325  count_6_or00001 (count_6_or0000)
+     FDRE:R                    0.906          count_6_0
     ----------------------------------------
-    Total                      3.809ns (1.379ns logic, 2.430ns route)
-                                       (36.2% logic, 63.8% route)
+    Total                      3.995ns (1.379ns logic, 2.616ns route)
+                                       (34.5% logic, 65.5% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk_xtal_125_pi'
@@ -26847,26 +28138,26 @@ Delay:               2.529ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'idc_p2_io<30>'
-  Clock period: 2.995ns (frequency: 333.890MHz)
+  Clock period: 3.084ns (frequency: 324.254MHz)
   Total number of paths / destination ports: 265 / 88
 -------------------------------------------------------------------------
-Delay:               2.995ns (Levels of Logic = 2)
-  Source:            Umain/g3.Uticksgen/count_1_1 (FF)
+Delay:               3.084ns (Levels of Logic = 2)
+  Source:            Umain/g3.Uticksgen/count_1_2 (FF)
   Destination:       Umain/g3.Uticksgen/count_1_0 (FF)
   Source Clock:      idc_p2_io<30> rising
   Destination Clock: idc_p2_io<30> rising
 
-  Data Path: Umain/g3.Uticksgen/count_1_1 to Umain/g3.Uticksgen/count_1_0
+  Data Path: Umain/g3.Uticksgen/count_1_2 to Umain/g3.Uticksgen/count_1_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             4   0.307   0.605  count_1_1 (count_1_1)
-     LUT3:I0->O            2   0.166   0.520  count_1_or000011 (N46)
-     LUT4:I2->O            4   0.166   0.325  count_1_or00001 (count_1_or0000)
+     FDRE:C->Q             3   0.307   0.606  count_1_2 (count_1_2)
+     LUT3:I0->O            2   0.166   0.608  count_1_or000011 (N40)
+     LUT4:I1->O            4   0.166   0.325  count_1_or00001 (count_1_or0000)
      FDRE:R                    0.906          count_1_0
     ----------------------------------------
-    Total                      2.995ns (1.545ns logic, 1.450ns route)
-                                       (51.6% logic, 48.4% route)
+    Total                      3.084ns (1.545ns logic, 1.539ns route)
+                                       (50.1% logic, 49.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'Unet_usb_top/Ugmii_locallink/v4_emac_block/v4_emac_top/EMAC0CLIENTRXCLIENTCLKOUT'
@@ -27062,7 +28353,7 @@ Delay:               3.790ns (Levels of Logic = 3)
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk_xtal_125_pi'
   Total number of paths / destination ports: 3012 / 1333
 -------------------------------------------------------------------------
-Offset:              7.571ns (Levels of Logic = 14)
+Offset:              7.526ns (Levels of Logic = 14)
   Source:            Umain/Uctltop/Uocbtwowire/Ureply_fifo/fifo0:dout<17> (PAD)
   Destination:       Umain/Umux256/Umuxctrl/scount_0 (FF)
   Destination Clock: clk_xtal_125_pi rising 0.7X
@@ -27086,12 +28377,12 @@ Offset:              7.571ns (Levels of Logic = 14)
      LUT3:I0->O            1   0.166   0.000  Mmux__mux0000_4 (Mmux__mux0000_4)
      MUXF5:I1->O           1   0.319   0.000  Mmux__mux0000_3_f5 (Mmux__mux0000_3_f5)
      MUXF6:I1->O           3   0.337   0.518  Mmux__mux0000_2_f6 (_mux0000)
-     LUT2:I0->O           10   0.166   0.749  stream_inc1 (stream_inc)
-     LUT4:I0->O            9   0.166   0.408  scount_or000037 (scount_or0000)
+     LUT2:I0->O           10   0.166   0.704  stream_inc1 (stream_inc)
+     LUT4:I1->O            9   0.166   0.408  scount_or000037 (scount_or0000)
      FDRE:R                    0.906          scount_0
     ----------------------------------------
-    Total                      7.571ns (3.882ns logic, 3.689ns route)
-                                       (51.3% logic, 48.7% route)
+    Total                      7.526ns (3.882ns logic, 3.644ns route)
+                                       (51.6% logic, 48.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'eth_tx_clk_i'
@@ -27425,35 +28716,41 @@ Offset:              0.358ns (Levels of Logic = 0)
 Timing constraint: Default path analysis
   Total number of paths / destination ports: 84 / 74
 -------------------------------------------------------------------------
-Delay:               5.414ns (Levels of Logic = 4)
-  Source:            sma_io<4> (PAD)
-  Destination:       idc_p5_io<8> (PAD)
+Delay:               5.597ns (Levels of Logic = 8)
+  Source:            Umain/Uctltop/Urxpacketdecoder/inst_oc_fifo:dout<16> (PAD)
+  Destination:       Umain/Uctltop/Urxpacketdecoder/inst_oc_fifo:rd_en (PAD)
 
-  Data Path: sma_io<4> to idc_p5_io<8>
+  Data Path: Umain/Uctltop/Urxpacketdecoder/inst_oc_fifo:dout<16> to Umain/Uctltop/Urxpacketdecoder/inst_oc_fifo:rd_en
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O             2   0.867   0.467  sma_io_4_IBUF (sma_io_4_IBUF)
-     begin scope: 'Umain'
-     LUT2:I1->O            1   0.166   0.313  idc_p5_io_8_and00001 (idc_p5_io<8>)
-     end scope: 'Umain'
-     OBUF:I->O                 3.601          idc_p5_io_8_OBUF (idc_p5_io<8>)
+    cg_brfifo_1kx18_ft:dout<16>   61   0.000   0.000  inst_oc_fifo (oc_valid_o)
+     end scope: 'Urxpacketdecoder'
+     LUT4:I3->O            1   0.166   0.505  oc_dack_nLogicTrst49 (oc_dack_nLogicTrst49)
+     LUT2:I0->O            1   0.166   0.638  oc_dack_nLogicTrst66 (oc_dack_nLogicTrst66)
+     LUT4:I0->O            1   0.166   0.638  oc_dack_nLogicTrst81 (oc_dack_nLogicTrst81)
+     LUT4:I0->O            1   0.166   0.638  oc_dack_nLogicTrst253 (oc_dack_nLogicTrst253)
+     LUT4:I0->O            1   0.166   0.505  oc_dack_nLogicTrst555 (oc_dack_nLogicTrst555)
+     LUT2:I0->O            2   0.166   0.328  oc_dack_nLogicTrst606 (oc_dack_n)
+     begin scope: 'Urxpacketdecoder'
+     INV:I->O              0   0.305   0.000  oc_dtack_all1_INV_0 (oc_dtack_all)
+    cg_brfifo_1kx18_ft:rd_en        0.000          inst_oc_fifo
     ----------------------------------------
-    Total                      5.414ns (4.634ns logic, 0.780ns route)
-                                       (85.6% logic, 14.4% route)
+    Total                      5.597ns (2.345ns logic, 3.252ns route)
+                                       (41.9% logic, 58.1% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 276.00 secs
-Total CPU time to Xst completion: 179.18 secs
+Total REAL time to Xst completion: 175.00 secs
+Total CPU time to Xst completion: 170.02 secs
  
 --> 
 
 
-Total memory usage is 1199128 kilobytes
+Total memory usage is 1214608 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings : 18160 (   0 filtered)
-Number of infos    :  167 (   0 filtered)
+Number of warnings : 18977 (   0 filtered)
+Number of infos    :  195 (   0 filtered)
 

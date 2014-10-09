@@ -14,7 +14,7 @@ use hsio.pkg_hsio_globals.all;
 
 entity hsio_top is
    generic( 
-      SIM_MODE : integer := 0
+      SIM_MODE : integer := 1
    );
    port( 
       -- CLOCKS
@@ -313,7 +313,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
    end component;
    component clocks_main
    generic (
-      SIM_MODE : integer := 0
+      SIM_MODE : integer := 1
    );
    port (
       clk                    : in     std_logic ;
@@ -333,7 +333,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
    end component;
    component clocks_top
    generic (
-      SIM_MODE : integer := 0
+      SIM_MODE : integer := 1
    );
    port (
       clk125           : in     std_logic ;
@@ -440,7 +440,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
    end component;
    component hsio_proc_wrapper
    generic (
-      SIM_MODE : integer := 0
+      SIM_MODE : integer := 1
    );
    port (
       clk_sys_clk_pin     : in     std_logic;
@@ -467,7 +467,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
    end component;
    component main_top
    generic (
-      SIM_MODE    : integer                       := 0;
+      SIM_MODE    : integer                       := 1;
       TOP_ID      : integer                       := 16#0C02#;
       ISHSIO      : integer                       := 1;
       TRIG_TLU_EN : integer                       := 1;
