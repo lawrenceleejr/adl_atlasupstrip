@@ -20,6 +20,23 @@ entity hsio_top is
       -- CLOCKS
       clk_xtal_125_mi   : in     std_logic;                       --CRYSTAL_CLK_M
       clk_xtal_125_pi   : in     std_logic;                       --CRYSTAL_CLK_P
+
+      -- PGP Interface
+
+      pgpRefClkP    : in  std_logic;
+      pgpRefClkM    : in  std_logic;
+
+      ---- MGT Serial Pins
+      mgtRxN       : in  std_logic;
+      mgtRxP       : in  std_logic;
+      mgtTxN       : out std_logic;
+      mgtTxP       : out std_logic;
+
+
+      ----end PGP Interface
+
+
+
       -- ETHERNET INTERFACE
       eth_col_i         : in     std_logic;                       --ETH_COL
       eth_coma_o        : out    std_logic;                       --ETH_COMA
@@ -294,6 +311,12 @@ attribute KEEP of lemo_clk : signal is "true";
 attribute KEEP of clk_p2_pll : signal is "true";
 
    -- Component Declarations
+
+
+
+
+
+
    component a13_drv_hsio_top
    port (
       clk160         : in     std_logic ;
@@ -573,6 +596,14 @@ attribute KEEP of clk_p2_pll : signal is "true";
       rst_in          : in     std_logic ;
       rx_fifo_rst_i   : in     std_logic ;
       rx_lld_i        : in     std_logic ;
+
+      -- MGT Serial Pins
+      pgpRefClk    : in std_logic;
+      mgtRxN       : in  std_logic;
+      mgtRxP       : in  std_logic;
+      mgtTxN       : out std_logic;
+      mgtTxP       : out std_logic;
+
       sf_absent_i     : in     std_logic_vector (3 downto 0);
       sf_rxm          : in     std_logic_vector (3 downto 0); --LANE_7_RX_M  IB09 net: IB09 Net: CE1_LANE6_RX_M (RD-)
       sf_rxp          : in     std_logic_vector (3 downto 0); --LANE_7_RX_P  IB09 net: IB09 Net: CE1_LANE6_RX_P (RD+)
@@ -1088,6 +1119,39 @@ begin
          clk160ps         => clk160ps,
          clk160           => clk160
       );
+
+
+   -- PGP Clock Generator
+   U_PgpClkGen: entity PgpClkGen generic map (
+         RefClkEn1  => "ENABLE",
+         RefClkEn2  => "DISABLE",
+         DcmClkSrc  => "RefClk1",
+         UserFxDiv  => 4,
+         UserFxMult => 2
+      ) port map (
+         pgpRefClkInP  => pgpRefClkP,
+         pgpRefClkInN  => pgpRefClkM,
+         ponResetL     => reset,
+         locReset      => resetOut,
+         pgpRefClk1    => refClock,
+         pgpRefClk2    => open,
+         pgpClk        => pgpClk,
+         pgpClk90      => pgpClk90,
+         pgpReset      => pgpReset,
+         clk320        => clk320,
+         pgpClkIn      => pgpClk,
+         userClk       => sysClk125,
+         userReset     => sysRst125,
+         userClkIn     => sysClk125,
+         pgpClkUnbuf   => pgpClkUnbuf,
+         pgpClk90Unbuf => pgpClk90Unbuf,
+         locClkUnbuf   => sysClkUnbuf
+      );
+
+
+
+
+
    Unet_usb_top : net_usb_top
       generic map (
          MAC0_SF_MAP => 0,
@@ -1113,6 +1177,25 @@ begin
          rst_in          => rst_top,
          rx_fifo_rst_i   => rx_fifo_rst,
          rx_lld_i        => rx_lld,
+
+
+         ---- MGT Serial Pins
+         pgpRefClk => pgpRefClk,
+         pgpClk => pgpClk,
+         mgtRxN    => mgtRxN,
+         mgtRxP    => mgtRxP,
+         mgtTxN    => mgtTxN,
+         mgtTxP    => mgtTxP,
+
+
+
+         -- MGT Serial Pins
+         --mgtRxN    => '0',
+         --mgtRxP    => '0',
+         --mgtTxN    => '0',
+         --mgtTxP    => '0',
+
+
          sf_absent_i     => sf_mod_abs_i,
          sf_rxm          => sf_rxm,
          sf_rxp          => sf_rxp,

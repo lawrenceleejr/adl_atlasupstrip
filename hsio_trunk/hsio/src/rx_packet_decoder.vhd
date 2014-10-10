@@ -279,6 +279,8 @@ begin
             nstate    <= OC_Check;
           else
             nstate    <= WaitEOFNoAck;
+            --nstate <= OC_Check;
+            --nstate <= SendAck;
           end if;
         end if;
 

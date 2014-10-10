@@ -8,7 +8,7 @@
 <msg type="info" file="LIT" num="243" delta="old" >Logical network <arg fmt="%s" index="1">N273</arg> has no load.
 </msg>
 
-<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">5971</arg> more times for the following (max. 5 shown):
+<msg type="info" file="LIT" num="395" delta="old" >The above <arg fmt="%s" index="1">info</arg> message is repeated <arg fmt="%d" index="2">6911</arg> more times for the following (max. 5 shown):
 <arg fmt="%s" index="3">N276,
 N279,
 N295,
@@ -359,6 +359,9 @@ To see the details of these <arg fmt="%s" index="4">info</arg> messages, please 
 <msg type="info" file="MapLib" num="796" delta="old" >Due to DCM autocalibration, the DCM component <arg fmt="%s" index="1">Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm</arg> in your design has a new hierarchical name: <arg fmt="%s" index="2">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm</arg>. Your simulation or formal verification flow may be affected.
 </msg>
 
+<msg type="error" file="LIT" num="295" delta="new" >REFCLK1 pin of GT11 symbol <arg fmt="%s" index="1">Unet_usb_top/U_PgpFrontEnd/U_PgpMgtWrap/U_MGT</arg> can only be driven by SYNCLK1OUT pin of a GT11CLK or should be left unconnected.
+</msg>
+
 <msg type="warning" file="LIT" num="176" delta="old" >Clock buffer is designated to drive clock loads. <arg fmt="%s" index="1">BUFGCTRL symbol &quot;Uclocksmain/Ubufgctrl&quot; (output signal=Uclocksmain/dcm_clk_in)</arg> has a mix of clock and non-clock loads. The non-clock loads are:
 <arg fmt="%s" index="2">Pin CLR of physical_group_Uclocksmain/Udcm160ps/CLK0_BUF/Uclocksmain/Udcm160ps/DCM_ADV_INST/md/Q0
 Pin CLR of physical_group_Uclocksmain/Udcm160ps/CLK0_BUF/Uclocksmain/Udcm160ps/DCM_ADV_INST/md/Q1</arg>
@@ -402,138 +405,6 @@ Pin CLR of DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block
 <msg type="warning" file="LIT" num="176" delta="old" >Clock buffer is designated to drive clock loads. <arg fmt="%s" index="1">BUFG symbol &quot;Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_clk_out_0_bufg&quot; (output signal=Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_clk_in_0_i)</arg> has a mix of clock and non-clock loads. The non-clock loads are:
 <arg fmt="%s" index="2">Pin I0 of DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/md/_n00001
 Pin I1 of DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/md/_n00011</arg>
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="1843" delta="old" >One or more MGTs are being used in this design. Evaluate the SelectIO-To-MGT Crosstalk section of the Virtex-4 RocketIO Multi-Gigabit Transceiver User Guide to ensure that the design SelectIO usage meets the guidelines to minimize the impact on MGT performance. 
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/CLKOUT</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/CLKOUT</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/CLKOUT</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/CLKOUT</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;4&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;5&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcmext/DCM_ADV_INST/Uclockstop/Udcmext/DCM_ADV_INST/cd/CLK&lt;6&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Umain/Utriggertop/Uosencmap/id0_trg_and0000</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Umain/Utriggertop/Uosencmap/id1_trg_not0001</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;1&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;4&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;2&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;5&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;3&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;4&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK&lt;6&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;4&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;4&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;5&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;5&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;5&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK&lt;6&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST/cd/CLK&lt;6&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/cd/CLK&lt;6&gt;</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div3/DCM_ADV_INST/CLKOUT</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="372" delta="old" >Gated clock. Clock net <arg fmt="%s" index="1">Umain/Utriggertop/Uosencmap/stb_trg_and0000</arg> is sourced by a combinatorial pin. This is not good design practice. Use the CE pin to control the loading of data into the flip-flop.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">sf_txm&lt;0&gt;/sf_txm&lt;0&gt;</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">sf_txm&lt;1&gt;/sf_txm&lt;1&gt;</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">sf_txp&lt;0&gt;/sf_txp&lt;0&gt;</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="367" delta="old" >The signal &lt;<arg fmt="%s" index="1">sf_txp&lt;1&gt;/sf_txp&lt;1&gt;</arg>&gt; is incomplete. The signal does not drive any load pins in the design.
-</msg>
-
-<msg type="warning" file="PhysDesignRules" num="968" delta="old" >Issue with pin connections and/or configuration on block:&lt;<arg fmt="%s" index="1">Uclocksmain/Udcm160ps/DCM_ADV_INST</arg>&gt;:&lt;<arg fmt="%s" index="2">DCM_ADV_DCM_ADV</arg>&gt;.  For VARIABLE or DIRECT phase shifting the phase shift pins PSEN PSCLK and PSDONE should be connected to active signals.
 </msg>
 
 </messages>

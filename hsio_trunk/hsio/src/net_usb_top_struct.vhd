@@ -41,6 +41,19 @@ entity net_usb_top is
       rst_in          : in     std_logic;
       rx_fifo_rst_i   : in     std_logic;
       rx_lld_i        : in     std_logic;
+
+      -- PGP Interface
+
+      -- MGT Serial Pins
+      pgpRefClk    : in  std_logic;
+      pgpClk       : in  std_logic;
+      mgtRxN       : in  std_logic;
+      mgtRxP       : in  std_logic;
+      mgtTxN       : out std_logic;
+      mgtTxP       : out std_logic;
+
+      -- end PGP interface
+
       sf_absent_i     : in     std_logic_vector (3 downto 0);
       sf_rxm          : in     std_logic_vector (3 downto 0);   --LANE_7_RX_M  IB09 net: IB09 Net: CE1_LANE6_RX_M (RD-)
       sf_rxp          : in     std_logic_vector (3 downto 0);   --LANE_7_RX_P  IB09 net: IB09 Net: CE1_LANE6_RX_P (RD+)
@@ -1001,29 +1014,48 @@ begin
 
    -- PGP Front End                                                                                                                                                                                                                                                             
    U_PgpFrontEnd: PgpFrontEnd port map (
-      pgpRefClk1    => '0',    pgpRefClk2    => '0',
-      mgtRxRecClk   => open,       pgpClk        => '0',
-      pgpReset      => '0',        pgpDispA      => open,
-      pgpDispB      => open,       resetOut      => open,
-      locClk        => '0',     locReset      => '0',
-      cmdEn         => open,       cmdOpCode     => open,
-      cmdCtxOut     => open,       regReq        => open,
+      pgpRefClk1    => pgpRefClk,    
+      pgpRefClk2    => '0',
+      mgtRxRecClk   => open,    -- left open    
+      pgpClk        => pgpClk,
+      pgpReset      => '0',        
+      pgpDispA      => open,
+      pgpDispB      => open,       
+      resetOut      => open,
+      locClk        => '0',     
+      locReset      => '0',
+      cmdEn         => open,       
+      cmdOpCode     => open,
+      cmdCtxOut     => open,       
+      regReq        => open,
       regInp        => open,
-      regOp         => open,       regAck        => '0',
-      regFail       => '0',        regAddr       => open,
-      regDataOut    => open,       regDataIn     => (others=>'0'),
-      frameTxEnable => '0',  frameTxSOF    => '0',
-      frameTxEOF    => '0',      frameTxEOFE   => '0',
-      frameTxData   => (others=>'0'),       frameTxAFull  => open,
+      regOp         => open,       
+      regAck        => '0',
+      regFail       => '0',        
+      regAddr       => open,
+      regDataOut    => open,       
+      regDataIn     => (others=>'0'),
+      frameTxEnable => '0',  
+      frameTxSOF    => '0',
+      frameTxEOF    => '0',      
+      frameTxEOFE   => '0',
+      frameTxData   => (others=>'0'),       
+      frameTxAFull  => open,
       frameRxValid  => open,
-      frameRxReady  => '0',   frameRxSOF    => open,
-      frameRxEOF    => open,     frameRxEOFE   => open,
-      frameRxData   => open,    valid => open,
-      eof => open, sof => open,
-      mgtRxN        => '0',
-      mgtRxP        => '0',         mgtTxN        => open,
-      mgtTxP        => open,         mgtCombusIn   => (others=>'0'),
-      mgtCombusOut  => open
+      frameRxReady  => '0',   
+      frameRxSOF    => open,
+      frameRxEOF    => open,     
+      frameRxEOFE   => open,
+      frameRxData   => open,    
+      valid => open,
+      eof => open, 
+      sof => open,
+      mgtRxN        => mgtRxN,
+      mgtRxP        => mgtRxP,
+      mgtTxN        => mgtTxN,
+      mgtTxP        => mgtTxP,
+      mgtCombusIn   => (others=>'0'), -- left 0s
+      mgtCombusOut  => open -- left open
    );
 
 

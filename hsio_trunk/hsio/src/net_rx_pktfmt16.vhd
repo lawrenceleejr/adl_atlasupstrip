@@ -214,8 +214,8 @@ begin
         rx_net_hdr(bcount) <= net_data;
       end if;
 
-      -- check if packet us of right type
-      if (type_check = '1') and (net_data(15 downto 4) = x"876") then
+      -- check if packet is of right type
+      if (type_check = '1') then--and (net_data(15 downto 4) = x"876") then
         rx_src_mac_o <= rx_net_hdr(3) & rx_net_hdr(4) & rx_net_hdr(5);
       end if;
 
