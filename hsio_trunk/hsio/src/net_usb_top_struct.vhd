@@ -44,36 +44,24 @@ entity net_usb_top is
       rx_fifo_rst_i   : in     std_logic;
       rx_lld_i        : in     std_logic;
 
-      -- PGP Interface
+      -- PGP Interface 
 
-      --LL
+      -- Infrastructure...
+      ---------------------
+
       sysClk125       : in     std_logic;
       sysRst125       : in     std_logic;
-
       -- MGT Serial Pins
       pgpRefClk    : in  std_logic;
       pgpClk       : in  std_logic;
       pgpReset     : in  std_logic;
-
-      
       -- Reset out to PGP Clock generation
       pgpResetOut     : out std_logic;
-
-
       mgtRxN       : in  std_logic;
       mgtRxP       : in  std_logic;
       mgtTxN       : out std_logic;
       mgtTxP       : out std_logic;
 
-
-      -- dispDigitA    : out std_logic_vector(7 downto 0);
-      -- dispDigitB    : out std_logic_vector(7 downto 0);
-      -- dispDigitC    : out std_logic_vector(7 downto 0);
-      -- dispDigitD    : out std_logic_vector(7 downto 0);
-      -- dispDigitE    : out std_logic_vector(7 downto 0);
-      -- dispDigitF    : out std_logic_vector(7 downto 0);
-      -- dispDigitG    : out std_logic_vector(7 downto 0);
-      -- dispDigitH    : out std_logic_vector(7 downto 0);
 
       -- end PGP interface
 
@@ -1037,8 +1025,6 @@ begin
 
 
 
-
-
    -- PGP Front End                                                                                                                                                                                                                                                             
    U_PgpFrontEnd: PgpFrontEnd port map (
       pgpRefClk1    => pgpRefClk,    
@@ -1062,17 +1048,17 @@ begin
       regAddr       => open,
       regDataOut    => open,       
       regDataIn     => (others=>'0'),
-      frameTxEnable => '0',  
-      frameTxSOF    => '0',
-      frameTxEOF    => '0',      
-      frameTxEOFE   => '0',
-      frameTxData   => (others=>'0'),       
-      frameTxAFull  => open,
+      frameTxEnable => tx_src_rdy, -- ? 
+      frameTxSOF    => tx_sof,
+      frameTxEOF    => tx_eof,      
+      frameTxEOFE   => '0',  -- ?
+      frameTxData   => tx_data,       
+      frameTxAFull  => open, --?
       frameRxValid  => open,
       frameRxReady  => '0',   
       frameRxSOF    => open,
       frameRxEOF    => open,     
-      frameRxEOFE   => open,
+      frameRxEOFE   => open, --?
       frameRxData   => open,    
       valid => open,
       eof => open, 
