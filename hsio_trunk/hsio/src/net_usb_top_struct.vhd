@@ -268,6 +268,8 @@ architecture struct of net_usb_top is
    -- Implicit buffer signal declarations
    signal sf_syncacq_o_internal : std_logic_vector (1 downto 0);
 
+   signal tester0_count: std_logic_vector(3 downto 0);
+
 
 
 
@@ -1050,7 +1052,7 @@ begin
       regDataIn     => (others=>'0'),
       frameTxEnable => tx_src_rdy, -- ? 
       frameTxSOF    => tx_sof,
-      frameTxEOF    => tx_eof,      
+      frameTxEOF    => tx_eof,
       frameTxEOFE   => '0',  -- ?
       frameTxData   => tx_data,       
       frameTxAFull  => open, --?
@@ -1070,6 +1072,26 @@ begin
       mgtCombusIn   => (others=>'0'), -- left 0s
       mgtCombusOut  => open -- left open
    );
+
+
+   tester0: process(sysClk125, tx_eof)
+   begin
+      if(sysRst125='0') then
+         tx_sof <= '0';
+         tx_eof <= '0';
+         tester0_count <= tester0_count + "1";
+      else
+         tx_sof <= '1';
+         tx_src_rdy <= '1';
+         tester0_count <= "0000";
+      end if;
+
+      if(tester0_count="0100" and tx_src_rdy='1') then
+         tx_eof <='1';
+         tx_src_rdy <= '0';
+      end if;
+
+   end process tester0;
 
    --dispDigitA<=pgpDispA;
    --dispDigitB<=pgpDispB;
