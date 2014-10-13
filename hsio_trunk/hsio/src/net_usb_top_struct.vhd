@@ -269,8 +269,9 @@ architecture struct of net_usb_top is
    signal sf_syncacq_o_internal : std_logic_vector (1 downto 0);
 
    signal tester0_count: std_logic_vector(3 downto 0);
-
-
+   signal tx_src_rdy_test : std_logic;
+   signal tx_sof_test : std_logic;
+   signal tx_eof_test : std_logic;
 
 
 
@@ -1050,9 +1051,9 @@ begin
       regAddr       => open,
       regDataOut    => open,       
       regDataIn     => (others=>'0'),
-      frameTxEnable => tx_src_rdy, -- ? 
-      frameTxSOF    => tx_sof,
-      frameTxEOF    => tx_eof,
+      frameTxEnable => tx_src_rdy_test, -- ? 
+      frameTxSOF    => tx_sof_test,
+      frameTxEOF    => tx_eof_test,
       frameTxEOFE   => '0',  -- ?
       frameTxData   => tx_data,       
       frameTxAFull  => open, --?
@@ -1074,21 +1075,21 @@ begin
    );
 
 
-   tester0: process(sysClk125, tx_eof)
+   tester0: process(sysClk125)
    begin
       if(sysRst125='0') then
-         tx_sof <= '0';
-         tx_eof <= '0';
+         tx_sof_test <= '0';
+         tx_eof_test <= '0';
          tester0_count <= tester0_count + "1";
       else
-         tx_sof <= '1';
-         tx_src_rdy <= '1';
+         tx_sof_test <= '1';
+         tx_src_rdy_test <= '1';
          tester0_count <= "0000";
       end if;
 
-      if(tester0_count="0100" and tx_src_rdy='1') then
-         tx_eof <='1';
-         tx_src_rdy <= '0';
+      if(tester0_count="0100" and tx_src_rdy_test='1') then
+         tx_eof_test <='1';
+         tx_src_rdy_test <= '0';
       end if;
 
    end process tester0;
