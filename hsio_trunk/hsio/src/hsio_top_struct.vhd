@@ -23,19 +23,13 @@ entity hsio_top is
 
       -- PGP Interface
 
-      pgpRefClkP    : in  std_logic;
-      pgpRefClkM    : in  std_logic;
-
       ---- MGT Serial Pins
       mgtRxN       : in  std_logic;
       mgtRxP       : in  std_logic;
       mgtTxN       : out std_logic;
       mgtTxP       : out std_logic;
 
-
       ----end PGP Interface
-
-
 
       -- ETHERNET INTERFACE
       eth_col_i         : in     std_logic;                       --ETH_COL
@@ -216,6 +210,16 @@ architecture struct of hsio_top is
 
    -- Architecture declarations
 
+   --PGP Implementation --LL
+   signal sysClk125          : std_logic;
+   signal sysRst125          : std_logic;
+
+   signal pgpRefClk          : std_logic;
+   signal pgpClk             : std_logic;
+   signal pgpClk90           : std_logic;
+   signal pgpReset           : std_logic;
+   signal pgpResetOut        : std_logic;
+
    -- Internal signal declarations
    signal sf_sda_in          : std_logic_vector(3 downto 0);             --GPIO_19  IB09 net: IB09 Net: CD_FO_SDAT1 (SDA)
    signal clk125             : std_logic;
@@ -313,6 +317,54 @@ attribute KEEP of clk_p2_pll : signal is "true";
    -- Component Declarations
 
 
+
+   -- PGP Clock Generator
+   component PgpClkGen 
+      generic (
+         RefClkEn1  : string  := "ENABLE";  -- ENABLE or DISABLE
+         RefClkEn2  : string  := "DISABLE"; -- ENABLE or DISABLE
+         DcmClkSrc  : string  := "RefClk1"; -- RefClk1 or RefClk2
+         UserFxDiv  : integer := 5;         -- DCM FX Output Divide
+         UserFxMult : integer := 4          -- DCM FX Output Divide, 4/5 * 156.25 = 125Mhz
+      );
+      port (
+
+         -- Reference Clock Pad Inputs
+         pgpRefClkInP  : in   std_logic;
+         pgpRefClkInN  : in   std_logic;
+
+         -- Power On Reset Input
+         ponResetL     : in   std_logic;
+
+         -- Locally Generated Reset
+         locReset      : in   std_logic;
+
+         -- Reference Clock To PGP MGT
+         -- Use one, See RefClkEn1 & RefClkEn2 Generics
+         pgpRefClk1    : out  std_logic;
+         pgpRefClk2    : out  std_logic;
+
+         -- Global Clock & Reset For PGP Logic, 156.25Mhz
+         pgpClk        : out  std_logic;
+         pgpClk90      : out  std_logic;
+         pgpReset      : out  std_logic;
+
+         clk320        : out std_logic;
+         -- Global Clock & Reset For User Logic, 125Mhz
+         userClk       : out  std_logic;
+         userReset     : out  std_logic;
+
+         -- Inputs clocks for reset generation connect
+         -- to pgpClk and userClk
+         pgpClkIn      : in   std_logic;
+         userClkIn     : in   std_logic;
+
+         pgpClkUnbuf   : out std_logic;
+         pgpClk90Unbuf : out std_logic;
+         locClkUnbuf   : out std_logic
+         
+      );
+   end component;
 
 
 
@@ -598,7 +650,14 @@ attribute KEEP of clk_p2_pll : signal is "true";
       rx_lld_i        : in     std_logic ;
 
       -- MGT Serial Pins
+      sysClk125    : in std_logic;
+      sysRst125    : in std_logic;
+
       pgpRefClk    : in std_logic;
+      pgpClk       : in std_logic;
+      pgpReset     : in std_logic;
+      pgpResetOut  : in std_logic;
+
       mgtRxN       : in  std_logic;
       mgtRxP       : in  std_logic;
       mgtTxN       : out std_logic;
@@ -1121,7 +1180,7 @@ begin
       );
 
 
-   -- PGP Clock Generator
+   -- PGP Clock Generator --LL
    U_PgpClkGen: entity PgpClkGen generic map (
          RefClkEn1  => "ENABLE",
          RefClkEn2  => "DISABLE",
@@ -1129,25 +1188,24 @@ begin
          UserFxDiv  => 4,
          UserFxMult => 2
       ) port map (
-         pgpRefClkInP  => pgpRefClkP,
-         pgpRefClkInN  => pgpRefClkM,
-         ponResetL     => reset,
-         locReset      => resetOut,
-         pgpRefClk1    => refClock,
-         pgpRefClk2    => open,
+         pgpRefClkInP  => clk_mgt1b_pi,
+         pgpRefClkInN  => clk_mgt1b_mi,
+         ponResetL     => rst_poweron_ni,
+         locReset      => pgpResetOut,
+         pgpRefClk1    => pgpRefClk,
+         pgpRefClk2    => open,   -- left open
          pgpClk        => pgpClk,
          pgpClk90      => pgpClk90,
          pgpReset      => pgpReset,
-         clk320        => clk320,
+         clk320        => open, -- handed out in pixel impl but not used, so whatever
          pgpClkIn      => pgpClk,
          userClk       => sysClk125,
          userReset     => sysRst125,
          userClkIn     => sysClk125,
-         pgpClkUnbuf   => pgpClkUnbuf,
-         pgpClk90Unbuf => pgpClk90Unbuf,
-         locClkUnbuf   => sysClkUnbuf
+         pgpClkUnbuf   => open, -- these are also used in some places but not for first impl
+         pgpClk90Unbuf => open,
+         locClkUnbuf   => open
       );
-
 
 
 
@@ -1180,20 +1238,17 @@ begin
 
 
          ---- MGT Serial Pins
+         sysClk125  =>  sysClk125;
+         sysRst125  =>  sysRst125;
+
          pgpRefClk => pgpRefClk,
          pgpClk => pgpClk,
+         pgpReset => pgpReset,
+         pgpResetOut => pgpResetOut,
          mgtRxN    => mgtRxN,
          mgtRxP    => mgtRxP,
          mgtTxN    => mgtTxN,
          mgtTxP    => mgtTxP,
-
-
-
-         -- MGT Serial Pins
-         --mgtRxN    => '0',
-         --mgtRxP    => '0',
-         --mgtTxN    => '0',
-         --mgtTxP    => '0',
 
 
          sf_absent_i     => sf_mod_abs_i,
