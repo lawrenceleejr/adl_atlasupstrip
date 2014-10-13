@@ -12,6 +12,11 @@ use ieee.std_logic_unsigned.all;
 library hsio;
 use hsio.pkg_hsio_globals.all;
 
+use work.pkg_hsio_globals.all;
+library utils;
+use utils.pkg_types.all;
+
+
 entity hsio_top is
    generic( 
       SIM_MODE : integer := 1
@@ -204,6 +209,9 @@ library utils;
 use utils.pkg_types.all;
 library hsio;
 use hsio.pkg_core_globals.all;
+
+use work.pkg_hsio_globals.all;
+
 
 
 architecture struct of hsio_top is
@@ -656,7 +664,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
       pgpRefClk    : in std_logic;
       pgpClk       : in std_logic;
       pgpReset     : in std_logic;
-      pgpResetOut  : in std_logic;
+      pgpResetOut  : out std_logic;
 
       mgtRxN       : in  std_logic;
       mgtRxP       : in  std_logic;
@@ -1181,7 +1189,8 @@ begin
 
 
    -- PGP Clock Generator --LL
-   U_PgpClkGen: entity PgpClkGen generic map (
+   U_PgpClkGen: PgpClkGen 
+      generic map (
          RefClkEn1  => "ENABLE",
          RefClkEn2  => "DISABLE",
          DcmClkSrc  => "RefClk1",
@@ -1238,8 +1247,8 @@ begin
 
 
          ---- MGT Serial Pins
-         sysClk125  =>  sysClk125;
-         sysRst125  =>  sysRst125;
+         sysClk125  =>  sysClk125,
+         sysRst125  =>  sysRst125,
 
          pgpRefClk => pgpRefClk,
          pgpClk => pgpClk,
