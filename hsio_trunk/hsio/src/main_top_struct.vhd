@@ -41,7 +41,7 @@ entity main_top is
       disp_load_no     : out    std_logic_vector (1 downto 0);    --DISP_LOAD1_N
       tx_fifo_rst_o    : out    std_logic;
       rx_fifo_rst_o    : out    std_logic;
-      sma_io           : inout  std_logic_vector (8 downto 1);    --IDC_P5
+      --sma_io           : inout  std_logic_vector (8 downto 1);    --IDC_P5
       sw_hex_ni        : in     std_logic_vector (3 downto 0);
       clk              : in     std_logic;
       clk40            : in     std_logic;
@@ -1125,14 +1125,14 @@ begin
       -- front J4 J3 J1 J2
       ---------------------
       
-      sma_io(1) <= busy_ext;
-      sma_io(2) <= lemo_bco_out;
-      lemo_clk_in  <= sma_io(3);
-      lemo_trig <= sma_io(4);
-      sma_io(5) <= dbg_trig_ext;
-      sma_io(6) <= dbg_lemo_link;
-      sma_io(7) <= trig_out;
-      sma_io(8) <= pretrig_out;
+      -- sma_io(1) <= busy_ext;
+      -- sma_io(2) <= lemo_bco_out;
+      -- lemo_clk_in  <= sma_io(3);
+      -- lemo_trig <= sma_io(4);
+      -- sma_io(5) <= dbg_trig_ext;
+      -- sma_io(6) <= dbg_lemo_link;
+      -- sma_io(7) <= trig_out;
+      -- sma_io(8) <= pretrig_out;
       
 
 

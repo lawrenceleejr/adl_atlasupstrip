@@ -575,7 +575,7 @@ attribute KEEP of clk_p2_pll : signal is "true";
       disp_load_no     : out    std_logic_vector (1 downto 0);  --DISP_LOAD1_N
       tx_fifo_rst_o    : out    std_logic ;
       rx_fifo_rst_o    : out    std_logic ;
-      sma_io           : inout  std_logic_vector (8 downto 1);  --IDC_P5
+      -- sma_io           : inout  std_logic_vector (8 downto 1);  --IDC_P5
       sw_hex_ni        : in     std_logic_vector (3 downto 0);
       clk              : in     std_logic ;
       clk40            : in     std_logic ;
@@ -661,6 +661,8 @@ attribute KEEP of clk_p2_pll : signal is "true";
       sysClk125    : in std_logic;
       sysRst125    : in std_logic;
 
+      sma_io           : inout  std_logic_vector (8 downto 1);  --IDC_P5
+
       pgpRefClk    : in std_logic;
       pgpClk       : in std_logic;
       pgpReset     : in std_logic;
@@ -670,6 +672,8 @@ attribute KEEP of clk_p2_pll : signal is "true";
       mgtRxP       : in  std_logic;
       mgtTxN       : out std_logic;
       mgtTxP       : out std_logic;
+
+      led_status_o : out std_logic;
 
       sf_absent_i     : in     std_logic_vector (3 downto 0);
       sf_rxm          : in     std_logic_vector (3 downto 0); --LANE_7_RX_M  IB09 net: IB09 Net: CE1_LANE6_RX_M (RD-)
@@ -1131,14 +1135,14 @@ begin
          sim_dat_lvds_o   => open,
          idc_p4_io        => idc_p4_io,
          idc_p5_io        => idc_p5_io,
-         led_status_o     => led_status_o,
+         led_status_o     => open, --led_status_o,
          disp_clk_o       => disp_clk_o,
          disp_dat_o       => disp_dat_o,
          disp_rst_no      => disp_rst_no,
          disp_load_no     => disp_load_no,
          tx_fifo_rst_o    => tx_fifo_rst,
          rx_fifo_rst_o    => rx_fifo_rst,
-         sma_io           => sma_io,
+         -- sma_io           => sma_io,
          sw_hex_ni        => sw_hex_ni,
          clk              => clk80,
          clk40            => clk40,
@@ -1247,6 +1251,8 @@ begin
 
 
          ---- MGT Serial Pins
+         sma_io => sma_io,
+
          sysClk125  =>  sysClk125,
          sysRst125  =>  sysRst125,
 
@@ -1258,6 +1264,8 @@ begin
          mgtRxP    => mgtRxP,
          mgtTxN    => mgtTxN,
          mgtTxP    => mgtTxP,
+
+         led_status_o => led_status_o,
 
 
          sf_absent_i     => sf_mod_abs_i,

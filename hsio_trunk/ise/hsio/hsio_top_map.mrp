@@ -10,30 +10,30 @@ Target Package : ff1152
 Target Speed   : -11
 Stepping Level : 0
 Mapper Version : virtex4 -- $Revision: 1.55 $
-Mapped Date    : Mon Oct 13 15:06:23 2014
+Mapped Date    : Fri Oct 17 15:04:05 2014
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:  169
+Number of warnings:  195
 Logic Utilization:
-  Total Number Slice Registers:       6,656 out of  50,560   13%
-    Number used as Flip Flops:        6,630
+  Total Number Slice Registers:       6,618 out of  50,560   13%
+    Number used as Flip Flops:        6,592
     Number used as Latches:              26
     Number of Slice FFs used for
-    DCM autocalibration logic:         35 out of   6,630    1%
-  Number of 4 input LUTs:             7,713 out of  50,560   15%
+    DCM autocalibration logic:         35 out of   6,592    1%
+  Number of 4 input LUTs:             7,642 out of  50,560   15%
     Number of LUTs used for
-    DCM autocalibration logic:         20 out of   7,713    1%
+    DCM autocalibration logic:         20 out of   7,642    1%
       *See INFO below for an explanation of the DCM autocalibration logic
        added by Map
 Logic Distribution:
-  Number of occupied Slices:          6,250 out of  25,280   24%
-    Number of Slices containing only related logic:   6,250 out of   6,250 100%
-    Number of Slices containing unrelated logic:          0 out of   6,250   0%
+  Number of occupied Slices:          6,193 out of  25,280   24%
+    Number of Slices containing only related logic:   6,193 out of   6,193 100%
+    Number of Slices containing unrelated logic:          0 out of   6,193   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       8,400 out of  50,560   16%
-    Number used as logic:             7,555
+  Total Number of 4 input LUTs:       8,329 out of  50,560   16%
+    Number used as logic:             7,484
     Number used as a route-thru:        687
     Number used as 16x1 RAMs:            16
     Number used as Shift registers:     142
@@ -42,9 +42,9 @@ Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
   Number of bonded IPADs:                12 out of      80   15%
   Number of bonded OPADs:                 6 out of      32   18%
-  Number of bonded IOBs:                349 out of     576   60%
-    IOB Flip Flops:                      57
-    IOB Dual-Data Rate Flops:            41
+  Number of bonded IOBs:                323 out of     576   56%
+    IOB Flip Flops:                      63
+    IOB Dual-Data Rate Flops:            40
     IOB Master Pads:                     42
     IOB Slave Pads:                      42
   Number of BUFG/BUFGCTRLs:              23 out of      32   71%
@@ -61,9 +61,9 @@ Logic Distribution:
   Number of GT11CLKs:                     3 out of       8   37%
 
   Number of RPM macros:            2
-Average Fanout of Non-Clock Nets:                3.26
+Average Fanout of Non-Clock Nets:                3.27
 
-Peak Memory Usage:  953 MB
+Peak Memory Usage:  952 MB
 Total REAL time to MAP completion:  20 secs 
 Total CPU time to MAP completion:   20 secs 
 
@@ -140,6 +140,30 @@ WARNING:MapLib:701 - Signal clk_mgt0a_pi connected to top level port
    clk_mgt0a_pi has been removed.
 WARNING:MapLib:701 - Signal clk_mgt0a_mi connected to top level port
    clk_mgt0a_mi has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<1> connected to top level port
+   ibe_do_pi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<1> connected to top level port
+   ibe_do_mi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<4> connected to top level port
+   ibe_do_pi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<4> connected to top level port
+   ibe_do_mi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<7> connected to top level port
+   ibe_do_pi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<7> connected to top level port
+   ibe_do_mi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<10> connected to top level port
+   ibe_do_pi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<10> connected to top level port
+   ibe_do_mi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<20> connected to top level port
+   ibe_do_pi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<20> connected to top level port
+   ibe_do_mi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<2> connected to top level port
+   ibe_do_pi<2> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<2> connected to top level port
+   ibe_do_mi<2> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<5> connected to top level port
    ibe_do_pi<5> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<8> connected to top level port
@@ -164,6 +188,30 @@ WARNING:MapLib:701 - Signal ibe_do_pi<23> connected to top level port
    ibe_do_pi<23> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<18> connected to top level port
    ibe_do_pi<18> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<1> connected to top level port
+   ibe_dot_pi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<1> connected to top level port
+   ibe_dot_mi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<4> connected to top level port
+   ibe_dot_pi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<4> connected to top level port
+   ibe_dot_mi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<7> connected to top level port
+   ibe_dot_pi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<7> connected to top level port
+   ibe_dot_mi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<10> connected to top level port
+   ibe_dot_pi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<10> connected to top level port
+   ibe_dot_mi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<20> connected to top level port
+   ibe_dot_pi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<20> connected to top level port
+   ibe_dot_mi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<2> connected to top level port
+   ibe_dot_pi<2> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<2> connected to top level port
+   ibe_dot_mi<2> has been removed.
 WARNING:MapLib:701 - Signal ibe_dot_mi<21> connected to top level port
    ibe_dot_mi<21> has been removed.
 WARNING:MapLib:701 - Signal ibe_dot_mi<22> connected to top level port
@@ -332,6 +380,10 @@ WARNING:MapLib:701 - Signal idc_p4_io<1> connected to top level port
    idc_p4_io<1> has been removed.
 WARNING:MapLib:701 - Signal idc_p4_io<0> connected to top level port
    idc_p4_io<0> has been removed.
+WARNING:MapLib:701 - Signal sma_io<3> connected to top level port sma_io<3> has
+   been removed.
+WARNING:MapLib:701 - Signal sma_io<4> connected to top level port sma_io<4> has
+   been removed.
 WARNING:MapLib:701 - Signal sf_rx_ratesel_o<1> connected to top level port
    sf_rx_ratesel_o<1> has been removed.
 WARNING:MapLib:701 - Signal sf_rx_ratesel_o<0> connected to top level port
@@ -453,15 +505,6 @@ WARNING:PhysDesignRules:1843 - One or more MGTs are being used in this design.
    Multi-Gigabit Transceiver User Guide to ensure that the design SelectIO usage
    meets the guidelines to minimize the impact on MGT performance. 
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   Umain/Utriggertop/Uosencmap/stb_trg_and0000 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div
-   3/DCM_ADV_INST/CLKOUT is sourced by a combinatorial pin. This is not good
-   design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Umain/Utriggertop/Uosencmap/id1_trg_not0001 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading
    of data into the flip-flop.
@@ -507,6 +550,11 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    V_INST/cd/CLK<6> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div
+   3/DCM_ADV_INST/CLKOUT is sourced by a combinatorial pin. This is not good
+   design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_clie
    nt_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK
    <1> is sourced by a combinatorial pin. This is not good design practice. Use
@@ -522,6 +570,10 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK<1> is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   Umain/Utriggertop/Uosencmap/stb_trg_and0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading
    of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -641,14 +693,14 @@ INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
 '2100@xilinx.mecheng.adelaide.edu.au'.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
 INFO:Security:56 - Part 'xc4vfx60' is not a WebPack part.
-INFO:LIT:243 - Logical network N273 has no load.
-INFO:LIT:395 - The above info message is repeated 6820 more times for the
+INFO:LIT:243 - Logical network N271 has no load.
+INFO:LIT:395 - The above info message is repeated 6822 more times for the
    following (max. 5 shown):
-   N276,
-   N279,
-   N295,
-   N298,
-   N299
+   N274,
+   N277,
+   N293,
+   N296,
+   N297
    To see the details of these info messages, please use the -detail switch.
 INFO:MapLib:562 - No environment variables are currently set.
 INFO:MapLib:796 - Due to DCM autocalibration, the DCM component
@@ -669,9 +721,9 @@ INFO:MapLib:796 - Due to DCM autocalibration, the DCM component
 
 Section 4 - Removed Logic Summary
 ---------------------------------
-1153 block(s) removed
- 333 block(s) optimized away
-1314 signal(s) removed
+1310 block(s) removed
+ 329 block(s) optimized away
+1468 signal(s) removed
 
 Section 5 - Removed Logic
 -------------------------
@@ -743,6 +795,7 @@ Loadless block "Uibufgds1" (IBUFGDS) removed.
   Loadless block "ibe_osc0_pi" (PAD) removed.
  The signal "ibe_osc0_mi" is loadless and has been removed.
   Loadless block "ibe_osc0_mi" (PAD) removed.
+Loadless block "Umain/g3.Uoddrbco" (ODDR) removed.
 Loadless block
 "Unet_usb_top/U_PgpFrontEnd/U_DataBuff/U_AsyncFifo/BU2/U0/gen_as.fgas/normgen.fl
 blk/thrmod/aelogic/cae1/eqcase.big.mlp[4].mid.mcy" (MUX) removed.
@@ -3607,6 +3660,10 @@ The signal "idc_p4_io<8>" is sourceless and has been removed.
  Sourceless block "idc_p4_io<8>" (PAD) removed.
 The signal "idc_p4_io<9>" is sourceless and has been removed.
  Sourceless block "idc_p4_io<9>" (PAD) removed.
+The signal "sma_io<3>" is sourceless and has been removed.
+ Sourceless block "sma_io<3>" (PAD) removed.
+The signal "sma_io<4>" is sourceless and has been removed.
+ Sourceless block "sma_io<4>" (PAD) removed.
 The signal "U_PgpClkGen/clk320" is sourceless and has been removed.
 The signal "U_PgpClkGen/pgpClk90" is sourceless and has been removed.
 The signal "U_PgpClkGen/pgpClk90Unbuf" is sourceless and has been removed.
@@ -3618,6 +3675,12 @@ removed.
  Sourceless block "Uclockstop/Udcm125div3/CLKA1D4_BUFG_INST" (CKBUF) removed.
   The signal "Uclockstop/Udcm125div3/CLKDV_CLKA1D4_OUT" is sourceless and has been
 removed.
+The signal "Udiostbd/ddri<4>" is sourceless and has been removed.
+The signal "Udiostbd/ddri<5>" is sourceless and has been removed.
+The signal "Udiostbd/ddri<6>" is sourceless and has been removed.
+The signal "Udiostbd/ddri<7>" is sourceless and has been removed.
+The signal "Udiostbd/ddri_atl_tmu" is sourceless and has been removed.
+The signal "Udiostbd/ddri_drv_tmu" is sourceless and has been removed.
 The signal "Udiostbd/rx_link_idly_o<9>_inv" is sourceless and has been removed.
  Sourceless block "Udiostbd/ibe_do_pi_5_OBUFT" (TRI) removed.
  Sourceless block "Udiostbd/ibe_do_pi_8_OBUFT" (TRI) removed.
@@ -3633,6 +3696,7 @@ The signal "Udiostbd/rx_link_idly_o<9>_inv" is sourceless and has been removed.
  Sourceless block "Udiostbd/ibe_do_pi_18_OBUFT" (TRI) removed.
 The signal "Udiostbd/Uidelayblk/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk/stream1_o_mux0002" is sourceless and has been
@@ -3647,6 +3711,7 @@ removed.
 The signal "Udiostbd/Uidelayblk/stream1" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk1/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk1/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk1/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk1/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk1/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk1/stream1_o_mux0002" is sourceless and has been
@@ -3661,6 +3726,7 @@ removed.
 The signal "Udiostbd/Uidelayblk1/stream1" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk2/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk2/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk2/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk2/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk2/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk2/stream1_o_mux0002" is sourceless and has been
@@ -3675,6 +3741,7 @@ removed.
 The signal "Udiostbd/Uidelayblk2/stream1" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk3/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk3/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk3/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk3/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk3/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk3/stream1_o_mux0002" is sourceless and has been
@@ -3689,6 +3756,7 @@ removed.
 The signal "Udiostbd/Uidelayblk3/stream1" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk4/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk4/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk4/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk4/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk4/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk4/stream1_o_mux0002" is sourceless and has been
@@ -3703,6 +3771,7 @@ removed.
 The signal "Udiostbd/Uidelayblk4/stream1" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk5/HI" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk5/LO" is sourceless and has been removed.
+The signal "Udiostbd/Uidelayblk5/rst_idelay" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk5/stream0" is sourceless and has been removed.
  Sourceless block "Udiostbd/Uidelayblk5/stream1_o_mux00021" (ROM) removed.
   The signal "Udiostbd/Uidelayblk5/stream1_o_mux0002" is sourceless and has been
@@ -3715,6 +3784,12 @@ removed.
    Sourceless block "Udiostbd/Uidelayblk5/stream0_o" (SFF) removed.
     The signal "rx_strm<68>" is sourceless and has been removed.
 The signal "Udiostbd/Uidelayblk5/stream1" is sourceless and has been removed.
+The signal "Udiosttd/ddri<4>" is sourceless and has been removed.
+The signal "Udiosttd/ddri<5>" is sourceless and has been removed.
+The signal "Udiosttd/ddri<6>" is sourceless and has been removed.
+The signal "Udiosttd/ddri<7>" is sourceless and has been removed.
+The signal "Udiosttd/ddri_atl_tmu" is sourceless and has been removed.
+The signal "Udiosttd/ddri_drv_tmu" is sourceless and has been removed.
 The signal "Udiosttd/rx_link_idly_o<9>_inv" is sourceless and has been removed.
  Sourceless block "Udiosttd/ibe_dot_mi_21_OBUFT" (TRI) removed.
  Sourceless block "Udiosttd/ibe_dot_mi_22_OBUFT" (TRI) removed.
@@ -3730,6 +3805,7 @@ The signal "Udiosttd/rx_link_idly_o<9>_inv" is sourceless and has been removed.
  Sourceless block "Udiosttd/ibe_dot_mi_11_OBUFT" (TRI) removed.
 The signal "Udiosttd/Uidelayblk/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk/stream1_o_mux0002" is sourceless and has been
@@ -3744,6 +3820,7 @@ removed.
 The signal "Udiosttd/Uidelayblk/stream1" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk1/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk1/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk1/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk1/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk1/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk1/stream1_o_mux0002" is sourceless and has been
@@ -3758,6 +3835,7 @@ removed.
 The signal "Udiosttd/Uidelayblk1/stream1" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk2/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk2/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk2/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk2/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk2/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk2/stream1_o_mux0002" is sourceless and has been
@@ -3772,6 +3850,7 @@ removed.
 The signal "Udiosttd/Uidelayblk2/stream1" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk3/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk3/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk3/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk3/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk3/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk3/stream1_o_mux0002" is sourceless and has been
@@ -3786,6 +3865,7 @@ removed.
 The signal "Udiosttd/Uidelayblk3/stream1" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk4/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk4/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk4/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk4/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk4/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk4/stream1_o_mux0002" is sourceless and has been
@@ -3800,6 +3880,7 @@ removed.
 The signal "Udiosttd/Uidelayblk4/stream1" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk5/HI" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk5/LO" is sourceless and has been removed.
+The signal "Udiosttd/Uidelayblk5/rst_idelay" is sourceless and has been removed.
 The signal "Udiosttd/Uidelayblk5/stream0" is sourceless and has been removed.
  Sourceless block "Udiosttd/Uidelayblk5/stream1_o_mux00021" (ROM) removed.
   The signal "Udiosttd/Uidelayblk5/stream1_o_mux0002" is sourceless and has been
@@ -3891,6 +3972,316 @@ The signal "Umain/HSIO_VER<0>" is sourceless and has been removed.
  Sourceless block "Umain/idc_p4_io_2_OBUFT" (TRI) removed.
  Sourceless block "Umain/idc_p4_io_1_OBUFT" (TRI) removed.
  Sourceless block "Umain/idc_p4_io_0_OBUFT" (TRI) removed.
+The signal "Umain/db_wr<9>" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_0" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<0>" is sourceless and has been
+removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_67_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<67>" is sourceless and has been removed.
+     Sourceless block "Udioidc1/gdo1[1].Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_66_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<66>" is sourceless and has been removed.
+     Sourceless block "Udioidc1/gdo1[0].Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_65_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<65>" is sourceless and has been removed.
+     Sourceless block "Udioidc0/gdo1[1].Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_64_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<64>" is sourceless and has been removed.
+     Sourceless block "Udioidc0/gdo1[0].Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_67_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<67>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_66_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<66>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_65_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<65>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_64_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<64>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_7_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<7>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk2/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_52_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<52>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk4/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_4_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<4>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk1/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_42_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<42>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk3/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_39_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<39>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk2/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_36_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<36>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk1/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_34_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<34>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk5/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_33_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<33>" is sourceless and has been removed.
+     Sourceless block "Udiostbd/Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_2_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<2>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk5/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_20_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<20>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk4/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_1_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<1>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_10_mux00001" (ROM) removed.
+    The signal "idelay_ctl_zero<10>" is sourceless and has been removed.
+     Sourceless block "Udiosttd/Uidelayblk3/rst_idelay1" (ROM) removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_7_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<7>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_52_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<52>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_4_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<4>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_42_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<42>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_39_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<39>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_36_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<36>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_34_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<34>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_33_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<33>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_2_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<2>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_20_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<20>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_1_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<1>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_10_mux00001" (ROM) removed.
+    The signal "idelay_ctl_ce<10>" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_1" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<1>" is sourceless and has been
+removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_16_cmp_eq000021" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/N15" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/zero_0_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N59" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_32_cmp_eq000021" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N56" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_14_cmp_eq000011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/N12" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/zero_38_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N40" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_14_cmp_eq000021" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N43" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_12_cmp_eq000011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/N13" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/zero_52_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N49" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_36_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N48" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_20_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N50" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_12_cmp_eq000021" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N51" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/ce_10_cmp_eq000021" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/N14" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_34_cmp_eq000011" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N52" is sourceless and has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/ce_10_cmp_eq000041" (ROM) removed.
+      The signal "Umain/Uctltop/Uidelayprog/N55" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_2" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<2>" is sourceless and has been
+removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_3" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<3>" is sourceless and has been
+removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/zero_64_cmp_eq000011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/N7" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_4" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<4>" is sourceless and has been
+removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_5" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<5>" is sourceless and has been
+removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/address_6" (SFF) removed.
+  The signal "Umain/Uctltop/Uidelayprog/address<6>" is sourceless and has been
+removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd5-In1" (ROM) removed.
+  The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd5-In" is sourceless and has
+been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd5" (SFF) removed.
+    The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd5" is sourceless and has been
+removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd4" (SFF) removed.
+      The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd4" is sourceless and has been
+removed.
+       Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd3" (SFF) removed.
+        The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd3" is sourceless and has been
+removed.
+         Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd2-In1" (ROM) removed.
+          The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd2-In" is sourceless and has
+been removed.
+           Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd2" (SFF) removed.
+            The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd2" is sourceless and has been
+removed.
+             Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd1-In1" (ROM) removed.
+              The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd1-In" is sourceless and has
+been removed.
+               Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd1" (SFF) removed.
+                The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd1" is sourceless and has been
+removed.
+                 Sourceless block "Umain/Uctltop/Uidelayprog/counter_not00011" (ROM) removed.
+                  The signal "Umain/Uctltop/Uidelayprog/counter_not0001" is sourceless and has
+been removed.
+                   Sourceless block "Umain/Uctltop/Uidelayprog/counter_0" (SFF) removed.
+                    The signal "Umain/Uctltop/Uidelayprog/counter<0>" is sourceless and has been
+removed.
+                     Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<0>11" (ROM)
+removed.
+                      The signal "Umain/Uctltop/Uidelayprog/Mcount_counter" is sourceless and has been
+removed.
+                     Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<1>11" (ROM)
+removed.
+                      The signal "Umain/Uctltop/Uidelayprog/Mcount_counter1" is sourceless and has
+been removed.
+                       Sourceless block "Umain/Uctltop/Uidelayprog/counter_1" (SFF) removed.
+                        The signal "Umain/Uctltop/Uidelayprog/counter<1>" is sourceless and has been
+removed.
+                         Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<2>1_SW0" (ROM)
+removed.
+                          The signal "Umain/Uctltop/Uidelayprog/N0" is sourceless and has been removed.
+                           Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<2>1" (ROM)
+removed.
+                            The signal "Umain/Uctltop/Uidelayprog/Mcount_counter2" is sourceless and has
+been removed.
+                             Sourceless block "Umain/Uctltop/Uidelayprog/counter_2" (SFF) removed.
+                              The signal "Umain/Uctltop/Uidelayprog/counter<2>" is sourceless and has been
+removed.
+                               Sourceless block "Umain/Uctltop/Uidelayprog/state_cmp_eq0000" (ROM) removed.
+                                The signal "Umain/Uctltop/Uidelayprog/state_cmp_eq0000" is sourceless and has
+been removed.
+                                 Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd6-In1" (ROM) removed.
+                                  The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd6-In" is sourceless and has
+been removed.
+                                   Sourceless block "Umain/Uctltop/Uidelayprog/state_FSM_FFd6" (SFF) removed.
+                                    The signal "Umain/Uctltop/Uidelayprog/state_FSM_FFd6" is sourceless and has been
+removed.
+                               Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_cy<2>11" (ROM)
+removed.
+                                The signal "Umain/Uctltop/Uidelayprog/Mcount_counter_cy<2>" is sourceless and
+has been removed.
+                                 Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<3>11" (ROM)
+removed.
+                                  The signal "Umain/Uctltop/Uidelayprog/Mcount_counter3" is sourceless and has
+been removed.
+                                   Sourceless block "Umain/Uctltop/Uidelayprog/counter_3" (SFF) removed.
+                                    The signal "Umain/Uctltop/Uidelayprog/counter<3>" is sourceless and has been
+removed.
+                                     Sourceless block "Umain/Uctltop/Uidelayprog/state_cmp_eq0000_SW0" (ROM) removed.
+                                      The signal "Umain/Uctltop/Uidelayprog/N2" is sourceless and has been removed.
+                                     Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<5>11_F" (ROM)
+removed.
+                                      The signal "Umain/Uctltop/Uidelayprog/N4" is sourceless and has been removed.
+                                       Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<5>11" (MUX)
+removed.
+                                        The signal "Umain/Uctltop/Uidelayprog/Mcount_counter5" is sourceless and has
+been removed.
+                                         Sourceless block "Umain/Uctltop/Uidelayprog/counter_5" (SFF) removed.
+                                          The signal "Umain/Uctltop/Uidelayprog/counter<5>" is sourceless and has been
+removed.
+                                     Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<4>112" (ROM)
+removed.
+                                      The signal "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<4>111" is sourceless
+and has been removed.
+                                       Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<4>11_f5" (MUX)
+removed.
+                                        The signal "Umain/Uctltop/Uidelayprog/Mcount_counter4" is sourceless and has
+been removed.
+                                         Sourceless block "Umain/Uctltop/Uidelayprog/counter_4" (SFF) removed.
+                                          The signal "Umain/Uctltop/Uidelayprog/counter<4>" is sourceless and has been
+removed.
+                                 Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<5>11_G" (ROM)
+removed.
+                                  The signal "Umain/Uctltop/Uidelayprog/N5" is sourceless and has been removed.
+                                 Sourceless block "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<4>111" (ROM)
+removed.
+                                  The signal "Umain/Uctltop/Uidelayprog/Mcount_counter_xor<4>11" is sourceless and
+has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_16_not000121" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N26" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_52_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_52_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_52" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<52>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_20_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_20_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_20" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<20>" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_11_not000111" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N25" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_39_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_39_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_39" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<39>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_33_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_33_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_33" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<33>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_7_not00011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_7_not0001" is sourceless and has
+been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_7" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<7>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_1_not00011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_1_not0001" is sourceless and has
+been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_1" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<1>" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_0_not000141" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N27" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_42_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_42_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_42" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<42>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_36_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_36_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_36" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<36>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_34_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_34_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_34" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<34>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_10_not00011" (ROM)
+removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_10_not0001" is sourceless and
+has been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_10" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<10>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_4_not00011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_4_not0001" is sourceless and has
+been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_4" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<4>" is sourceless and has been removed.
+   Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_2_not00011" (ROM) removed.
+    The signal "Umain/Uctltop/Uidelayprog/strm_swap_2_not0001" is sourceless and has
+been removed.
+     Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_2" (SFF) removed.
+      The signal "idelay_ctl_strm_swap<2>" is sourceless and has been removed.
 The signal "Umain/g3.U_53/count_and0000" is sourceless and has been removed.
 The signal "Umain/g3.Udisp/Udispcntrl1/N16" is sourceless and has been removed.
 The signal "Umain/Utriggertop/Utdatfifo/data_count_o<0>" is sourceless and has
@@ -4197,32 +4588,51 @@ been removed.
 v_or_sync_fifo.gl0.rd/grss.gdc.dc/dc/Mcount_count_xor(0)" (XOR) removed.
       The signal "Umain/Utriggertop/Utdatfifo/fifo0/Result(0)" is sourceless and has
 been removed.
+The signal "Umain/Uctltop/N222" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uocbregblock/db_wr_o_9_or00001" (ROM) removed.
+  The signal "Umain/Uctltop/Uocbregblock/db_wr_o_9_or0000" is sourceless and has
+been removed.
+   Sourceless block "Umain/Uctltop/Uocbregblock/db_wr_o_9" (SFF) removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<0>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<1>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<10>" is sourceless and has been
+removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_14_not000111" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N8" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_12_not000111" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N9" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_10_not000111" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N10" is sourceless and has been removed.
+ Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_0_not000121" (ROM)
+removed.
+  The signal "Umain/Uctltop/Uidelayprog/N11" is sourceless and has been removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<11>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<12>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<13>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<14>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<2>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<3>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<4>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<5>" is sourceless and has been
+removed.
 The signal "Umain/Uctltop/Uocbregblock/db_data_o<6>" is sourceless and has been
 removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_10" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<10>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_20" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<20>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_34" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<34>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_33" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<33>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_36" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<36>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_42" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<42>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_39" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<39>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_52" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<52>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_1" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<1>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_2" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<2>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_4" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<4>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_7" (SFF) removed.
-  The signal "idelay_ctl_strm_swap<7>" is sourceless and has been removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<8>" is sourceless and has been
+removed.
+The signal "Umain/Uctltop/Uocbregblock/db_data_o<9>" is sourceless and has been
+removed.
 The signal
 "Umain/Uctltop/Uocbrawsigs/inst_ram/U0/xst_options.dist_mem_inst/gen_sp_ram.spra
 m_inst/qspo_int(15)" is sourceless and has been removed.
@@ -4273,78 +4683,6 @@ The signal
 m_inst/qspo_int(0)" is sourceless and has been removed.
 The signal "Umain/Uctltop/Uocbtwowire/opcode_ram/douta(17)" is sourceless and
 has been removed.
-The signal "Umain/Uctltop/Uidelayprog/N10" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_42_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_42_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_34_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_34_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_10_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_10_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_2_not00011" (ROM) removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_2_not0001" is sourceless and has
-been removed.
-The signal "Umain/Uctltop/Uidelayprog/N11" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_33_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_33_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_1_not00011" (ROM) removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_1_not0001" is sourceless and has
-been removed.
-The signal "Umain/Uctltop/Uidelayprog/N25" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_39_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_39_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_7_not00011" (ROM) removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_7_not0001" is sourceless and has
-been removed.
-The signal "Umain/Uctltop/Uidelayprog/N26" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_52_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_52_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_20_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_20_not0001" is sourceless and
-has been removed.
-The signal "Umain/Uctltop/Uidelayprog/N27" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_36_not00011" (ROM)
-removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_36_not0001" is sourceless and
-has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/strm_swap_4_not00011" (ROM) removed.
-  The signal "Umain/Uctltop/Uidelayprog/strm_swap_4_not0001" is sourceless and has
-been removed.
-The signal "Umain/Uctltop/Uidelayprog/N7" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/zero_67_mux00001" (ROM) removed.
-  The signal "idelay_ctl_zero<67>" is sourceless and has been removed.
-   Sourceless block "Udioidc1/gdo1[1].Uidelayblk/rst_idelay1" (ROM) removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/zero_66_mux00001" (ROM) removed.
-  The signal "idelay_ctl_zero<66>" is sourceless and has been removed.
-   Sourceless block "Udioidc1/gdo1[0].Uidelayblk/rst_idelay1" (ROM) removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/zero_65_mux00001" (ROM) removed.
-  The signal "idelay_ctl_zero<65>" is sourceless and has been removed.
-   Sourceless block "Udioidc0/gdo1[1].Uidelayblk/rst_idelay1" (ROM) removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/zero_64_mux00001" (ROM) removed.
-  The signal "idelay_ctl_zero<64>" is sourceless and has been removed.
-   Sourceless block "Udioidc0/gdo1[0].Uidelayblk/rst_idelay1" (ROM) removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/ce_67_mux00001" (ROM) removed.
-  The signal "idelay_ctl_ce<67>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/ce_66_mux00001" (ROM) removed.
-  The signal "idelay_ctl_ce<66>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/ce_65_mux00001" (ROM) removed.
-  The signal "idelay_ctl_ce<65>" is sourceless and has been removed.
- Sourceless block "Umain/Uctltop/Uidelayprog/ce_64_mux00001" (ROM) removed.
-  The signal "idelay_ctl_ce<64>" is sourceless and has been removed.
-The signal "Umain/Uctltop/Uidelayprog/N8" is sourceless and has been removed.
-The signal "Umain/Uctltop/Uidelayprog/N9" is sourceless and has been removed.
 The signal
 "Umain/Uctltop/Uocbtwowire/Ureply_fifo/fifo0/U0/xst_fifo_generator/gconvfifo.rf/
 grf.rf/gntv_or_sync_fifo.gl0.rd/grss.rsts/ram_empty_i" is sourceless and has
@@ -5471,7 +5809,6 @@ sourceless and has been removed.
 The signal
 "Unet_usb_top/Ugmii_locallink/v4_emac_block/v4_emac_top/GMII_TX_CLK_0" is
 sourceless and has been removed.
-The signal "Unet_usb_top/U_PgpFrontEnd/N71" is sourceless and has been removed.
 The signal "Unet_usb_top/U_PgpFrontEnd/frameRxData<0>" is sourceless and has
 been removed.
 The signal "Unet_usb_top/U_PgpFrontEnd/frameRxData<10>" is sourceless and has
@@ -6689,6 +7026,54 @@ The trimmed logic reported below is either:
    2. part of disabled logic
    3. a side-effect of other trimmed logic
 
+The signal "ibe_do_mi<10>" is unused and has been removed.
+ Unused block "ibe_do_mi<10>" (PAD) removed.
+The signal "ibe_do_mi<1>" is unused and has been removed.
+ Unused block "ibe_do_mi<1>" (PAD) removed.
+The signal "ibe_do_mi<20>" is unused and has been removed.
+ Unused block "ibe_do_mi<20>" (PAD) removed.
+The signal "ibe_do_mi<2>" is unused and has been removed.
+ Unused block "ibe_do_mi<2>" (PAD) removed.
+The signal "ibe_do_mi<4>" is unused and has been removed.
+ Unused block "ibe_do_mi<4>" (PAD) removed.
+The signal "ibe_do_mi<7>" is unused and has been removed.
+ Unused block "ibe_do_mi<7>" (PAD) removed.
+The signal "ibe_do_pi<10>" is unused and has been removed.
+ Unused block "ibe_do_pi<10>" (PAD) removed.
+The signal "ibe_do_pi<1>" is unused and has been removed.
+ Unused block "ibe_do_pi<1>" (PAD) removed.
+The signal "ibe_do_pi<20>" is unused and has been removed.
+ Unused block "ibe_do_pi<20>" (PAD) removed.
+The signal "ibe_do_pi<2>" is unused and has been removed.
+ Unused block "ibe_do_pi<2>" (PAD) removed.
+The signal "ibe_do_pi<4>" is unused and has been removed.
+ Unused block "ibe_do_pi<4>" (PAD) removed.
+The signal "ibe_do_pi<7>" is unused and has been removed.
+ Unused block "ibe_do_pi<7>" (PAD) removed.
+The signal "ibe_dot_mi<10>" is unused and has been removed.
+ Unused block "ibe_dot_mi<10>" (PAD) removed.
+The signal "ibe_dot_mi<1>" is unused and has been removed.
+ Unused block "ibe_dot_mi<1>" (PAD) removed.
+The signal "ibe_dot_mi<20>" is unused and has been removed.
+ Unused block "ibe_dot_mi<20>" (PAD) removed.
+The signal "ibe_dot_mi<2>" is unused and has been removed.
+ Unused block "ibe_dot_mi<2>" (PAD) removed.
+The signal "ibe_dot_mi<4>" is unused and has been removed.
+ Unused block "ibe_dot_mi<4>" (PAD) removed.
+The signal "ibe_dot_mi<7>" is unused and has been removed.
+ Unused block "ibe_dot_mi<7>" (PAD) removed.
+The signal "ibe_dot_pi<10>" is unused and has been removed.
+ Unused block "ibe_dot_pi<10>" (PAD) removed.
+The signal "ibe_dot_pi<1>" is unused and has been removed.
+ Unused block "ibe_dot_pi<1>" (PAD) removed.
+The signal "ibe_dot_pi<20>" is unused and has been removed.
+ Unused block "ibe_dot_pi<20>" (PAD) removed.
+The signal "ibe_dot_pi<2>" is unused and has been removed.
+ Unused block "ibe_dot_pi<2>" (PAD) removed.
+The signal "ibe_dot_pi<4>" is unused and has been removed.
+ Unused block "ibe_dot_pi<4>" (PAD) removed.
+The signal "ibe_dot_pi<7>" is unused and has been removed.
+ Unused block "ibe_dot_pi<7>" (PAD) removed.
 The signal "ibepp0_data0_mi" is unused and has been removed.
  Unused block "ibepp0_data0_mi" (PAD) removed.
 The signal "ibepp0_data0_pi" is unused and has been removed.
@@ -6705,6 +7090,20 @@ The signal "ibepp1_data1_mi" is unused and has been removed.
  Unused block "ibepp1_data1_mi" (PAD) removed.
 The signal "ibepp1_data1_pi" is unused and has been removed.
  Unused block "ibepp1_data1_pi" (PAD) removed.
+The signal "idelay_ctl_inc" is unused and has been removed.
+ Unused block "Umain/Uctltop/Uidelayprog/XST_VCC" (ONE) removed.
+The signal "rx_link_idly<10>" is unused and has been removed.
+The signal "rx_link_idly<1>" is unused and has been removed.
+The signal "rx_link_idly<20>" is unused and has been removed.
+The signal "rx_link_idly<2>" is unused and has been removed.
+The signal "rx_link_idly<33>" is unused and has been removed.
+The signal "rx_link_idly<34>" is unused and has been removed.
+The signal "rx_link_idly<36>" is unused and has been removed.
+The signal "rx_link_idly<39>" is unused and has been removed.
+The signal "rx_link_idly<42>" is unused and has been removed.
+The signal "rx_link_idly<4>" is unused and has been removed.
+The signal "rx_link_idly<52>" is unused and has been removed.
+The signal "rx_link_idly<7>" is unused and has been removed.
 The signal "sf_rx_ratesel_o<0>" is unused and has been removed.
  Unused block "sf_rx_ratesel_o_0_OBUFT" (TRI) removed.
 The signal "sf_rx_ratesel_o<1>" is unused and has been removed.
@@ -6731,52 +7130,68 @@ Unused block "Udioidc1/Uibd2" (IBUFDS) removed.
 Unused block "Udioidc1/Uibd3" (IBUFDS) removed.
 Unused block "Udioidc1/gdo1[0].Uidelayblk/Uidelay" (IDELAY) removed.
 Unused block "Udioidc1/gdo1[1].Uidelayblk/Uidelay" (IDELAY) removed.
+Unused block "Udiostbd/Uib" (IBUFDS) removed.
+Unused block "Udiostbd/Uib1" (IBUFDS) removed.
+Unused block "Udiostbd/Uib2" (IBUFDS) removed.
+Unused block "Udiostbd/Uib3" (IBUFDS) removed.
+Unused block "Udiostbd/Uib4" (IBUFDS) removed.
+Unused block "Udiostbd/Uib5" (IBUFDS) removed.
 Unused block "Udiostbd/Uidelayblk/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/Uidelayblk1/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk1/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk1/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk1/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/Uidelayblk2/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk2/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk2/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk2/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/Uidelayblk3/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk3/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk3/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk3/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/Uidelayblk4/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk4/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk4/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk4/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/Uidelayblk5/Uiddr" (IDDR) removed.
+Unused block "Udiostbd/Uidelayblk5/Uidelay" (IDELAY) removed.
 Unused block "Udiostbd/Uidelayblk5/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiostbd/Uidelayblk5/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiostbd/XST_VCC" (ONE) removed.
+Unused block "Udiosttd/Uib" (IBUFDS) removed.
+Unused block "Udiosttd/Uib1" (IBUFDS) removed.
+Unused block "Udiosttd/Uib2" (IBUFDS) removed.
+Unused block "Udiosttd/Uib3" (IBUFDS) removed.
+Unused block "Udiosttd/Uib4" (IBUFDS) removed.
+Unused block "Udiosttd/Uib5" (IBUFDS) removed.
 Unused block "Udiosttd/Uidelayblk/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/Uidelayblk1/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk1/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk1/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk1/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/Uidelayblk2/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk2/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk2/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk2/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/Uidelayblk3/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk3/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk3/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk3/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/Uidelayblk4/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk4/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk4/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk4/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/Uidelayblk5/Uiddr" (IDDR) removed.
+Unused block "Udiosttd/Uidelayblk5/Uidelay" (IDELAY) removed.
 Unused block "Udiosttd/Uidelayblk5/Umpower/XST_GND" (ZERO) removed.
 Unused block "Udiosttd/Uidelayblk5/Umpower/XST_VCC" (ONE) removed.
 Unused block "Udiosttd/XST_VCC" (ONE) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_0_not000121" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_0_not000141" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_10_not000111" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_11_not000111" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_12_not000111" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_14_not000111" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/strm_swap_16_not000121" (ROM) removed.
-Unused block "Umain/Uctltop/Uidelayprog/zero_64_cmp_eq000011" (ROM) removed.
 Unused block
 "Umain/Uctltop/Uocbrawsigs/inst_ram/U0/xst_options.dist_mem_inst/gen_sp_ram.spra
 m_inst/qspo_int_0" (FF) removed.
@@ -6825,7 +7240,21 @@ m_inst/qspo_int_8" (FF) removed.
 Unused block
 "Umain/Uctltop/Uocbrawsigs/inst_ram/U0/xst_options.dist_mem_inst/gen_sp_ram.spra
 m_inst/qspo_int_9" (FF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_0" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_1" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_10" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_11" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_12" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_13" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_14" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_2" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_3" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_4" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_5" (SFF) removed.
 Unused block "Umain/Uctltop/Uocbregblock/db_data_o_6" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_8" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_data_o_9" (SFF) removed.
+Unused block "Umain/Uctltop/Uocbregblock/db_wr_o_13_and000011" (ROM) removed.
 Unused block
 "Umain/Uctltop/Uocbtwowire/Ureply_fifo/fifo0/U0/xst_fifo_generator/gconvfifo.rf/
 grf.rf/gntv_or_sync_fifo.gl0.rd/grss.gdc.dc/Mxor_cntr_en_Result1" (ROM) removed.
@@ -7147,13 +7576,14 @@ Unused block
 Unused block
 "Unet_usb_top/U_PgpFrontEnd/U_PgpMgtWrap/U_PgpTop/U_PgpRxTrack/U_AckTxFifo/VCC"
 (ONE) removed.
-Unused block "Unet_usb_top/U_PgpFrontEnd/cntOverFlow_not0001_SW0" (ROM) removed.
 Unused block
 "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/reset_receiver0/init_state_r_
 FSM_Out31" (ROM) removed.
 Unused block
 "Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/reset_receiver1/init_state_r_
 FSM_Out31" (ROM) removed.
+Unused block "Unet_usb_top/sma_io_3_OBUFT" (TRI) removed.
+Unused block "Unet_usb_top/sma_io_4_OBUFT" (TRI) removed.
 Unused block "sf_rx_ratesel_o<0>" (PAD) removed.
 Unused block "sf_rx_ratesel_o<1>" (PAD) removed.
 Unused block "sf_tx_ratesel_o<0>" (PAD) removed.
@@ -7196,7 +7626,6 @@ GND 		Udiosttd/Umpower/XST_GND
 VCC 		Udiosttd/Umpower/XST_VCC
 GND 		Udiosttd/XST_GND
 GND 		Uhsioprocwrap/XST_GND
-VCC 		Umain/Uctltop/Uidelayprog/XST_VCC
 GND 		Umain/Uctltop/Uocbrawseq/inst_pattram/XST_GND
 VCC 		Umain/Uctltop/Uocbrawseq/inst_pattram/XST_VCC
 GND 		Umain/Uctltop/Uocbtwowire/Ureply_fifo/fifo0/XST_GND
@@ -7235,8 +7664,6 @@ GND 		Umain/Utriggertop/Utrgburst/XST_GND
 VCC 		Umain/Utriggertop/Utrgburst/XST_VCC
 GND 		Umain/Utriggertop/Utrgdatenc/XST_GND
 VCC 		Umain/Utriggertop/Utrgdatenc/XST_VCC
-VCC 		Umain/Utriggertop/Utrigoutstretch/XST_VCC
-VCC 		Umain/Utriggertop/Utrigoutstretch1/XST_VCC
 GND 		Umain/Utriggertop/XST_GND
 GND 		Umain/Utriggertop/g0.Uedgedet3/XST_GND
 GND 		Umain/Utriggertop/g1.Utdc/XST_GND
@@ -7595,7 +8022,6 @@ VCC
 XST_VCC
 GND 		Unet_usb_top/U_PgpFrontEnd/U_DataBuff/U_PgpBuffer/XST_GND
 VCC 		Unet_usb_top/U_PgpFrontEnd/U_DataBuff/U_PgpBuffer/XST_VCC
-GND 		Unet_usb_top/U_PgpFrontEnd/U_DataBuff/XST_GND
 VCC 		Unet_usb_top/U_PgpFrontEnd/U_DataBuff/XST_VCC
 GND
 		Unet_usb_top/U_PgpFrontEnd/U_DsBuff/U_RegRxAFifo/BU2/U0/gen_as.fgas/XST_GND
@@ -7857,14 +8283,9 @@ Section 6 - IOB Properties
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
 | ibe_do_mi<0>                       | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_do_mi<1>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
-| ibe_do_mi<2>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_do_mi<3>                       | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_do_mi<4>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_do_mi<6>                       | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_do_mi<7>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_do_mi<9>                       | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_do_mi<10>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_do_mi<12>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_mi<13>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_mi<14>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -7873,28 +8294,22 @@ Section 6 - IOB Properties
 | ibe_do_mi<17>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_mi<18>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_mi<19>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ibe_do_mi<20>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_do_pi<0>                       | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_do_pi<1>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
-| ibe_do_pi<2>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_do_pi<3>                       | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_do_pi<4>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_do_pi<6>                       | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_do_pi<7>                       | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_do_pi<9>                       | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_do_pi<10>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_do_pi<11>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_pi<12>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_pi<13>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -7903,16 +8318,10 @@ Section 6 - IOB Properties
 | ibe_do_pi<16>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_pi<17>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_do_pi<19>                      | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ibe_do_pi<20>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_dot_mi<0>                      | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_dot_mi<1>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
-| ibe_dot_mi<2>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_dot_mi<3>                      | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_dot_mi<4>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_dot_mi<6>                      | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_dot_mi<7>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_dot_mi<9>                      | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| ibe_dot_mi<10>                     | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_dot_mi<12>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_mi<13>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_mi<14>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -7921,28 +8330,22 @@ Section 6 - IOB Properties
 | ibe_dot_mi<17>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_mi<18>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_mi<19>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ibe_dot_mi<20>                     | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          |          |
 | ibe_dot_pi<0>                      | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_dot_pi<1>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
-| ibe_dot_pi<2>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_dot_pi<3>                      | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_dot_pi<4>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_dot_pi<6>                      | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_dot_pi<7>                      | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_dot_pi<9>                      | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| ibe_dot_pi<10>                     | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_dot_pi<11>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_pi<12>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_pi<13>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
@@ -7951,7 +8354,6 @@ Section 6 - IOB Properties
 | ibe_dot_pi<16>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_pi<17>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | ibe_dot_pi<19>                     | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
-| ibe_dot_pi<20>                     | IOB              | INPUT     | LVDS_25              | TRUE  |          |      |              |          | 0        |
 | ibe_l1r_mo                         | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
 | ibe_l1r_po                         | IOBM             | OUTPUT    | LVDS_25              |       |          |      | OFF1         |          |          |
 |                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
@@ -8219,17 +8621,12 @@ Section 6 - IOB Properties
 |                                    |                  |           |                      |       |          |      | OFF3         |          |          |
 |                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
 | sim_dat_lvds_o<23>                 | IOBS             | OUTPUT    | LVDS_25              |       |          |      |              |          |          |
-| sma_io<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
+| sma_io<1>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
 | sma_io<2>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
-|                                    | ODDR:SAME        |           |                      |       |          |      | OFF2         |          |          |
-|                                    |                  |           |                      |       |          |      | OFF3         |          |          |
-|                                    |                  |           |                      |       |          |      | OFFDDRB      |          |          |
-| sma_io<3>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| sma_io<4>                          | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
-| sma_io<5>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
-| sma_io<6>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
-| sma_io<7>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
-| sma_io<8>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST |              |          |          |
+| sma_io<5>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
+| sma_io<6>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
+| sma_io<7>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
+| sma_io<8>                          | IOB              | OUTPUT    | LVCMOS25             |       | 24       | FAST | OFF1         |          |          |
 | sw_hex_ni<0>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              | PULLUP   |          |
 | sw_hex_ni<1>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              | PULLUP   |          |
 | sw_hex_ni<2>                       | IOB              | INPUT     | LVCMOS25             |       |          |      |              | PULLUP   |          |

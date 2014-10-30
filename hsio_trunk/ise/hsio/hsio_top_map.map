@@ -10,7 +10,7 @@ Target Package : ff1152
 Target Speed   : -11
 Stepping Level : 0
 Mapper Version : virtex4 -- $Revision: 1.55 $
-Mapped Date    : Mon Oct 13 15:06:23 2014
+Mapped Date    : Fri Oct 17 15:04:05 2014
 
 vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
 INFO:Security:50 - The XILINXD_LICENSE_FILE environment variable is set to
@@ -44,6 +44,30 @@ WARNING:MapLib:701 - Signal clk_mgt0a_pi connected to top level port
    clk_mgt0a_pi has been removed.
 WARNING:MapLib:701 - Signal clk_mgt0a_mi connected to top level port
    clk_mgt0a_mi has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<1> connected to top level port
+   ibe_do_pi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<1> connected to top level port
+   ibe_do_mi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<4> connected to top level port
+   ibe_do_pi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<4> connected to top level port
+   ibe_do_mi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<7> connected to top level port
+   ibe_do_pi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<7> connected to top level port
+   ibe_do_mi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<10> connected to top level port
+   ibe_do_pi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<10> connected to top level port
+   ibe_do_mi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<20> connected to top level port
+   ibe_do_pi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<20> connected to top level port
+   ibe_do_mi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_pi<2> connected to top level port
+   ibe_do_pi<2> has been removed.
+WARNING:MapLib:701 - Signal ibe_do_mi<2> connected to top level port
+   ibe_do_mi<2> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<5> connected to top level port
    ibe_do_pi<5> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<8> connected to top level port
@@ -68,6 +92,30 @@ WARNING:MapLib:701 - Signal ibe_do_pi<23> connected to top level port
    ibe_do_pi<23> has been removed.
 WARNING:MapLib:701 - Signal ibe_do_pi<18> connected to top level port
    ibe_do_pi<18> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<1> connected to top level port
+   ibe_dot_pi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<1> connected to top level port
+   ibe_dot_mi<1> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<4> connected to top level port
+   ibe_dot_pi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<4> connected to top level port
+   ibe_dot_mi<4> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<7> connected to top level port
+   ibe_dot_pi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<7> connected to top level port
+   ibe_dot_mi<7> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<10> connected to top level port
+   ibe_dot_pi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<10> connected to top level port
+   ibe_dot_mi<10> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<20> connected to top level port
+   ibe_dot_pi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<20> connected to top level port
+   ibe_dot_mi<20> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_pi<2> connected to top level port
+   ibe_dot_pi<2> has been removed.
+WARNING:MapLib:701 - Signal ibe_dot_mi<2> connected to top level port
+   ibe_dot_mi<2> has been removed.
 WARNING:MapLib:701 - Signal ibe_dot_mi<21> connected to top level port
    ibe_dot_mi<21> has been removed.
 WARNING:MapLib:701 - Signal ibe_dot_mi<22> connected to top level port
@@ -236,6 +284,10 @@ WARNING:MapLib:701 - Signal idc_p4_io<1> connected to top level port
    idc_p4_io<1> has been removed.
 WARNING:MapLib:701 - Signal idc_p4_io<0> connected to top level port
    idc_p4_io<0> has been removed.
+WARNING:MapLib:701 - Signal sma_io<3> connected to top level port sma_io<3> has
+   been removed.
+WARNING:MapLib:701 - Signal sma_io<4> connected to top level port sma_io<4> has
+   been removed.
 WARNING:MapLib:701 - Signal sf_rx_ratesel_o<1> connected to top level port
    sf_rx_ratesel_o<1> has been removed.
 WARNING:MapLib:701 - Signal sf_rx_ratesel_o<0> connected to top level port
@@ -363,15 +415,6 @@ WARNING:PhysDesignRules:1843 - One or more MGTs are being used in this design.
    Multi-Gigabit Transceiver User Guide to ensure that the design SelectIO usage
    meets the guidelines to minimize the impact on MGT performance. 
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   Umain/Utriggertop/Uosencmap/stb_trg_and0000 is sourced by a combinatorial
-   pin. This is not good design practice. Use the CE pin to control the loading
-   of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
-   DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div
-   3/DCM_ADV_INST/CLKOUT is sourced by a combinatorial pin. This is not good
-   design practice. Use the CE pin to control the loading of data into the
-   flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Umain/Utriggertop/Uosencmap/id1_trg_not0001 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading
    of data into the flip-flop.
@@ -417,6 +460,11 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    V_INST/cd/CLK<6> is sourced by a combinatorial pin. This is not good design
    practice. Use the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   DCM_AUTOCALIBRATION_Uclockstop/Udcm125div3/DCM_ADV_INST/Uclockstop/Udcm125div
+   3/DCM_ADV_INST/CLKOUT is sourced by a combinatorial pin. This is not good
+   design practice. Use the CE pin to control the loading of data into the
+   flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
    DCM_AUTOCALIBRATION_Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_clie
    nt_dcm/Unet_usb_top/Usfeth2x16/Ueth2xllmux/v4_emac_block/tx_client_dcm/cd/CLK
    <1> is sourced by a combinatorial pin. This is not good design practice. Use
@@ -432,6 +480,10 @@ WARNING:PhysDesignRules:372 - Gated clock. Clock net
    the CE pin to control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
    Uclockstop/Udcm80160/DCM_ADV_INST/cd/CLK<1> is sourced by a combinatorial
+   pin. This is not good design practice. Use the CE pin to control the loading
+   of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net
+   Umain/Utriggertop/Uosencmap/stb_trg_and0000 is sourced by a combinatorial
    pin. This is not good design practice. Use the CE pin to control the loading
    of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net
@@ -550,25 +602,25 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:  169
+Number of warnings:  195
 Logic Utilization:
-  Total Number Slice Registers:       6,656 out of  50,560   13%
-    Number used as Flip Flops:        6,630
+  Total Number Slice Registers:       6,618 out of  50,560   13%
+    Number used as Flip Flops:        6,592
     Number used as Latches:              26
     Number of Slice FFs used for
-    DCM autocalibration logic:         35 out of   6,630    1%
-  Number of 4 input LUTs:             7,713 out of  50,560   15%
+    DCM autocalibration logic:         35 out of   6,592    1%
+  Number of 4 input LUTs:             7,642 out of  50,560   15%
     Number of LUTs used for
-    DCM autocalibration logic:         20 out of   7,713    1%
+    DCM autocalibration logic:         20 out of   7,642    1%
       *See INFO below for an explanation of the DCM autocalibration logic
        added by Map
 Logic Distribution:
-  Number of occupied Slices:          6,250 out of  25,280   24%
-    Number of Slices containing only related logic:   6,250 out of   6,250 100%
-    Number of Slices containing unrelated logic:          0 out of   6,250   0%
+  Number of occupied Slices:          6,193 out of  25,280   24%
+    Number of Slices containing only related logic:   6,193 out of   6,193 100%
+    Number of Slices containing unrelated logic:          0 out of   6,193   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:       8,400 out of  50,560   16%
-    Number used as logic:             7,555
+  Total Number of 4 input LUTs:       8,329 out of  50,560   16%
+    Number used as logic:             7,484
     Number used as a route-thru:        687
     Number used as 16x1 RAMs:            16
     Number used as Shift registers:     142
@@ -577,9 +629,9 @@ Logic Distribution:
   over-mapped for a non-slice resource or if Placement fails.
   Number of bonded IPADs:                12 out of      80   15%
   Number of bonded OPADs:                 6 out of      32   18%
-  Number of bonded IOBs:                349 out of     576   60%
-    IOB Flip Flops:                      57
-    IOB Dual-Data Rate Flops:            41
+  Number of bonded IOBs:                323 out of     576   56%
+    IOB Flip Flops:                      63
+    IOB Dual-Data Rate Flops:            40
     IOB Master Pads:                     42
     IOB Slave Pads:                      42
   Number of BUFG/BUFGCTRLs:              23 out of      32   71%
@@ -596,9 +648,9 @@ Logic Distribution:
   Number of GT11CLKs:                     3 out of       8   37%
 
   Number of RPM macros:            2
-Average Fanout of Non-Clock Nets:                3.26
+Average Fanout of Non-Clock Nets:                3.27
 
-Peak Memory Usage:  953 MB
+Peak Memory Usage:  952 MB
 Total REAL time to MAP completion:  20 secs 
 Total CPU time to MAP completion:   20 secs 
 

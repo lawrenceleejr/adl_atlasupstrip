@@ -46,6 +46,10 @@ entity net_usb_top is
 
       -- PGP Interface 
 
+      led_status_o : out std_logic;
+
+      sma_io           : inout  std_logic_vector (8 downto 1);  --IDC_P5
+
       -- Infrastructure...
       ---------------------
 
@@ -145,7 +149,15 @@ architecture struct of net_usb_top is
    -- Internal signal declarations
 
    --PGP Implementation --LL
-
+signal req        : std_logic;
+signal regOp      : std_logic;
+signal ack        : std_logic;
+signal err        : std_logic;
+signal regAddr    : std_logic_vector(23 downto 0);
+signal ena        : std_logic;
+signal enaold     : std_logic;
+signal pgpEnaOld  : std_logic; 
+signal regDataIn  : std_logic_vector(31 downto 0);
 
    signal CLIENTEMAC0PAUSEREQ       : std_logic;
    signal CLIENTEMAC0PAUSEVAL       : std_logic_vector(15 downto 0);
@@ -272,6 +284,7 @@ architecture struct of net_usb_top is
    signal tx_src_rdy_test : std_logic;
    signal tx_sof_test : std_logic;
    signal tx_eof_test : std_logic;
+   signal waitforcounter : std_logic;
 
 
 
@@ -1043,14 +1056,14 @@ begin
       cmdEn         => open,       
       cmdOpCode     => open,
       cmdCtxOut     => open,       
-      regReq        => open,
+      regReq        => req,
       regInp        => open,
-      regOp         => open,       
-      regAck        => '0',
-      regFail       => '0',        
-      regAddr       => open,
+      regOp         => regOp,       
+      regAck        => ack,
+      regFail       => err,        
+      regAddr       => regAddr,
       regDataOut    => open,       
-      regDataIn     => (others=>'0'),
+      regDataIn     => regDataIn,
       frameTxEnable => tx_src_rdy_test, -- ? 
       frameTxSOF    => tx_sof_test,
       frameTxEOF    => tx_eof_test,
@@ -1075,24 +1088,96 @@ begin
    );
 
 
-   tester0: process(sysClk125)
-   begin
-      if(sysRst125='0') then
-         tx_sof_test <= '0';
-         tx_eof_test <= '0';
-         tester0_count <= tester0_count + "1";
-      else
-         tx_sof_test <= '1';
-         tx_src_rdy_test <= '1';
-         tester0_count <= "0000";
-      end if;
+--    tester0: process(sysClk125)
+--    begin
+-- 
+--       if (tx_sof_test = '1') then
+--          tx_sof_test <= '0';
+--       end if;
+-- 
+-- 
+--       if (tx_src_rdy_test='0') then
+--          tx_src_rdy_test <= '1';
+--          tx_sof_test <= '1';
+--          tester0_count <= "0000";
+--          waitforcounter <= '1';
+--       end if;
+-- 
+--       if (tx_eof_test = '1') then
+--          tx_eof_test <= '0';
+--          tx_src_rdy_test  <= '0';
+--       end if ;
+-- 
+--       if (waitforcounter = '1') then
+--          tester0_count <= tester0_count + "1";
+--       end if ;
+-- 
+--       if (tester0_count="0010") then
+--          tx_eof_test  <= '1';
+--          waitforcounter  <= '0';
+--       end if;
+-- 
+--    end process tester0;
 
-      if(tester0_count="0100" and tx_src_rdy_test='1') then
-         tx_eof_test <='1';
-         tx_src_rdy_test <= '0';
-      end if;
 
-   end process tester0;
+
+    process(sysClk125,sysRst125) -- test for tdc
+    begin
+      if(sysRst125='1')then
+        ena<='0';
+        enaold<='0';
+        pgpEnaOld<='0';
+
+
+
+
+      sma_io(1) <= '0';
+      sma_io(2) <= '0';
+      sma_io(5) <= '0';
+      sma_io(6) <= '0';
+      sma_io(7) <= '0';
+      sma_io(8) <= '0';
+
+      elsif(rising_edge(sysClk125))then
+        if(req='1' and pgpEnaOld='0')then
+          case regOp is
+            when '1' => -- Write
+              case regAddr(4 downto 0) is
+                when "00000" => -- Start TDC measurement when in calib mode
+                  regOp <=  '1';
+                when others =>
+              end case;
+            when '0' => -- Read
+              case regAddr(3 downto 0) is
+                when "0000" =>
+                  regDataIn<=(others=>'1');
+                when others =>
+                  regDataIn<=(others=>'1');
+              end case;
+            when others =>
+          end case;
+
+          
+
+      sma_io(1) <= '1';
+      sma_io(2) <= '1';
+      sma_io(5) <= '1';
+      sma_io(6) <= '1';
+      sma_io(7) <= '1';
+      sma_io(8) <= '1';
+
+        else
+          ena<='0';
+        end if;
+        pgpEnaOld<=req;
+        enaold<=ena;
+        ack<=enaold;
+        err<='0';
+      end if;
+   end process;
+
+   
+   
 
    --dispDigitA<=pgpDispA;
    --dispDigitB<=pgpDispB;
